@@ -24,6 +24,9 @@
     <div class="content">
         <div class="container">
             <p>Hello World!</p>
+            <p>
+                Sono un paragrafo creato dal branch "Nicola"
+            </p>
         </div>
     </div>
 @endsection
