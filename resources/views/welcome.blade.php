@@ -11,7 +11,7 @@
                 </svg>
             </div>
             <h1 class="display-5 fw-bold">
-                Welcome to Laravel+Bootstrap 100
+                Welcome to Laravel+Bootstrap 1000
             </h1>
 
             <p class="col-md-8 fs-4">This a preset package with Bootstrap 5 views for laravel projects including laravel
