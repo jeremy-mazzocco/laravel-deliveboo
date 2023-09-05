@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('dish_order', function (Blueprint $table) {
             $table->id();
-            $table->integer('amount')->unsigned();
+            $table->integer('amount')->unsigned()->default(1);
 
         });
     }

@@ -18,10 +18,24 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'restaurant_name',
         'email',
+        'address',
+        'vat_number',
+        'phone_number',
+
         'password',
     ];
+
+    public function dishes() {
+
+        return $this -> hasMany(Dish :: class);
+    }
+
+    public function types() {
+
+        return $this -> belongsToMany(Type :: class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
