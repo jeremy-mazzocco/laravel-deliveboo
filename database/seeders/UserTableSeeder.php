@@ -19,6 +19,7 @@ class UserTableSeeder extends Seeder
     {
         $restaurantsData = [
             [
+            
                 'restaurant_name' => 'Ristorante del Parco',
                 'email' => 'info@ristorantedelparco.com',
                 'address' => 'Via Roma, 123',
