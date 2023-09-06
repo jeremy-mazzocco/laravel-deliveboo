@@ -3,7 +3,7 @@
 @section('dashboardSection')
 
 <h1>
-    Crea il tuo piatto
+    Modifica il tuo piatto
 </h1>
 
 
