@@ -18,15 +18,15 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Nome ristorante') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="restaurant_name" type="text" required minlength="1" maxlength="255"
-                                        class="form-control @error('Nome ristorante') non valido @enderror"
+                                    <input id="restaurant_name" type="text" required
+                                    minlength="1" maxlength="255"
+                                        class="form-control
+                                        @error('Nome ristorante') non valido @enderror"
                                         name="restaurant_name" value="{{ old('restaurant_name') }}"
                                         autocomplete="restaurant_name" autofocus>
 
                                     @error('restaurant_name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                        <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -37,14 +37,13 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="address" type="text" minlength="1" maxlength="255"
+                                    <input id="address" type="text"
+                                    minlength="5" maxlength="64"
                                         class="form-control @error('Indirizzo') non valido @enderror" name="address"
                                         value="{{ old('address') }}" required autocomplete="address" autofocus>
 
                                     @error('address')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                        <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -55,15 +54,15 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Partita Iva') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="vat_number" type="text" minlength="13" maxlength="13"
+                                    <input id="vat_number" type="text"
+                                    minlength="13" maxlength="13"
                                         class="form-control
-                                        @error('Partita Iva') non valida @enderror" name="vat_number"
-                                        value="{{ old('vat_number') }}" required autocomplete="vat_number" autofocus>
+                                        @error('Partita Iva') non valida @enderror"
+                                        name="vat_number" value="{{ old('vat_number') }}" required autocomplete="vat_number"
+                                        autofocus>
 
                                     @error('vat_number')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                        <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -74,15 +73,14 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Numero di telefono') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="phone_number" type="text" maxlength="64"
+                                    <input id="phone_number" type="text"
+                                    minlength="9" maxlength="64"
                                         class="form-control @error('Numero di telefono') non valido @enderror"
                                         name="phone_number" value="{{ old('phone_number') }}" required
                                         autocomplete="phone_number" autofocus>
 
                                     @error('phone_number')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                        <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -98,9 +96,7 @@
                                         value="{{ old('email') }}" required autocomplete="email">
 
                                     @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                        <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
