@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email')->unique();
 
             $table->string('address', 255);
-            $table->string('vat_number', 20)->unique();
+            $table->string('vat_number', 13)->unique();
             $table->string('phone_number', 20);
 
             $table->timestamp('email_verified_at')->nullable();
