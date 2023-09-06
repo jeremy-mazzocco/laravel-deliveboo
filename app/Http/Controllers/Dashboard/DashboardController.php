@@ -7,7 +7,8 @@ use App\Models\User;
 use App\Models\Dish;
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\Auth;
+// importazione di Auth per usare Auth::user()
+// use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -18,8 +19,11 @@ class DashboardController extends Controller
     }
     public function show()
     {
-        $userId = Auth::user()->id;
-        $dishes = Dish::where('user_id', $userId)->get();
-        return view('dashboard.section.dish-show', compact('dishes'));
+        // accedo all'id dell'user loggato
+        // $userId = Auth::user()->id;
+        // cerco il piatto dove user_id è uguale all'id dell'user loggato
+        // $dishes = Dish::where('user_id', $userId)->get();
+
+        return view('dashboard.section.dish-show');
     }
 }

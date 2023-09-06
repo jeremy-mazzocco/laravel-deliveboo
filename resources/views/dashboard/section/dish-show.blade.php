@@ -7,7 +7,7 @@
 
     <div class="container d-flex flex-wrap justify-content-center gap-4">
 
-        @foreach ($dishes as $dish)
+        @foreach (Auth::user()->dishes as $dish)
             <div class="card" style="width: 18rem;">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
