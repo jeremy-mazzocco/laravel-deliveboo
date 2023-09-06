@@ -32,6 +32,16 @@
         Aggiungi Piatto
     </a>
 </div>
+<div>
+    <a href="">
+        Ordini clienti
+    </a>
+</div>
+<div>
+    <a href="">
+        Statistiche
+    </a>
+</div>
 
 
 @endsection

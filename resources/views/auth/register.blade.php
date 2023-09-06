@@ -18,9 +18,9 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Nome ristorante') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="restaurant_name" type="text" minlength="1" maxlength="255"
-                                        class="form-control @error('restaurant_name') is-invalid @enderror"
-                                        name="restaurant_name" value="{{ old('restaurant_name') }}" required
+                                    <input id="restaurant_name" type="text" required minlength="1" maxlength="255"
+                                        class="form-control @error('Nome ristorante') non valido @enderror"
+                                        name="restaurant_name" value="{{ old('restaurant_name') }}"
                                         autocomplete="restaurant_name" autofocus>
 
                                     @error('restaurant_name')
@@ -37,8 +37,8 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="address" type="text"
-                                        class="form-control @error('address') is-invalid @enderror" name="address"
+                                    <input id="address" type="text" minlength="1" maxlength="255"
+                                        class="form-control @error('Indirizzo') non valido @enderror" name="address"
                                         value="{{ old('address') }}" required autocomplete="address" autofocus>
 
                                     @error('address')
@@ -55,8 +55,8 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Partita Iva') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="vat_number" type="text"
-                                        class="form-control @error('vat_number') is-invalid @enderror" name="vat_number"
+                                    <input id="vat_number" type="text" minlength="13" maxlength="13"
+                                        class="form-control @error('Partita Iva') non valida @enderror" name="vat_number"
                                         value="{{ old('vat_number') }}" required autocomplete="vat_number" autofocus>
 
                                     @error('vat_number')
@@ -73,9 +73,10 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Numero di telefono') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="phone_number" type="text"
-                                        class="form-control @error('phone_number') is-invalid @enderror" name="phone_number"
-                                        value="{{ old('phone_number') }}" required autocomplete="phone_number" autofocus>
+                                    <input id="phone_number" type="text" maxlength="64"
+                                        class="form-control @error('Numero di telefono') non valido @enderror"
+                                        name="phone_number" value="{{ old('phone_number') }}" required
+                                        autocomplete="phone_number" autofocus>
 
                                     @error('phone_number')
                                         <span class="invalid-feedback" role="alert">
@@ -91,8 +92,8 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror" name="email"
+                                    <input id="email" type="email" maxlength="255"
+                                        class="form-control @error('email') non valida @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email">
 
                                     @error('email')
@@ -109,7 +110,7 @@
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        class="form-control @error('password') non valida @enderror" name="password"
                                         required autocomplete="new-password">
 
                                     @error('password')
