@@ -20,9 +20,18 @@ Route::get('/', function () {
 });
 
 
+// route dashboard
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
-->middleware(['auth', 'verified'])->name('dashboard.home');
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard.home');
+
+Route::get('/dashboard/show', [DashboardController::class, 'show'])
+    ->middleware(['auth', 'verified'])
+    ->name('dish.show');
+
+
+
 
 
 
