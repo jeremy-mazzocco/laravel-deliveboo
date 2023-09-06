@@ -6,16 +6,16 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
+                    <div class="card-header">{{ __('') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
-                            {{-- Nome Ristorante --}}
+                            {{-- restaurant_name --}}
                             <div class="mb-4 row">
                                 <label for="restaurant_name"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome Ristorante') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome ristorante') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="restaurant_name" type="text" minlength="1" maxlength="255"
@@ -34,7 +34,7 @@
                             {{-- address --}}
                             <div class="mb-4 row">
                                 <label for="address"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="address" type="text"
@@ -52,7 +52,7 @@
                             {{-- vat_number --}}
                             <div class="mb-4 row">
                                 <label for="vat_number"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Vat Number') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Partita Iva') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="vat_number" type="text"
@@ -70,7 +70,7 @@
                             {{-- phone_number --}}
                             <div class="mb-4 row">
                                 <label for="phone_number"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Numero di telefono') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="phone_number" type="text"
@@ -122,7 +122,7 @@
 
                             <div class="mb-4 row">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Conferma password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
@@ -133,7 +133,7 @@
                             <div class="mb-4 row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
+                                        {{ __('Registrati') }}
                                     </button>
                                 </div>
                             </div>

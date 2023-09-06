@@ -2,15 +2,12 @@
 
 @section('dashboardSection')
 
-<h1>I tuoi dati</h1>
+<h3 class="my-3 text-secondary">I tuoi dati</h3>
 
-<h3>
-    {{Auth::user()->restaurant_name}}
-</h3>
+<h5>
+    Ristorante: {{Auth::user()->restaurant_name}}
+</h5>
 <ul>
-    <li>
-        Codice: {{Auth::user()->id}}
-    </li>
     <li>
         Indirizzo: {{Auth::user()->address}}
     </li>
