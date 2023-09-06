@@ -26,15 +26,17 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard.home');
 
+Route::get('/dashboard/dish-create', [DashboardController::class, 'create'])
+    ->middleware(['auth'])
+    ->name('dish.create');
+
+Route::post('/dashboard/dish-store', [DashboardController::class, 'store'])
+    ->middleware(['auth'])
+    ->name('dish.store');
+
 Route::get('/dashboard/show', [DashboardController::class, 'show'])
     ->middleware(['auth', 'verified'])
     ->name('dish.show');
-
-
-
-
-
-
 
 
 Route::middleware('auth')->group(function () {
