@@ -12,13 +12,13 @@
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
-                            {{-- restaurant name --}}
+                            {{-- Nome Ristorante --}}
                             <div class="mb-4 row">
                                 <label for="restaurant_name"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Restaurant Name') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome Ristorante') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="restaurant_name" type="text"
+                                    <input id="restaurant_name" type="text" minlength="1" maxlength="255"
                                         class="form-control @error('restaurant_name') is-invalid @enderror"
                                         name="restaurant_name" value="{{ old('restaurant_name') }}" required
                                         autocomplete="restaurant_name" autofocus>
