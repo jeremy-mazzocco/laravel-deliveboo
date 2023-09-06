@@ -25,20 +25,12 @@
     </ul>
 
     <div>
-<<<<<<< HEAD
         <a href="{{ route('dish.show') }}">
-=======
-        <a href="">
->>>>>>> create
             Lista Piatti
         </a>
     </div>
     <div>
-<<<<<<< HEAD
-        <a href="">
-=======
         <a href="{{ route('dish.create') }}">
->>>>>>> create
             Aggiungi Piatto
         </a>
     </div>

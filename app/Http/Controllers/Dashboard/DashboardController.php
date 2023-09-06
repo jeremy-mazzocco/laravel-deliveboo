@@ -49,6 +49,6 @@ class DashboardController extends Controller
         $dish = Dish :: create($data);
         /* $dish -> technologies() -> attach($data['technologies']); */
 
-        return redirect() -> route('dashboard.section.dish-show');
+        return redirect() -> route('dish.show');
     }
 }

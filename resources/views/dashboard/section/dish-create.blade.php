@@ -47,5 +47,7 @@
 
 
         <input class="my-3" type="submit" value="CREATE">
+
+        <a href="{{ route('dashboard.home') }}" class="btn btn-secondary">Indietro</a>
     </form>
 @endsection
