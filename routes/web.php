@@ -22,10 +22,16 @@ Route::get('/', function () {
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
-->middleware(['auth', 'verified'])->name('dashboard.home');
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard.home');
 
-Route::get('/dashboard/section/dish-create', [DashboardController::class, 'create'])
-->middleware(['auth'])->name('dish.create');
+Route::get('/dashboard/dish-create', [DashboardController::class, 'create'])
+    ->middleware(['auth'])
+    ->name('dish.create');
+
+Route::post('/dashboard/dish-store', [DashboardController::class, 'store'])
+    ->middleware(['auth'])
+    ->name('dish.store');
 
 
 Route::middleware('auth')->group(function () {

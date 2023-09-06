@@ -5,7 +5,7 @@
         Crea il tuo piatto
     </h1>
 
-    <form method="POST" {{-- action="{{ route('project.store') }}" --}} enctype="multipart/form-data">
+    <form method="POST" action="{{ route('dish.store') }}" enctype="multipart/form-data">
 
         @csrf
         @method('POST')
