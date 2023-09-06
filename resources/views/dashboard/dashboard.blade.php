@@ -18,6 +18,11 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    <div>
+                        @yield('dashboardSection')
+                    </div>
+
                 </div>
             </div>
         </div>
