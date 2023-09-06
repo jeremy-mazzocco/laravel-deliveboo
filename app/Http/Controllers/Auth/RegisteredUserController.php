@@ -37,6 +37,7 @@ class RegisteredUserController extends Controller
             'vat_number' => ['required', 'string', 'min:13', 'max:13', 'unique:' . User::class],
             'phone_number' => ['required', 'string', 'max:64'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            // $this->getValidationMessages()
         ]);
 
         $user = User::create([
@@ -54,4 +55,6 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+
+
 }

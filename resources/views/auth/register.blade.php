@@ -56,7 +56,8 @@
 
                                 <div class="col-md-6">
                                     <input id="vat_number" type="text" minlength="13" maxlength="13"
-                                        class="form-control @error('Partita Iva') non valida @enderror" name="vat_number"
+                                        class="form-control
+                                        @error('Partita Iva') non valida @enderror" name="vat_number"
                                         value="{{ old('vat_number') }}" required autocomplete="vat_number" autofocus>
 
                                     @error('vat_number')
