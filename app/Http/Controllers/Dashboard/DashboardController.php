@@ -13,4 +13,10 @@ class DashboardController extends Controller
 
         return view('dashboard.section.home-user');
     }
+
+    public function create()
+    {
+
+        return view('dashboard.section.dish-create');
+    }
 }

@@ -25,7 +25,11 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
 ->middleware(['auth', 'verified'])->name('dashboard.home');
 
 
+// Route::get('/dashboard', [DashboardController :: class, 'create']) -> name('dish-create');
 
+Route::get('/dashboard/section/dish-create', [LoggedController::class, 'create'])
+    ->middleware(['auth'])
+    ->name('dish.create');
 
 
 Route::middleware('auth')->group(function () {
