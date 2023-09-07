@@ -39,7 +39,18 @@ class DashboardController extends Controller
     public function store(Request $request)
     {
 
-        $data = $request->all();
+        $data = $request->all(
+
+            // [
+            //     'dish_name' => ['']
+            //         'description' => ['']
+            //         'price' => ['']
+            //         'img' => ['']
+            //         'visibility' => ['']
+            // ]
+
+
+        );
 
 
 
@@ -48,7 +59,7 @@ class DashboardController extends Controller
 
 
 
-        
+
         $userId = Auth::user()->id;
 
         $data['user_id'] = $userId;
@@ -62,26 +73,13 @@ class DashboardController extends Controller
         return redirect()->route('dish.show');
     }
 
+    public function changeDeleted($id)
+    {
 
-    // public function changeDeleted($id)
-    // {
-    //     // dd($id);
+        $dish = Dish::findOrFail($id);
+        $dish['deleted'] = !$dish['deleted'];
 
-    //     $dish = Dish::findOrFail($id);
-
-    //     $dish['deleted'] = !$dish['deleted'];
-
-    //     // $dish['deleted']->update(1);
-
-    //     $dish->save();
-    //     return redirect()->route('dish.show');
-    // }
-
-//     public function changeDeleted($id)
-// {
-//     $dish = Dish::findOrFail($id);
-//     $dish->update(['deleted' => 1]);
-
-//     return redirect()->route('dish.show');
-// }
+        $dish->save();
+        return redirect()->route('dish.show');
+    }
 }
