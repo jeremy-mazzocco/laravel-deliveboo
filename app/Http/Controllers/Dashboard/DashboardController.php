@@ -65,7 +65,7 @@ class DashboardController extends Controller
 
         return view('dashboard.section.dish-edit', compact('dish'));
     }
-    
+
     public function update(Request $request, $id)
     {
 
@@ -90,6 +90,14 @@ class DashboardController extends Controller
         return redirect()->route('dish.show');
     }
 
+
+    // Orders
+
+    public function showOrders($id)
+    {
+
+        return view('dashboard.section.orders-show');
+    }
 
 
     // VALIDATION FUCTIONS

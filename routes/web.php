@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 
-// route dashboard
+// Route dashboard
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
@@ -38,19 +38,29 @@ Route::get('/dashboard/show', [DashboardController::class, 'show'])
     ->middleware(['auth', 'verified'])
     ->name('dish.show');
 
+Route::get('/dashboard/{id}/edit', [DashboardController::class, 'edit'])
+    ->name('dish.edit');
+
+Route::put('/dashboard/{id}/update', [DashboardController::class, 'update'])
+    ->name('dish.update');
+
+Route::put('/dashboard/dish-deleted-edit/{id}', [DashboardController::class, 'changeDeleted'])->middleware(['auth'])
+    ->name('dish.deleted.edit');
+
+Route::get('/dashboard/orders/{id}/show', [DashboardController::class, 'showOrders'])
+    ->middleware(['auth', 'verified'])
+    ->name('orders.show');
+
+
+
+// Route profile
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route :: get('/dashboard/{id}/edit', [DashboardController :: class, 'edit'])
-    -> name('dish.edit');
-Route :: put('/dashboard/{id}/update', [DashboardController :: class, 'update'])
-    -> name('dish.update');
-
-Route::put('/dashboard/dish-deleted-edit/{id}', [DashboardController::class, 'changeDeleted'])->middleware(['auth'])
-    ->name('dish.deleted.edit');
 
 
 require __DIR__ . '/auth.php';

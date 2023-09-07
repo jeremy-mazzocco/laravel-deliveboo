@@ -36,7 +36,7 @@
     </div>
 
     <div>
-        <a href="">
+        <a href="{{ route('orders.show', Auth::user()->id) }}">
             Ordini clienti
         </a>
     </div>
