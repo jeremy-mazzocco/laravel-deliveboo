@@ -5,7 +5,19 @@
         Modifica il tuo piatto
     </h1>
 
-    <form method="POST" action="{{ route('dish.update', $dish->id) }}" enctype="multipart/form-data">
+    {{-- immagine --}}
+    @if ($dish->img)
+        <img class="img-fluid" src=" {{ asset('storage/' . $dish->img) }}" alt="{{ $dish->dish_name }}">
+        <br>
+        <form method="POST" action="{{ route('dish.deleteImg', $dish->id) }}" onsubmit="return confirmDelete()">
+            @csrf
+            @method('DELETE')
+            <input class="btn btn-danger" type="submit" value="DELETE IMG">
+        </form>
+    @endif
+
+    <form method="POST" action="{{ route('dish.update', $dish->id) }}" enctype="multipart/form-data"
+        onsubmit="return confirmEdit()">
 
         @csrf
         @method('PUT')

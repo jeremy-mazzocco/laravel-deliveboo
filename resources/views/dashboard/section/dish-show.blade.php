@@ -10,7 +10,10 @@
         @foreach (Auth::user()->dishes as $dish)
             @if (!$dish->deleted)
                 <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src=" {{ asset('storage/' . $dish->img) }}"
+                        onerror="this.src=' {{ asset('storage/' . 'images/Pippo-Baudo.jpg') }}'" class="card-img-top"
+                        alt="{{ $dish->dish_name }}">
+
                     <div class="card-body">
                         <h5 class="card-title">{{ $dish->dish_name }}</h5>
                         <p class="card-text">{{ $dish->description }}</p>
@@ -23,12 +26,13 @@
                     <div class="card-body">
                         <a href="{{ route('dish.edit', $dish->id) }}" class="btn btn-warning">Edit</a>
 
-                        <form method="POST" action="{{ route('dish.deleted.edit', $dish->id) }}">
+                        <form method="POST" action="{{ route('dish.deleted.edit', $dish->id) }}"
+                            onsubmit="return confirmDelete()">
 
                             @csrf
                             @method('PUT')
 
-                            <input class="btn btn-primary my-3" type="submit" value="Delete">
+                            <input class="btn btn-danger my-3" type="submit" value="Delete">
                         </form>
                     </div>
                 </div>

@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+
 use App\Models\User;
 use App\Models\Type;
 use App\Models\Dish;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 // importazione di Auth per usare Auth::user()
 // use Illuminate\Support\Facades\Auth;
@@ -49,6 +52,9 @@ class DashboardController extends Controller
 
         $data['user_id'] = $userId;
 
+        $img_path = Storage::put('uploads', $data['img']);
+        $data['img'] = $img_path;
+
         /* $img_path = Storage :: put('uploads', $data['img']);
         $data['img'] = $img_path; */
 
@@ -65,7 +71,7 @@ class DashboardController extends Controller
 
         return view('dashboard.section.dish-edit', compact('dish'));
     }
-    
+
     public function update(Request $request, $id)
     {
 
@@ -75,6 +81,21 @@ class DashboardController extends Controller
         );
 
         $dish = Dish::findOrFail($id);
+
+        // gestione img
+
+        $oldImgPath = $dish->img;
+
+        if (!array_key_exists("img", $data)) {
+            $data['img'] = $oldImgPath;
+        } else {
+            if ($dish->img){
+                Storage::delete($oldImgPath);
+            }
+            $newImgPath = Storage::put('uploads', $data['img']);
+            $data['img'] = $newImgPath;
+        }
+
         $dish->update($data);
 
         return redirect()->route('dish.show');
@@ -90,6 +111,23 @@ class DashboardController extends Controller
         return redirect()->route('dish.show');
     }
 
+    // Elimina l'immagine di un progetto
+    public function deleteImg($id) {
+        $dish = Dish::findOrFail($id);
+
+        $img_path = $dish->img;
+
+        // Elimina fisicamente l'immagine
+        if ($img_path ) {
+            Storage::delete($img_path);
+        }
+
+        $dish->img = null;
+        $dish->save();
+
+        return back();
+    }
+
 
 
     // VALIDATION FUCTIONS
@@ -101,7 +139,9 @@ class DashboardController extends Controller
             'dish_name' => ['required', 'min:2', 'max:64'],
             'description' => ['max:1275'],
             'price' => ['required', 'numeric', 'min:0'],
-            'img' => ['image', 'max:255'],
+            // 'img' => ['image', 'max:255', 'mimes:jpeg,png,jpg'],
+            // max 255 da errore
+            'img' => ['image', 'mimes:jpeg,png,jpg'],
             'visibility' => ['required']
         ];
     }
@@ -113,7 +153,8 @@ class DashboardController extends Controller
             'dish_name' => 'dato non corretto',
             'description' => 'dato non corretto',
             'price' => 'dato non corretto',
-            'img' => 'dato non corretto',
+            'img' => 'errore caricamento immagine',
+            // 'img.max' => 'errore in max',
             'visibility' => 'dato non corretto'
         ];
     }

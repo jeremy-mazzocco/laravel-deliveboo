@@ -22,21 +22,30 @@ Route::get('/', function () {
 
 // route dashboard
 
+// index
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard.home');
 
+// create
 Route::get('/dashboard/dish-create', [DashboardController::class, 'create'])
     ->middleware(['auth'])
     ->name('dish.create');
 
+// store
 Route::post('/dashboard/dish-store', [DashboardController::class, 'store'])
     ->middleware(['auth'])
     ->name('dish.store');
 
+// show
 Route::get('/dashboard/show', [DashboardController::class, 'show'])
     ->middleware(['auth', 'verified'])
     ->name('dish.show');
+
+// delete img
+Route::delete('/dashboard/deleteImg/{id}', [DashboardController :: class, 'deleteImg'])
+-> middleware('auth')
+-> name('dish.deleteImg');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
