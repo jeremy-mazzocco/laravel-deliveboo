@@ -129,6 +129,14 @@ class DashboardController extends Controller
     }
 
 
+    // Orders
+
+    public function showOrders($id)
+    {
+
+        return view('dashboard.section.orders-show');
+    }
+
 
     // VALIDATION FUCTIONS
 
