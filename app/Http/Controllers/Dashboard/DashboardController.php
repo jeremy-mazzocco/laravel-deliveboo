@@ -58,7 +58,6 @@ class DashboardController extends Controller
         return redirect()->route('dish.show');
     }
 
-
     public function edit($id)
     {
 
@@ -66,12 +65,13 @@ class DashboardController extends Controller
 
         return view('dashboard.section.dish-edit', compact('dish'));
     }
+    
     public function update(Request $request, $id)
     {
 
-        $data = $request->all(
-            // $this->getValidations(),
-            // $this->getValidationMessages()
+        $data = $request->validate(
+            $this->getValidations(),
+            $this->getValidationMessages()
         );
 
         $dish = Dish::findOrFail($id);
@@ -79,11 +79,6 @@ class DashboardController extends Controller
 
         return redirect()->route('dish.show');
     }
-
-
-
-
-
 
     public function changeDeleted($id)
     {
