@@ -12,7 +12,7 @@
 
         <label for="dish_name">NAME</label>
         <br>
-        <input type="text" name="dish_name" id="dish_name">
+        <input  type="text" required minlength="2" maxlength="64" name="dish_name" id="dish_name">
         @error('dish_name')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -21,7 +21,7 @@
 
         <label for="description">DESCRIPTION</label>
         <br>
-        <input type="text" name="description" id="description">
+        <input type="text" maxlength="1275" name="description" id="description">
         @error('description')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -30,7 +30,7 @@
 
         <label for="price">PRICE</label>
         <br>
-        <input type="number" step="0.01" min="0.01" name="price" id="price">
+        <input type="number" required step="0.01" min="0.01" name="price" id="price">
         @error('price')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -39,7 +39,7 @@
 
         <label for="img">PICTURE</label>
         <br>
-        <input type="file" name="img" id="img">
+        <input type="file" maxlength="255" name="img" id="img">
         @error('img')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -48,7 +48,7 @@
 
         <label for="visibility">Visibilità</label>
         <br>
-        <select name="visibility" id="visibility">
+        <select name="visibility" required id="visibility">
             <option value="1">Visibile</option>
             <option value="0">Non Visibile</option>
         </select>

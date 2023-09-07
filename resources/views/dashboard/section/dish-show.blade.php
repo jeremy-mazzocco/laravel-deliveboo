@@ -16,7 +16,7 @@
                         <p class="card-text">{{ $dish->description }}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">PREZZO: {{ $dish->price }}</li>
+                        <li class="list-group-item">PREZZO: &euro;{{ $dish->price }}</li>
                         <li class="list-group-item">VISIBILITA: {{ $dish->visibility ? 'Visibile' : 'Non visibile' }}</li>
 
                     </ul>
