@@ -28,16 +28,16 @@
                     <form method="POST" action="{{ route('dish.deleted.edit', $dish->id) }}">
 
                         @csrf
-                        @method('PUT')
+                        @method('patch')
 
-                        <input class="btn btn-primary my-3" type="submit" value="DElete">
+                        <input class="btn btn-primary my-3" type="submit" value="Delete">
                         <div>
                             {{ $dish->id }}
                         </div>
 
                         <form>
-                </div> --}}
-            </div>
+                </div>
+            </div> --}}
             {{-- <a class="btn btn-primary my-3" href="{{ route('dish.deleted.edit', $dish->id) }}">Delete</a> --}}
         @endforeach
 

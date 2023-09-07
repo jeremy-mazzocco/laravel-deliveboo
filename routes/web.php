@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Route::put('/dashboard/dish-deleted-edit/{id}', [DashboardController::class, 'changeDeleted'])->middleware(['auth'])
+// Route::patch('/dashboard/dish-deleted-edit/{id}', [DashboardController::class, 'changeDeleted'])->middleware(['auth'])
 //     ->name('dish.deleted.edit');
 
 

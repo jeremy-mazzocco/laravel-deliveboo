@@ -40,6 +40,15 @@ class DashboardController extends Controller
     {
 
         $data = $request->all();
+
+
+
+
+
+
+
+
+        
         $userId = Auth::user()->id;
 
         $data['user_id'] = $userId;
