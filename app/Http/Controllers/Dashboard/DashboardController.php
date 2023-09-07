@@ -38,27 +38,12 @@ class DashboardController extends Controller
 
     public function store(Request $request)
     {
+        $data = $request->validate(
 
-        $data = $request->all(
-
-            // [
-            //     'dish_name' => ['']
-            //         'description' => ['']
-            //         'price' => ['']
-            //         'img' => ['']
-            //         'visibility' => ['']
-            // ]
-
+            $this->getValidations(),
+            $this->getValidationMessages(),
 
         );
-
-
-
-
-
-
-
-
 
         $userId = Auth::user()->id;
 
@@ -81,5 +66,33 @@ class DashboardController extends Controller
 
         $dish->save();
         return redirect()->route('dish.show');
+    }
+
+
+
+    // VALIDATION FUCTIONS
+
+    private function getValidations()
+    {
+
+        return [
+            'dish_name' => ['required', 'min:2', 'max:64'],
+            'description' => ['max:1275'],
+            'price' => ['required', 'numeric', 'min:0'],
+            'img' => ['image', 'max:255'],
+            'visibility' => ['required']
+        ];
+    }
+
+    private function getValidationMessages()
+    {
+
+        return [
+            'dish_name' => 'dato non corretto',
+            'description' => 'dato non corretto',
+            'price' => 'dato non corretto',
+            'img' => 'dato non corretto',
+            'visibility' => 'dato non corretto'
+        ];
     }
 }
