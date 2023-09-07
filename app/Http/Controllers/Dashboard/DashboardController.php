@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Type;
 use App\Models\Dish;
-
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -89,7 +89,7 @@ class DashboardController extends Controller
         if (!array_key_exists("img", $data)) {
             $data['img'] = $oldImgPath;
         } else {
-            if ($dish->img){
+            if ($dish->img) {
                 Storage::delete($oldImgPath);
             }
             $newImgPath = Storage::put('uploads', $data['img']);
@@ -112,13 +112,14 @@ class DashboardController extends Controller
     }
 
     // Elimina l'immagine di un progetto
-    public function deleteImg($id) {
+    public function deleteImg($id)
+    {
         $dish = Dish::findOrFail($id);
 
         $img_path = $dish->img;
 
         // Elimina fisicamente l'immagine
-        if ($img_path ) {
+        if ($img_path) {
             Storage::delete($img_path);
         }
 
@@ -133,9 +134,25 @@ class DashboardController extends Controller
 
     public function showOrders($id)
     {
+        // Recupera i piatti dell'utente
+        $dishes = Dish::where('user_id', $id)->get();
 
-        return view('dashboard.section.orders-show');
+        // Recupera gli ordini dell'utente
+        $user = User::find($id);
+        $orders = $user->orders;
+
+        return view('dashboard.section.orders-show', compact('dishes', 'orders'));
     }
+
+    // public function showOrders($id)
+    // {
+    //     $dishes = Dish::where('user_id', $id)->get();
+
+    //     $orders = $dishes->orders()->where('user_id', $id)->get();
+
+    //     return view('dashboard.section.orders-show', 'compact'('dishes', 'orders'));
+    // }
+
 
 
     // VALIDATION FUCTIONS

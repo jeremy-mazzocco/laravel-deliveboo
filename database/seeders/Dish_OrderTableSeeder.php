@@ -4,8 +4,10 @@ namespace Database\Seeders;
 
 use App\Models\Dish;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class Dish_OrderTableSeeder extends Seeder
@@ -21,7 +23,10 @@ class Dish_OrderTableSeeder extends Seeder
         $orders = Order::all();
 
         foreach ($orders as $order) {
-            $dishes = Dish::inRandomOrder()->limit(rand(1, 5))->get();
+
+            $user = User::inRandomOrder()->first();
+            $dishes = Dish::where('user_id', $user->id)->limit(rand(1, 2))->get();
+
             $totalPrice = 0;
 
             foreach ($dishes as $dish) {

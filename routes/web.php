@@ -43,9 +43,9 @@ Route::get('/dashboard/show', [DashboardController::class, 'show'])
     ->name('dish.show');
 
 // delete img
-Route::delete('/dashboard/deleteImg/{id}', [DashboardController :: class, 'deleteImg'])
--> middleware('auth')
--> name('dish.deleteImg');
+Route::delete('/dashboard/deleteImg/{id}', [DashboardController::class, 'deleteImg'])
+    ->middleware('auth')
+    ->name('dish.deleteImg');
 Route::get('/dashboard/{id}/edit', [DashboardController::class, 'edit'])
     ->name('dish.edit');
 
@@ -56,6 +56,9 @@ Route::put('/dashboard/dish-deleted-edit/{id}', [DashboardController::class, 'ch
     ->name('dish.deleted.edit');
 
 // orders
+// Route::get('/dashboard/orders/{id}/show', [DashboardController::class, 'showOrders'])
+//     ->middleware(['auth', 'verified'])
+//     ->name('orders.show');
 Route::get('/dashboard/orders/{id}/show', [DashboardController::class, 'showOrders'])
     ->middleware(['auth', 'verified'])
     ->name('orders.show');
