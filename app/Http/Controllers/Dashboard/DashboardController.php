@@ -132,7 +132,23 @@ class DashboardController extends Controller
 
     // Orders
 
+
     public function showOrders($id)
+    {
+        // Recupera i piatti del ristorante
+        $restaurantDishes = Dish::where('user_id', $id)->pluck('id')->toArray();
+
+        // Recupera gli ordini associati al ristorante con i dati dei piatti
+        $orders = Order::with('dishes')
+            ->whereHas('dishes', function ($query) use ($restaurantDishes) {
+                $query->whereIn('dish_id', $restaurantDishes);
+            })
+            ->get();
+
+        return view('dashboard.section.orders-show', compact('orders'));
+    }
+
+    /* public function showOrders($id)
     {
         // Recupera i piatti dell'utente
         $dishes = Dish::where('user_id', $id)->get();
@@ -142,7 +158,7 @@ class DashboardController extends Controller
         $orders = $user->orders;
 
         return view('dashboard.section.orders-show', compact('dishes', 'orders'));
-    }
+    } */
 
     // public function showOrders($id)
     // {
