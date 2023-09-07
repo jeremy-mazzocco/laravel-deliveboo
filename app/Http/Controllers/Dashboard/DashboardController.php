@@ -38,17 +38,13 @@ class DashboardController extends Controller
 
     public function store(Request $request)
     {
+        $data = $request->validate(
 
-        $data = $request->all();
+            $this->getValidations(),
+            $this->getValidationMessages(),
 
+        );
 
-
-
-
-
-
-
-        
         $userId = Auth::user()->id;
 
         $data['user_id'] = $userId;
@@ -63,25 +59,67 @@ class DashboardController extends Controller
     }
 
 
-    // public function changeDeleted($id)
-    // {
-    //     // dd($id);
+    public function edit($id)
+    {
 
-    //     $dish = Dish::findOrFail($id);
+        $dish = Dish::findOrFail($id);
 
-    //     $dish['deleted'] = !$dish['deleted'];
+        return view('dashboard.section.dish-edit', compact('dish'));
+    }
+    public function update(Request $request, $id)
+    {
 
-    //     // $dish['deleted']->update(1);
+        $data = $request->all(
+            // $this->getValidations(),
+            // $this->getValidationMessages()
+        );
 
-    //     $dish->save();
-    //     return redirect()->route('dish.show');
-    // }
+        $dish = Dish::findOrFail($id);
+        $dish->update($data);
 
-//     public function changeDeleted($id)
-// {
-//     $dish = Dish::findOrFail($id);
-//     $dish->update(['deleted' => 1]);
+        return redirect()->route('dish.show');
+    }
 
-//     return redirect()->route('dish.show');
-// }
+
+
+
+
+
+    public function changeDeleted($id)
+    {
+
+        $dish = Dish::findOrFail($id);
+        $dish['deleted'] = !$dish['deleted'];
+
+        $dish->save();
+        return redirect()->route('dish.show');
+    }
+
+
+
+    // VALIDATION FUCTIONS
+
+    private function getValidations()
+    {
+
+        return [
+            'dish_name' => ['required', 'min:2', 'max:64'],
+            'description' => ['max:1275'],
+            'price' => ['required', 'numeric', 'min:0'],
+            'img' => ['image', 'max:255'],
+            'visibility' => ['required']
+        ];
+    }
+
+    private function getValidationMessages()
+    {
+
+        return [
+            'dish_name' => 'dato non corretto',
+            'description' => 'dato non corretto',
+            'price' => 'dato non corretto',
+            'img' => 'dato non corretto',
+            'visibility' => 'dato non corretto'
+        ];
+    }
 }

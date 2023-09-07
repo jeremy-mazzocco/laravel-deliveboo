@@ -19,10 +19,9 @@ return new class extends Migration
             $table->string('dish_name', 64);
             $table->text('description')->nullable();
             $table->decimal('price')->unsigned();
-            $table->string('img', 255);
+            $table->string('img', 255)->nullable();
             $table->boolean('visibility')->default(true);
             $table->boolean('deleted')->default(false);
-
 
             $table->timestamps();
         });
