@@ -36,19 +36,43 @@ class DashboardController extends Controller
         return view('dashboard.section.dish-create', compact('types'));
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
 
-        $data = $request -> all();
-        $userId = Auth :: user()->id;
+        $data = $request->all();
+        $userId = Auth::user()->id;
 
-        $data ['user_id'] = $userId;
+        $data['user_id'] = $userId;
 
         /* $img_path = Storage :: put('uploads', $data['img']);
         $data['img'] = $img_path; */
 
-        $dish = Dish :: create($data);
+        $dish = Dish::create($data);
         /* $dish -> technologies() -> attach($data['technologies']); */
 
-        return redirect() -> route('dish.show');
+        return redirect()->route('dish.show');
     }
+
+
+    // public function changeDeleted($id)
+    // {
+    //     // dd($id);
+
+    //     $dish = Dish::findOrFail($id);
+
+    //     $dish['deleted'] = !$dish['deleted'];
+
+    //     // $dish['deleted']->update(1);
+
+    //     $dish->save();
+    //     return redirect()->route('dish.show');
+    // }
+
+//     public function changeDeleted($id)
+// {
+//     $dish = Dish::findOrFail($id);
+//     $dish->update(['deleted' => 1]);
+
+//     return redirect()->route('dish.show');
+// }
 }

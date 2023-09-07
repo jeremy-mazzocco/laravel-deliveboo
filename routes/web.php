@@ -38,11 +38,14 @@ Route::get('/dashboard/show', [DashboardController::class, 'show'])
     ->middleware(['auth', 'verified'])
     ->name('dish.show');
 
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+// Route::put('/dashboard/dish-deleted-edit/{id}', [DashboardController::class, 'changeDeleted'])->middleware(['auth'])
+//     ->name('dish.deleted.edit');
+
+
+require __DIR__ . '/auth.php';

@@ -21,6 +21,8 @@ return new class extends Migration
             $table->decimal('price')->unsigned();
             $table->string('img', 255);
             $table->boolean('visibility')->default(true);
+            $table->boolean('deleted')->default(false);
+
 
             $table->timestamps();
         });
