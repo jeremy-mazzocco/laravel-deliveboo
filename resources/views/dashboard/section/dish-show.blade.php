@@ -21,7 +21,7 @@
 
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('dish.edit', $dish->id) }}" class="btn btn-warning">Edit</a>
 
                         <form method="POST" action="{{ route('dish.deleted.edit', $dish->id) }}">
 
