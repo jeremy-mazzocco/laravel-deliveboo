@@ -19,8 +19,8 @@
                         <p class="card-text">{{ $dish->description }}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">PREZZO: &euro;{{ $dish->price }}</li>
-                        <li class="list-group-item">VISIBILITA: {{ $dish->visibility ? 'Visibile' : 'Non visibile' }}</li>
+                        <li class="list-group-item">Prezzo: &euro;{{ $dish->price }}</li>
+                        <li class="list-group-item">Visibilità: {{ $dish->visibility ? 'Visibile' : 'Non visibile' }}</li>
                     </ul>
                     <div class="card-body">
                         <a href="{{ route('dish.edit', $dish->id) }}" class="btn btn-warning">Edit</a>

@@ -1,48 +1,48 @@
 @extends('dashboard.dashboard')
 
 @section('dashboardSection')
-    <h1>I tuoi dati</h1>
+    <h2 class="text-center fw-bold text-white bg-dark rounded-5 p-1 col-4 m-auto mt-3">
+        {{ Auth::user()->restaurant_name }}
+    </h2>
 
-    <h3 class="my-3 text-secondary">I tuoi dati</h3>
-
-    <h5>
-        Ristorante: {{ Auth::user()->restaurant_name }}
-    </h5>
-    <ul>
-        <li>
+    <ul class="list-unstyled text-center col-6 m-auto p-2">
+        <li class="mb-2 fw-bold">
             Indirizzo: {{ Auth::user()->address }}
         </li>
-        <li>
+        <li class="mb-2 fw-bold">
             Email: {{ Auth::user()->email }}
         </li>
-        <li>
+        <li class="mb-2 fw-bold">
             Numero di telefono: {{ Auth::user()->phone_number }}
         </li>
-        <li>
+        <li class="mb-2 fw-bold">
             Partita Iva: {{ Auth::user()->vat_number }}
         </li>
     </ul>
 
+    <div class="row">
+        <div>
+            <a href="{{ route('dish.show') }}">
+                Lista Piatti
+            </a>
+        </div>
 
-    <div>
-        <a href="{{ route('dish.show') }}">
-            Lista Piatti
-        </a>
-    </div>
-    <div>
-        <a href="{{ route('dish.create') }}">
-            Aggiungi Piatto
-        </a>
-    </div>
+        <div>
+            <a href="{{ route('dish.create') }}">
+                Aggiungi Piatto
+            </a>
+        </div>
 
-    <div>
-        <a href="{{ route('orders.show', Auth::user()->id) }}">
-            Ordini clienti
-        </a>
-    </div>
-    <div>
-        <a href="">
-            Statistiche
-        </a>
+        <div>
+            <a href="{{ route('orders.show', Auth::user()->id) }}">
+                Ordini clienti
+            </a>
+        </div>
+
+        <div>
+            <a href="">
+                Statistiche
+            </a>
+        </div>
     </div>
 @endsection
