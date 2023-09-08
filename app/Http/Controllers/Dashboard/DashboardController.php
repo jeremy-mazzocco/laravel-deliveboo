@@ -146,29 +146,6 @@ class DashboardController extends Controller
 }
 
 
-    /* public function showOrders($id)
-    {
-        // Recupera i piatti dell'utente
-        $dishes = Dish::where('user_id', $id)->get();
-
-        // Recupera gli ordini dell'utente
-        $user = User::find($id);
-        $orders = $user->orders;
-
-        return view('dashboard.section.orders-show', compact('dishes', 'orders'));
-    } */
-
-    // public function showOrders($id)
-    // {
-    //     $dishes = Dish::where('user_id', $id)->get();
-
-    //     $orders = $dishes->orders()->where('user_id', $id)->get();
-
-    //     return view('dashboard.section.orders-show', 'compact'('dishes', 'orders'));
-    // }
-
-
-
     // VALIDATION FUCTIONS
 
     private function getValidations()
