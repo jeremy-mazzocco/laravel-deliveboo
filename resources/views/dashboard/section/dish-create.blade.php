@@ -61,18 +61,6 @@
 
             </div>
 
-            <div class=" d-flex wrap">
-                @foreach ($types as $type)
-                    <div class="form-check">
-                        <input class="form-check-input d-flex" type="checkbox" value="{{ $type->id }}" name="types[]"
-                            id="type-{{ $type->id }}">
-                        <label class="form-check-label" for="type-{{ $type->id }}">
-                            {{ $type->type_name }}
-                        </label>
-                    </div>
-                @endforeach
-            </div>
-
 
             <div class="m-auto">
                 <input class="m-3 px-3 py-1" type="submit" value="Crea">

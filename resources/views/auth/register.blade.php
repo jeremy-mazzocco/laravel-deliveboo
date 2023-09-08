@@ -9,7 +9,7 @@
                     <div class="card-header">{{ __('') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
 
                             {{-- restaurant_name --}}
@@ -82,56 +82,99 @@
                                 </div>
                             </div>
 
-                            {{-- email --}}
                             <div class="mb-4 row">
-                                <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
+                                <label for="phone_number"
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Tipologie') }}</label>
 
-                                <div class="col-md-6">
-                                    <input id="email" type="email" maxlength="255"
-                                        class="form-control @error('email') non valida @enderror" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email">
+                                <div class=" d-flex wrap my-3">
+                                    @foreach ($types as $type)
+                                        <div class="form-check">
+                                            <input class="form-check-input d-flex" type="checkbox"
+                                                value="{{ $type->id }}" name="types[]" id="type-{{ $type->id }}">
+                                            <label class="form-check-label" for="type-{{ $type->id }}">
+                                                {{ $type->type_name }}
+                                            </label>
+                                        </div>
+                                    @endforeach
+                                </div>
 
-                                    @error('email')
+                                {{-- immagine --}}
+                                <div class="m-3">
+                                    <label for="img">Immagine</label>
+                                    <input type="file" maxlength="255" name="img" id="img">
+                                    @error('img')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
+
                                 </div>
-                            </div>
-                            {{-- password --}}
-                            <div class="mb-4 row">
-                                <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                                <div class="col-md-6">
-                                    <input id="password" type="password"
-                                        class="form-control @error('password') non valida @enderror" name="password"
-                                        required autocomplete="new-password">
+                                {{-- email --}}
+                                <div class="mb-4 row">
+                                    <label for="email"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                    <div class="col-md-6">
+                                        <input id="email" type="email" maxlength="255"
+                                            class="form-control @error('email') non valida @enderror" name="email"
+                                            value="{{ old('email') }}" required autocomplete="email">
+
+                                        @error('email')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
+                                {{-- password --}}
+                                <div class="mb-4 row">
+                                    <label for="password"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                            <div class="mb-4 row">
-                                <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Conferma password') }}</label>
+                                    <div class="col-md-6">
+                                        <input id="password" type="password"
+                                            class="form-control @error('password') non valida @enderror" name="password"
+                                            required autocomplete="new-password">
 
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" required autocomplete="new-password">
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="mb-4 row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Registrati') }}
-                                    </button>
+                                <div class="mb-4 row">
+                                    <label for="password-confirm"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Conferma password') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="password-confirm" type="password" class="form-control"
+                                            name="password_confirmation" required autocomplete="new-password">
+                                        @error('password-confirm')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
+
+                                {{-- <div class="mb-4 row">
+                                    <label for="password-confirm"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Conferma password') }}</label>
+                                    <div class="col-md-6">
+                                        <input id="password-confirm" type="password" class="form-control"
+                                            name="password_confirmation" required autocomplete="new-password">
+                                        <div class="invalid-feedback">
+                                            La conferma della password non corrisponde.
+                                        </div>
+                                    </div>
+                                </div> --}}
+
+                                <div class="mb-4 row mb-0">
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ __('Registrati') }}
+                                        </button>
+                                    </div>
+                                </div>
                         </form>
                     </div>
                 </div>

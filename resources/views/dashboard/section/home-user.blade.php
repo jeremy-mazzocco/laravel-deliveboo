@@ -18,6 +18,11 @@
         <li class="mb-2 fw-bold">
             Partita Iva: {{ Auth::user()->vat_number }}
         </li>
+        <li>Tipologie:
+            @foreach (Auth::user()->types as $type)
+                {{ $type->type_name }},
+            @endforeach
+        </li>
     </ul>
 
     <div class="row">
