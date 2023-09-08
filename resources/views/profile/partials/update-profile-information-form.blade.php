@@ -13,10 +13,31 @@
         @csrf
     </form>
 
+
+    {{-- immagine --}}
+    @if ($user->img)
+        <img class="img-fluid" src=" {{ asset('storage/' . $user->img) }}" alt="{{ $user->restaurant_name }}">
+        <br>
+        {{-- <form method="POST" action="{{ route('dish.deleteImg', $user->id) }}" onsubmit="return confirmDelete()">
+            @csrf
+            @method('DELETE')
+            <input class="btn btn-danger" type="submit" value="Cancella Immagine">
+        </form> --}}
+    @endif
+
     <form method="post" action="{{ route('profile.update', $user->id) }}" enctype="multipart/form-data"
         onsubmit="return confirmEdit()" class="mt-6 space-y-6">
         @csrf
         @method('PUT')
+
+        {{-- IMMAGINE --}}
+        <div class="mb-2">
+            <label for="img">Immagine</label>
+            <input type="file" maxlength="255" name="img" id="img">
+            @error('img')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
 
 
         {{-- NOME --}}
@@ -24,11 +45,9 @@
             <label for="restaurant_name">{{ __('Nome Ristorante') }}</label>
             <input class="form-control" type="text" name="restaurant_name" id="restaurant_name"
                 autocomplete="restaurant_name" value="{{ old('restaurant_name', $user->restaurant_name) }}" required
-                minlength="2" maxlength="255" autofocus>
+                minlength="1" maxlength="255" autofocus>
             @error('restaurant_name')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->get('restaurant_name') }}</strong>
-                </span>
+                <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
 
@@ -56,9 +75,7 @@
                 value="{{ old('email', $user->email) }}" required maxlength="255" autocomplete="username" />
 
             @error('email')
-                <span class="alert alert-danger mt-2" role="alert">
-                    <strong>{{ $errors->get('email') }}</strong>
-                </span>
+                <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
@@ -88,9 +105,7 @@
                 value="{{ old('phone_number', $user->phone_number) }}" required minlength="9" maxlength="64"
                 autofocus>
             @error('phone_number')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->get('phone_number') }}</strong>
-                </span>
+                <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
 
@@ -101,9 +116,7 @@
             <input class="form-control" type="text" name="vat_number" id="vat_number" autocomplete="vat_number"
                 value="{{ old('vat_number', $user->vat_number) }}" required minlength="13" maxlength="13" autofocus>
             @error('vat_number')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->get('vat_number') }}</strong>
-                </span>
+                <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
 
