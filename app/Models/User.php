@@ -23,7 +23,6 @@ class User extends Authenticatable
         'address',
         'vat_number',
         'phone_number',
-
         'password',
     ];
 

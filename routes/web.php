@@ -9,16 +9,15 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| Qui è possibile registrare le route web per la tua applicazione.
+| Queste route sono caricate dal RouteServiceProvider e tutte verranno
+| assegnate al gruppo di middleware "web". Fai qualcosa di grandioso!
 |
 */
 
 Route::get('/', function () {
     return view('welcome');
 });
-
 
 // Route dashboard
 
@@ -46,24 +45,21 @@ Route::get('/dashboard/show', [DashboardController::class, 'show'])
 Route::delete('/dashboard/deleteImg/{id}', [DashboardController::class, 'deleteImg'])
     ->middleware('auth')
     ->name('dish.deleteImg');
+
 Route::get('/dashboard/{id}/edit', [DashboardController::class, 'edit'])
     ->name('dish.edit');
 
 Route::put('/dashboard/{id}/update', [DashboardController::class, 'update'])
     ->name('dish.update');
 
-Route::put('/dashboard/dish-deleted-edit/{id}', [DashboardController::class, 'changeDeleted'])->middleware(['auth'])
+Route::put('/dashboard/dish-deleted-edit/{id}', [DashboardController::class, 'changeDeleted'])
+    ->middleware(['auth'])
     ->name('dish.deleted.edit');
 
 // orders
-// Route::get('/dashboard/orders/{id}/show', [DashboardController::class, 'showOrders'])
-//     ->middleware(['auth', 'verified'])
-//     ->name('orders.show');
 Route::get('/dashboard/orders/{id}/show', [DashboardController::class, 'showOrders'])
     ->middleware(['auth', 'verified'])
     ->name('orders.show');
-
-
 
 // Route profile
 
@@ -72,7 +68,5 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-
 
 require __DIR__ . '/auth.php';
