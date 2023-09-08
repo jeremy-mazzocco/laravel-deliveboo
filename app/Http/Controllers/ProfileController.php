@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Type;
+use Illuminate\Support\Facades\Storage;
+
 
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
@@ -18,9 +21,10 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $types=Type::all();
         return view('profile.edit', [
             'user' => $request->user(),
-        ]);
+        ], compact('types'));
     }
 
     /**
@@ -41,17 +45,15 @@ class ProfileController extends Controller
 
     public function updateprofile(Request $request, $id)
     {
-        // $data = $request->all();
-        $data = $request->validate(
-            $this->getValidations(),
-            $this->getValidationMessages()
-        );
-
+        $data = $request->all();
+        // $data = $request->validate(
+        //     $this->getValidations(),
+        //     $this->getValidationMessages()
+        // );
         $user = User::findOrFail($id);
 
         // Gestione dell'immagine
         $oldImgPath = $user->img;
-
         if (!array_key_exists("img", $data)) {
             $data['img'] = $oldImgPath;
         } else {
@@ -61,8 +63,15 @@ class ProfileController extends Controller
             $newImgPath = Storage::put('uploads', $data['img']);
             $data['img'] = $newImgPath;
         }
-
         $user->update($data);
+
+        // Gestione tipologie
+        if (array_key_exists('types', $data)) {
+            $user->types()->sync($data['types']);
+        } else {
+            $user->types()->detach();
+        }
+
         return redirect()->route('dashboard.home');
     }
 
@@ -97,6 +106,7 @@ class ProfileController extends Controller
             'address' => ['required', 'string', 'min:5', 'max:64'],
             'vat_number' => ['required', 'string', 'min:13', 'max:13'],
             'phone_number' => ['required', 'string', 'min:9', 'max:64'],
+            'img' => ['image', 'mimes:jpeg,png,jpg']
         ];
     }
 
@@ -114,6 +124,8 @@ class ProfileController extends Controller
             "vat_number.max" => "La partita IVA deve contenere esattamente 13 caratteri.",
             'phone_number.min' => "Il numero di telefono deve contenere almeno 9 caratteri.",
             'phone_number.max' => "Il numero di telefono non può superare i 64 caratteri.",
+            'img.image' => 'Il file deve essere un\'immagine valida.',
+            'img.mimes' => 'Il file immagine deve essere di tipo JPEG, PNG o JPG.',
         ];
     }
 
