@@ -40,8 +40,14 @@ class RegisteredUserController extends Controller
             $this->getValidationMessages(),
         );
 
+
         $data = $request;
-        $img_path = Storage::put('uploads', $data['img']);
+        if ($data['img']) {
+            $img_path = Storage::put('uploads', $data['img']);
+        } else {
+            $img_path = null;
+        }
+
 
         // Creazione di un nuovo utente
         $user = User::create([
@@ -53,6 +59,8 @@ class RegisteredUserController extends Controller
             'phone_number' => $request->phone_number,
             'password' => Hash::make($request->password),
         ]);
+
+        $user->types()->attach($data['types']);
 
         // Generazione dell'evento di registrazione
         event(new Registered($user));
@@ -98,6 +106,7 @@ class RegisteredUserController extends Controller
             'phone_number.max' => "Il numero di telefono non può superare i 64 caratteri.",
             'img.image' => 'Il file deve essere un\'immagine valida.',
             'img.mimes' => 'Il file immagine deve essere di tipo JPEG, PNG o JPG.',
+            'password.confirmed' => 'ciao'
 
         ];
     }

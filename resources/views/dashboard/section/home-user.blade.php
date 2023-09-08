@@ -5,6 +5,12 @@
         {{ Auth::user()->restaurant_name }}
     </h2>
 
+    <div class="d-flex justify-content-center my-3">
+        <img src=" {{ asset('storage/' . Auth::user()->img) }}"
+            onerror="this.src=' {{ asset('storage/' . 'images/Pippo-Baudo.jpg') }}'" class="img-fluid card-img-fixed-height"
+            alt="{{ Auth::user()->restaurant_name }}">
+    </div>
+
     <ul class="list-unstyled text-center col-6 m-auto p-2">
         <li class="mb-2 fw-bold">
             Indirizzo: {{ Auth::user()->address }}

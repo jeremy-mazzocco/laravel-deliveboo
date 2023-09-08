@@ -81,7 +81,7 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            {{-- tipologia --}}
                             <div class="mb-4 row">
                                 <label for="phone_number"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Tipologie') }}</label>
@@ -140,7 +140,7 @@
                                         @enderror
                                     </div>
                                 </div>
-
+                                {{-- confirm password --}}
                                 <div class="mb-4 row">
                                     <label for="password-confirm"
                                         class="col-md-4 col-form-label text-md-right">{{ __('Conferma password') }}</label>
@@ -156,17 +156,7 @@
                                     </div>
                                 </div>
 
-                                {{-- <div class="mb-4 row">
-                                    <label for="password-confirm"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Conferma password') }}</label>
-                                    <div class="col-md-6">
-                                        <input id="password-confirm" type="password" class="form-control"
-                                            name="password_confirmation" required autocomplete="new-password">
-                                        <div class="invalid-feedback">
-                                            La conferma della password non corrisponde.
-                                        </div>
-                                    </div>
-                                </div> --}}
+
 
                                 <div class="mb-4 row mb-0">
                                     <div class="col-md-6 offset-md-4">
