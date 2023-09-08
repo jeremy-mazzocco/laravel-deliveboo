@@ -24,7 +24,7 @@
             <label for="restaurant_name">{{ __('Nome Ristorante') }}</label>
             <input class="form-control" type="text" name="restaurant_name" id="restaurant_name"
                 autocomplete="restaurant_name" value="{{ old('restaurant_name', $user->restaurant_name) }}" required
-                minlength="2" maxlength="255" autofocus>
+                minlength="1" maxlength="255" autofocus>
             @error('restaurant_name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->get('restaurant_name') }}</strong>
