@@ -40,12 +40,18 @@ class DashboardController extends Controller
         $data = $request->validate(
             $this->getValidations(),
             $this->getValidationMessages()
+
+
         );
+
+        if (array_key_exists('img', $data) && $data['img'] !== null) {
+            $img_path = Storage::put('uploads', $data['img']);
+        } else {
+            $img_path = null;
+        }
 
         $userId = Auth::user()->id;
         $data['user_id'] = $userId;
-
-        $img_path = Storage::put('uploads', $data['img']);
         $data['img'] = $img_path;
 
         $dish = Dish::create($data);

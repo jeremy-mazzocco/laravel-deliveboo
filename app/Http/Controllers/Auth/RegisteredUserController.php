@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Type;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -10,6 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -20,7 +22,8 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        $types = Type::all();
+        return view('auth.register', compact('types'));
     }
 
     /**
@@ -30,11 +33,21 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
         // Validazione dei dati del modulo di registrazione
         $request->validate(
             $this->getValidations(),
             $this->getValidationMessages(),
         );
+
+
+        $data = $request;
+        if ($data['img']) {
+            $img_path = Storage::put('uploads', $data['img']);
+        } else {
+            $img_path = null;
+        }
+
 
         // Creazione di un nuovo utente
         $user = User::create([
@@ -42,9 +55,12 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'address' => $request->address,
             'vat_number' => $request->vat_number,
+            'img' => $img_path,
             'phone_number' => $request->phone_number,
             'password' => Hash::make($request->password),
         ]);
+
+        $user->types()->attach($data['types']);
 
         // Generazione dell'evento di registrazione
         event(new Registered($user));
@@ -67,6 +83,7 @@ class RegisteredUserController extends Controller
             'address' => ['required', 'string', 'min:5', 'max:64'],
             'vat_number' => ['required', 'string', 'min:13', 'max:13', 'unique:' . User::class],
             'phone_number' => ['required', 'string', 'min:9', 'max:64'],
+            'img' => ['image', 'mimes:jpeg,png,jpg'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ];
     }
@@ -87,6 +104,10 @@ class RegisteredUserController extends Controller
             "vat_number.unique" => "Questa partita IVA è già stata registrata.",
             'phone_number.min' => "Il numero di telefono deve contenere almeno 9 caratteri.",
             'phone_number.max' => "Il numero di telefono non può superare i 64 caratteri.",
+            'img.image' => 'Il file deve essere un\'immagine valida.',
+            'img.mimes' => 'Il file immagine deve essere di tipo JPEG, PNG o JPG.',
+            'password.confirmed' => 'ciao'
+
         ];
     }
 }

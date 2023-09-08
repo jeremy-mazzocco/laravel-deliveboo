@@ -33,7 +33,7 @@
 
             <div class="m-3">
                 <label for="price">Prezzo</label>
-                <input type="number" required step="0.01" min="0.01" name="price" id="price">
+                <input type="number" required step="any" min="0.00" name="price" id="price">
                 @error('price')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -59,18 +59,6 @@
                     <option value="0">Non Visibile</option>
                 </select>
 
-            </div>
-
-            <div class=" d-flex wrap">
-                @foreach ($types as $type)
-                    <div class="form-check">
-                        <input class="form-check-input d-flex" type="checkbox" value="{{ $type->id }}" name="types[]"
-                            id="type-{{ $type->id }}">
-                        <label class="form-check-label" for="type-{{ $type->id }}">
-                            {{ $type->type_name }}
-                        </label>
-                    </div>
-                @endforeach
             </div>
 
 

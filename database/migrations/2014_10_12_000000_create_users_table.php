@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('address', 255);
             $table->string('vat_number', 13)->unique();
             $table->string('phone_number', 20);
-
+            $table->string('img', 255)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
