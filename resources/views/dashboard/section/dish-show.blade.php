@@ -21,20 +21,6 @@
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">PREZZO: &euro;{{ $dish->price }}</li>
                         <li class="list-group-item">VISIBILITA: {{ $dish->visibility ? 'Visibile' : 'Non visibile' }}</li>
-                        <li>
-                            @foreach ($dish->orders as $order)
-                                <div>
-                                    {{ $order->customer_name }}
-                                </div>
-                                <div>
-                                    {{ $order->pivot->amount }}
-                                </div>
-                                <div>
-                                    {{ $order->pivot->amount }}
-                                </div>
-                            @endforeach
-                        </li>
-
                     </ul>
                     <div class="card-body">
                         <a href="{{ route('dish.edit', $dish->id) }}" class="btn btn-warning">Edit</a>

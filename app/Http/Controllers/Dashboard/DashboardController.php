@@ -136,6 +136,7 @@ class DashboardController extends Controller
     public function showOrders($id)
 {
     // Recupera gli ordini associati al ristorante con i dati dei piatti
+
     $orders = Order::with('dishes')
         ->whereHas('dishes', function ($query) use ($id) {
             $query->where('user_id', $id);
