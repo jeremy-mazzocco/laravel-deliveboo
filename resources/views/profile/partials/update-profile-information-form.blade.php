@@ -5,7 +5,7 @@
         </h2>
 
         <p class="mt-1 text-muted">
-            {{ __('Aggiorna le informazione del tuo profilo.') }}
+            {{ __('Aggiorna le informazioni del tuo Account.') }}
         </p>
     </header>
 
@@ -13,28 +13,47 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update', $user->id) }}" enctype="multipart/form-data"
+        onsubmit="return confirmEdit()" class="mt-6 space-y-6">
         @csrf
-        @method('patch')
+        @method('PUT')
 
+
+        {{-- NOME --}}
         <div class="mb-2">
-            <label for="name">{{ __('Nome ristorante') }}</label>
-            <input class="form-control" type="text" name="name" id="name" autocomplete="name"
-                value="{{ old('name', $user->restaurant_name) }}" required autofocus>
-            @error('name')
+            <label for="restaurant_name">{{ __('Nome Ristorante') }}</label>
+            <input class="form-control" type="text" name="restaurant_name" id="restaurant_name"
+                autocomplete="restaurant_name" value="{{ old('restaurant_name', $user->restaurant_name) }}" required
+                minlength="2" maxlength="255" autofocus>
+            @error('restaurant_name')
                 <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->get('name') }}</strong>
+                    <strong>{{ $errors->get('restaurant_name') }}</strong>
                 </span>
             @enderror
         </div>
 
+
+        {{-- INDIRIZZO --}}
+        <div class="mb-2">
+            <label for="address">{{ __('Locazione') }}</label>
+            <input class="form-control" type="text" name="address" id="address" autocomplete="address"
+                value="{{ old('address', $user->address) }}" required minlength="5" maxlength="64" autofocus>
+            @error('address')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->get('address') }}</strong>
+                </span>
+            @enderror
+        </div>
+
+
+        {{-- EMAIL --}}
         <div class="mb-2">
             <label for="email">
                 {{ __('Email') }}
             </label>
 
             <input id="email" name="email" type="email" class="form-control"
-                value="{{ old('email', $user->email) }}" required autocomplete="username" />
+                value="{{ old('email', $user->email) }}" required maxlength="255" autocomplete="username" />
 
             @error('email')
                 <span class="alert alert-danger mt-2" role="alert">
@@ -61,6 +80,35 @@
             @endif
         </div>
 
+
+        {{-- NUMERO DI TELEFONO --}}
+        <div class="mb-2">
+            <label for="phone_number">{{ __('Numero di telefono') }}</label>
+            <input class="form-control" type="text" name="phone_number" id="phone_number" autocomplete="phone_number"
+                value="{{ old('phone_number', $user->phone_number) }}" required minlength="9" maxlength="64"
+                autofocus>
+            @error('phone_number')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->get('phone_number') }}</strong>
+                </span>
+            @enderror
+        </div>
+
+
+        {{-- PARTITA IVA --}}
+        <div class="mb-2">
+            <label for="vat_number">{{ __('Partita IVA') }}</label>
+            <input class="form-control" type="text" name="vat_number" id="vat_number" autocomplete="vat_number"
+                value="{{ old('vat_number', $user->vat_number) }}" required minlength="13" maxlength="13" autofocus>
+            @error('vat_number')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->get('vat_number') }}</strong>
+                </span>
+            @enderror
+        </div>
+
+
+        {{-- BOTTONE SUBMIT --}}
         <div class="d-flex align-items-center gap-4">
             <button class="btn btn-primary" type="submit">{{ __('Salva') }}</button>
 
@@ -73,7 +121,7 @@
                         el.style.display = 'block';
                     }
                 </script>
-                <p id='profile-status' class="fs-5 text-muted">{{ __('Salvato.') }}</p>
+                <p id='profile-status' class="fs-5 text-muted">{{ __('Saved.') }}</p>
             @endif
         </div>
     </form>

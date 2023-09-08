@@ -65,7 +65,7 @@ Route::get('/dashboard/orders/{id}/show', [DashboardController::class, 'showOrde
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/profile/{id}/update', [ProfileController::class, 'updateprofile'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
