@@ -52,11 +52,11 @@
                             @enderror
 
 
-
+                            {{--
                             <button type="submit" class="btn btn-danger">
                                 {{ __('Elimina Account') }}
-                            </button>
-                            <!--  -->
+                            </button> --}}
+
                         </div>
                     </form>
 
