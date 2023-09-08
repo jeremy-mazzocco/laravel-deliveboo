@@ -11,8 +11,8 @@
             @if (!$dish->deleted)
                 <div class="card" style="width: 18rem;">
                     <img src=" {{ asset('storage/' . $dish->img) }}"
-                        onerror="this.src=' {{ asset('storage/' . 'images/Pippo-Baudo.jpg') }}'" class="card-img-top"
-                        alt="{{ $dish->dish_name }}">
+                        onerror="this.src=' {{ asset('storage/' . 'images/Pippo-Baudo.jpg') }}'"
+                        class="card-img-top card-img-fixed-height" alt="{{ $dish->dish_name }}">
 
                     <div class="card-body">
                         <h5 class="card-title">{{ $dish->dish_name }}</h5>
