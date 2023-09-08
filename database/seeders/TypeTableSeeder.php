@@ -22,7 +22,7 @@ class TypeTableSeeder extends Seeder
                 'img' => 'none'
             ],
             [
-                'type_name' => 'Gelato',
+                'type_name' => 'Primi piatti',
                 'img' => 'none'
             ],
             [
@@ -30,9 +30,29 @@ class TypeTableSeeder extends Seeder
                 'img' => 'none'
             ],
             [
+                'type_name' => 'Piadina',
+                'img' => 'none'
+            ],
+            [
                 'type_name' => 'Carne',
                 'img' => 'none'
-            ]
+            ],
+            [
+                'type_name' => 'Pesce',
+                'img' => 'none'
+            ],
+            [
+                'type_name' => 'Vegetariano',
+                'img' => 'none'
+            ],
+            [
+                'type_name' => 'Vegano',
+                'img' => 'none'
+            ],
+            [
+                'type_name' => 'Senza glutine',
+                'img' => 'none'
+            ],
         ];
 
         foreach ($typesData as $type) {
