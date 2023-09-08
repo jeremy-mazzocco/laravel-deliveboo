@@ -25,7 +25,7 @@ class Dish_OrderTableSeeder extends Seeder
         foreach ($orders as $order) {
 
             $user = User::inRandomOrder()->first();
-            $dishes = Dish::where('user_id', $user->id)->limit(rand(1, 2))->get();
+            $dishes = Dish::where('user_id', $user->id)->limit(rand(1, 6))->get();
 
             $totalPrice = 0;
 
