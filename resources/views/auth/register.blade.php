@@ -18,8 +18,8 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Nome ristorante') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="restaurant_name" type="text" required title="ciaoo" minlength="1"
-                                        maxlength="255"
+                                    <input id="restaurant_name" type="text" required title="Nome richiesto"
+                                        minlength="1" maxlength="255"
                                         class="form-control
                                         @error('Nome ristorante') non valido @enderror"
                                         name="restaurant_name" value="{{ old('restaurant_name') }}"
