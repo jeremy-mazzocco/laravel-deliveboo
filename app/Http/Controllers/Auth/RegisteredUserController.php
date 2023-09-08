@@ -16,7 +16,7 @@ use Illuminate\View\View;
 class RegisteredUserController extends Controller
 {
     /**
-     * Display the registration view.
+     * Mostra la vista di registrazione.
      */
     public function create(): View
     {
@@ -24,17 +24,19 @@ class RegisteredUserController extends Controller
     }
 
     /**
-     * Handle an incoming registration request.
+     * Gestisce una richiesta di registrazione in arrivo.
      *
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse
     {
+        // Validazione dei dati del modulo di registrazione
         $request->validate(
             $this->getValidations(),
             $this->getValidationMessages(),
         );
 
+        // Creazione di un nuovo utente
         $user = User::create([
             'restaurant_name' => $request->restaurant_name,
             'email' => $request->email,
@@ -44,20 +46,21 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        // Generazione dell'evento di registrazione
         event(new Registered($user));
 
+        // Login dell'utente appena registrato
         Auth::login($user);
 
+        // Reindirizzamento alla pagina home
         return redirect(RouteServiceProvider::HOME);
     }
 
-
-
-    // VALIDATION FUCTIONS
+    // FUNZIONI DI VALIDAZIONE
 
     private function getValidations()
     {
-
+        // Regole di validazione per i dati del modulo di registrazione
         return [
             'restaurant_name' => ['required', 'string', 'min:1', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
@@ -65,30 +68,25 @@ class RegisteredUserController extends Controller
             'vat_number' => ['required', 'string', 'min:13', 'max:13', 'unique:' . User::class],
             'phone_number' => ['required', 'string', 'min:9', 'max:64'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-
         ];
     }
 
     private function getValidationMessages()
     {
-
+        // Messaggi di errore personalizzati per le regole di validazione
         return [
-            "restaurant_name.required" => "Il nome ristorante deve essere di almeno 1 carattere",
-            "restaurant_name.min" => "Il nome ristorante deve essere di almeno 1 carattere",
-            "restaurant_name.max" => "Il nome ristorante deve essere di massimo 255 caratteri",
-
-            'email.email' => "Deve essere una email",
-            'email.unique' => "Email gia presente",
-
-            "address.min" => "L'indirizzo deve essere minimo 5 caratteri",
-            "address.max" => "L'indirizzo deve essere massimo 64 caratteri",
-
-            "vat_number.min" => "La partita IVA deve essere di almeno 13 caratteri",
-            "vat_number.max" => "La partita IVA deve essere massimo di 13 caratteri",
-            "vat_number.unique" => "La partita IVA gia presete",
-
-            'phone_number.min' => "Il numero di telefono deve essere minimo di 8 caratteri",
-            'phone_number.max' => "Il numero di telefono deve essere massimo di 64 caratteri",
+            "restaurant_name.required" => "Il nome del ristorante deve essere di almeno 1 carattere.",
+            "restaurant_name.min" => "Il nome del ristorante deve essere di almeno 1 carattere.",
+            "restaurant_name.max" => "Il nome del ristorante non può superare i 255 caratteri.",
+            'email.email' => "Deve essere un indirizzo email valido.",
+            'email.unique' => "Questo indirizzo email è già stato registrato.",
+            "address.min" => "L'indirizzo deve contenere almeno 5 caratteri.",
+            "address.max" => "L'indirizzo non può superare i 64 caratteri.",
+            "vat_number.min" => "La partita IVA deve contenere esattamente 13 caratteri.",
+            "vat_number.max" => "La partita IVA deve contenere esattamente 13 caratteri.",
+            "vat_number.unique" => "Questa partita IVA è già stata registrata.",
+            'phone_number.min' => "Il numero di telefono deve contenere almeno 9 caratteri.",
+            'phone_number.max' => "Il numero di telefono non può superare i 64 caratteri.",
         ];
     }
 }

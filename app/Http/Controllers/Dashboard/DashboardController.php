@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-
 use App\Models\User;
 use App\Models\Type;
 use App\Models\Dish;
@@ -12,28 +11,24 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-// importazione di Auth per usare Auth::user()
-// use Illuminate\Support\Facades\Auth;
-
 class DashboardController extends Controller
 {
     public function index()
     {
-
+        // Metodo per visualizzare la pagina principale del pannello di controllo
         return view('dashboard.section.home-user');
     }
+
     public function show()
     {
-        // accedo all'id dell'user loggato
-        // $userId = Auth::user()->id;
-        // cerco il piatto dove user_id è uguale all'id dell'user loggato
-        // $dishes = Dish::where('user_id', $userId)->get();
-
+        // Metodo per visualizzare i piatti dell'utente loggato
+        // Puoi implementare la logica qui per recuperare i piatti dell'utente.
         return view('dashboard.section.dish-show');
     }
 
     public function create()
     {
+        // Metodo per visualizzare il formulario di creazione dei piatti
         $types = Type::all();
 
         return view('dashboard.section.dish-create', compact('types'));
@@ -41,32 +36,26 @@ class DashboardController extends Controller
 
     public function store(Request $request)
     {
+        // Metodo per salvare un nuovo piatto nel database
         $data = $request->validate(
-
             $this->getValidations(),
-            $this->getValidationMessages(),
-
+            $this->getValidationMessages()
         );
 
         $userId = Auth::user()->id;
-
         $data['user_id'] = $userId;
 
         $img_path = Storage::put('uploads', $data['img']);
         $data['img'] = $img_path;
 
-        /* $img_path = Storage :: put('uploads', $data['img']);
-        $data['img'] = $img_path; */
-
         $dish = Dish::create($data);
-        /* $dish -> technologies() -> attach($data['technologies']); */
 
         return redirect()->route('dish.show');
     }
 
     public function edit($id)
     {
-
+        // Metodo per visualizzare il formulario di modifica di un piatto
         $dish = Dish::findOrFail($id);
 
         return view('dashboard.section.dish-edit', compact('dish'));
@@ -74,7 +63,7 @@ class DashboardController extends Controller
 
     public function update(Request $request, $id)
     {
-
+        // Metodo per aggiornare i dati di un piatto esistente
         $data = $request->validate(
             $this->getValidations(),
             $this->getValidationMessages()
@@ -82,8 +71,7 @@ class DashboardController extends Controller
 
         $dish = Dish::findOrFail($id);
 
-        // gestione img
-
+        // Gestione dell'immagine
         $oldImgPath = $dish->img;
 
         if (!array_key_exists("img", $data)) {
@@ -103,7 +91,7 @@ class DashboardController extends Controller
 
     public function changeDeleted($id)
     {
-
+        // Metodo per cambiare lo stato "deleted" di un piatto
         $dish = Dish::findOrFail($id);
         $dish['deleted'] = !$dish['deleted'];
 
@@ -111,14 +99,12 @@ class DashboardController extends Controller
         return redirect()->route('dish.show');
     }
 
-    // Elimina l'immagine di un progetto
     public function deleteImg($id)
     {
+        // Metodo per eliminare l'immagine associata a un piatto
         $dish = Dish::findOrFail($id);
-
         $img_path = $dish->img;
 
-        // Elimina fisicamente l'immagine
         if ($img_path) {
             Storage::delete($img_path);
         }
@@ -129,34 +115,27 @@ class DashboardController extends Controller
         return back();
     }
 
-
-    // Orders
-
-
     public function showOrders($id)
-{
-    // Recupera gli ordini associati al ristorante con i dati dei piatti
-    $orders = Order::with('dishes')
-        ->whereHas('dishes', function ($query) use ($id) {
-            $query->where('user_id', $id);
-        })
-        ->get();
+    {
+        // Metodo per visualizzare gli ordini associati ai piatti dell'utente
+        $orders = Order::with('dishes')
+            ->whereHas('dishes', function ($query) use ($id) {
+                $query->where('user_id', $id);
+            })
+            ->get();
 
-    return view('dashboard.section.orders-show', compact('orders'));
-}
+        return view('dashboard.section.orders-show', compact('orders'));
+    }
 
-
-    // VALIDATION FUCTIONS
+    // FUNZIONI DI VALIDAZIONE
 
     private function getValidations()
     {
-
+        // Definizione delle regole di validazione per i dati del piatto
         return [
             'dish_name' => ['required', 'min:2', 'max:64'],
             'description' => ['max:1275'],
             'price' => ['required', 'numeric', 'min:0'],
-            // 'img' => ['image', 'max:255', 'mimes:jpeg,png,jpg'],
-            // max 255 da errore
             'img' => ['image', 'mimes:jpeg,png,jpg'],
             'visibility' => ['required']
         ];
@@ -164,14 +143,18 @@ class DashboardController extends Controller
 
     private function getValidationMessages()
     {
-
+        // Definizione dei messaggi di errore personalizzati per le regole di validazione
         return [
-            'dish_name' => 'dato non corretto',
-            'description' => 'dato non corretto',
-            'price' => 'dato non corretto',
-            'img' => 'errore caricamento immagine',
-            // 'img.max' => 'errore in max',
-            'visibility' => 'dato non corretto'
+            'dish_name.required' => 'Il nome del piatto è obbligatorio.',
+            'dish_name.min' => 'Il nome del piatto deve essere lungo almeno 2 caratteri.',
+            'dish_name.max' => 'Il nome del piatto non può superare i 64 caratteri.',
+            'description.max' => 'La descrizione non può superare i 1275 caratteri.',
+            'price.required' => 'Il prezzo del piatto è obbligatorio.',
+            'price.numeric' => 'Il prezzo del piatto deve essere un numero.',
+            'price.min' => 'Il prezzo del piatto non può essere negativo.',
+            'img.image' => 'Il file deve essere un\'immagine valida.',
+            'img.mimes' => 'Il file immagine deve essere di tipo JPEG, PNG o JPG.',
+            'visibility.required' => 'La visibilità del piatto è obbligatoria.'
         ];
     }
 }
