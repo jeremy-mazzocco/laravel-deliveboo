@@ -41,16 +41,28 @@ class ProfileController extends Controller
 
     public function updateprofile(Request $request, $id)
     {
-        $data = $request->all();
-
-        // $data = $request->validate(
-        //     $this->getValidations(),
-        //     $this->getValidationMessages()
-        // );
+        // $data = $request->all();
+        $data = $request->validate(
+            $this->getValidations(),
+            $this->getValidationMessages()
+        );
 
         $user = User::findOrFail($id);
-        $user->update($data);
 
+        // Gestione dell'immagine
+        $oldImgPath = $user->img;
+
+        if (!array_key_exists("img", $data)) {
+            $data['img'] = $oldImgPath;
+        } else {
+            if ($user->img) {
+                Storage::delete($oldImgPath);
+            }
+            $newImgPath = Storage::put('uploads', $data['img']);
+            $data['img'] = $newImgPath;
+        }
+
+        $user->update($data);
         return redirect()->route('dashboard.home');
     }
 
@@ -76,36 +88,34 @@ class ProfileController extends Controller
     }
     // FUNZIONI DI VALIDAZIONE
 
-    // private function getValidations()
-    // {
-    //     // Regole di validazione per i dati del modulo di registrazione
-    //     return [
-    //         'restaurant_name' => ['required', 'string', 'min:1', 'max:255'],
-    //         'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
-    //         'address' => ['required', 'string', 'min:5', 'max:64'],
-    //         'vat_number' => ['required', 'string', 'min:13', 'max:13', 'unique:' . User::class],
-    //         'phone_number' => ['required', 'string', 'min:9', 'max:64'],
-    //     ];
-    // }
+    private function getValidations()
+    {
+        // Regole di validazione per i dati del modulo di registrazione
+        return [
+            'restaurant_name' => ['required', 'string', 'min:1', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'address' => ['required', 'string', 'min:5', 'max:64'],
+            'vat_number' => ['required', 'string', 'min:13', 'max:13'],
+            'phone_number' => ['required', 'string', 'min:9', 'max:64'],
+        ];
+    }
 
-    // private function getValidationMessages()
-    // {
-    //     // Messaggi di errore personalizzati per le regole di validazione
-    //     return [
-    //         "restaurant_name.required" => "Il nome del ristorante deve essere di almeno 1 carattere.",
-    //         "restaurant_name.min" => "Il nome del ristorante deve essere di almeno 1 carattere.",
-    //         "restaurant_name.max" => "Il nome del ristorante non può superare i 255 caratteri.",
-    //         'email.email' => "Deve essere un indirizzo email valido.",
-    //         'email.unique' => "Questo indirizzo email è già stato registrato.",
-    //         "address.min" => "L'indirizzo deve contenere almeno 5 caratteri.",
-    //         "address.max" => "L'indirizzo non può superare i 64 caratteri.",
-    //         "vat_number.min" => "La partita IVA deve contenere esattamente 13 caratteri.",
-    //         "vat_number.max" => "La partita IVA deve contenere esattamente 13 caratteri.",
-    //         "vat_number.unique" => "Questa partita IVA è già stata registrata.",
-    //         'phone_number.min' => "Il numero di telefono deve contenere almeno 9 caratteri.",
-    //         'phone_number.max' => "Il numero di telefono non può superare i 64 caratteri.",
-    //     ];
-    // }
+    private function getValidationMessages()
+    {
+        // Messaggi di errore personalizzati per le regole di validazione
+        return [
+            "restaurant_name.required" => "Il nome del ristorante deve essere di almeno 1 carattere.",
+            "restaurant_name.min" => "Il nome del ristorante deve essere di almeno 1 carattere.",
+            "restaurant_name.max" => "Il nome del ristorante non può superare i 255 caratteri.",
+            'email.email' => "Deve essere un indirizzo email valido.",
+            "address.min" => "L'indirizzo deve contenere almeno 5 caratteri.",
+            "address.max" => "L'indirizzo non può superare i 64 caratteri.",
+            "vat_number.min" => "La partita IVA deve contenere esattamente 13 caratteri.",
+            "vat_number.max" => "La partita IVA deve contenere esattamente 13 caratteri.",
+            'phone_number.min' => "Il numero di telefono deve contenere almeno 9 caratteri.",
+            'phone_number.max' => "Il numero di telefono non può superare i 64 caratteri.",
+        ];
+    }
 
 }
 
