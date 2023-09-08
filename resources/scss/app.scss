@@ -1,1 +1,6 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+// altezza per le immagini card dish
+.card-img-fixed-height {
+    height: 200px;
+}
