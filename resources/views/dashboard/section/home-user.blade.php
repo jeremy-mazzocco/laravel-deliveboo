@@ -20,27 +20,27 @@
         </li>
     </ul>
 
-    <div class="row">
-        <div>
-            <a href="{{ route('dish.show') }}">
+    <div class="row text-center mt-5 mb-5">
+        <div class="col">
+            <a href="{{ route('dish.show') }}" class="text-decoration-none fw-bold bg-info rounded btn">
                 Lista Piatti
             </a>
         </div>
 
-        <div>
-            <a href="{{ route('dish.create') }}">
+        <div class="col">
+            <a href="{{ route('dish.create') }}" class="text-decoration-none fw-bold bg-info rounded btn">
                 Aggiungi Piatto
             </a>
         </div>
 
-        <div>
-            <a href="{{ route('orders.show', Auth::user()->id) }}">
+        <div class="col">
+            <a href="{{ route('orders.show', Auth::user()->id) }}" class="text-decoration-none fw-bold bg-info rounded btn">
                 Ordini clienti
             </a>
         </div>
 
-        <div>
-            <a href="">
+        <div class="col">
+            <a href="" class="text-decoration-none fw-bold bg-info rounded btn">
                 Statistiche
             </a>
         </div>
