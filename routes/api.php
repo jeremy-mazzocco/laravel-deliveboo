@@ -9,8 +9,11 @@ Route::prefix('/v1')->group(function () {
 
     Route::get('/home', [ApiController::class, 'typeList']);
 
-    // Route::get('/project/{id}', [ProjectController::class, 'projectShow']);
+    Route::get('/restaurants/{ids}', [ApiController::class, 'restaurantList']);
+
 });
+
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
