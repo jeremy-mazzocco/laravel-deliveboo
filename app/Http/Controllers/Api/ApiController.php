@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
-    public function typeList()
+    public function projectsList()
     {
         $types = Type::all();
 
