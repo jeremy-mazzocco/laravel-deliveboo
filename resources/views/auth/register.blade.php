@@ -94,8 +94,12 @@
                                             <label class="form-check-label" for="type-{{ $type->id }}">
                                                 {{ $type->type_name }}
                                             </label>
+
                                         </div>
                                     @endforeach
+                                    @error('types')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                                 {{-- immagine --}}

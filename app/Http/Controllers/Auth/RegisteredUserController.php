@@ -84,6 +84,7 @@ class RegisteredUserController extends Controller
             'vat_number' => ['required', 'string', 'min:13', 'max:13', 'unique:' . User::class],
             'phone_number' => ['required', 'string', 'min:9', 'max:64'],
             'img' => ['image', 'mimes:jpeg,png,jpg'],
+            'types' => ['required','array','min:1'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ];
     }
@@ -106,6 +107,8 @@ class RegisteredUserController extends Controller
             'phone_number.max' => "Il numero di telefono non può superare i 64 caratteri.",
             'img.image' => 'Il file deve essere un\'immagine valida.',
             'img.mimes' => 'Il file immagine deve essere di tipo JPEG, PNG o JPG.',
+            'types.required' => 'Almeno una casella deve essere selezionata.',
+            'types.min' => 'Almeno una casella deve essere selezionata.',
             'password.confirmed' => 'ciao'
 
         ];
