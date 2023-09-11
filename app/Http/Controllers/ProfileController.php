@@ -117,15 +117,15 @@ class ProfileController extends Controller
             "restaurant_name.required" => "Il nome del ristorante deve essere di almeno 1 carattere.",
             "restaurant_name.min" => "Il nome del ristorante deve essere di almeno 1 carattere.",
             "restaurant_name.max" => "Il nome del ristorante non può superare i 255 caratteri.",
-            'email.email' => "Deve essere un indirizzo email valido.",
+            "email.email" => "Deve essere un indirizzo email valido.",
             "address.min" => "L'indirizzo deve contenere almeno 5 caratteri.",
             "address.max" => "L'indirizzo non può superare i 64 caratteri.",
             "vat_number.min" => "La partita IVA deve contenere esattamente 13 caratteri.",
             "vat_number.max" => "La partita IVA deve contenere esattamente 13 caratteri.",
-            'phone_number.min' => "Il numero di telefono deve contenere almeno 9 caratteri.",
-            'phone_number.max' => "Il numero di telefono non può superare i 64 caratteri.",
-            'img.image' => 'Il file deve essere un\'immagine valida.',
-            'img.mimes' => 'Il file immagine deve essere di tipo JPEG, PNG o JPG.',
+            "phone_number.min" => "Il numero di telefono deve contenere almeno 9 caratteri.",
+            "phone_number.max" => "Il numero di telefono non può superare i 64 caratteri.",
+            "img.image" => "Il file deve essere un'immagine valida.",
+            "img.mimes" => "Il file immagine deve essere di tipo JPEG, PNG o JPG.",
         ];
     }
 
