@@ -24,11 +24,24 @@
         <li class="mb-2 fw-bold">
             Partita Iva: {{ Auth::user()->vat_number }}
         </li>
-        <li>Tipologie:
+
+        {{-- <li>Tipologie:
             @foreach (Auth::user()->types as $type)
                 {{ $type->type_name }},
             @endforeach
+        </li> --}}
+
+        {{-- Metodo per evitare --}}
+        <li>Tipologie:
+            <?php $types = Auth::user()->types; ?>
+            @foreach ($types as $index => $type)
+                {{ $type->type_name }}
+                @if ($index < count($types) - 1)
+                    ,
+                @endif
+            @endforeach
         </li>
+
     </ul>
 
     <div class="row text-center mt-5 mb-5">
@@ -45,7 +58,8 @@
         </div>
 
         <div class="col">
-            <a href="{{ route('orders.show', Auth::user()->id) }}" class="text-decoration-none fw-bold bg-info rounded btn">
+            <a href="{{ route('orders.show', Auth::user()->id) }}"
+                class="text-decoration-none fw-bold bg-info rounded btn">
                 Ordini clienti
             </a>
         </div>
