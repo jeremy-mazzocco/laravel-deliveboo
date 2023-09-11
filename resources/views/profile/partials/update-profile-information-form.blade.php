@@ -120,22 +120,42 @@
             @enderror
         </div>
 
+        {{-- TIPOLOGIA --}}
+        <div class="mb-4 row">
+            <label for="phone_number" class="col-md-4 col-form-label text-md-right">{{ __('Tipologie') }}</label>
 
-        {{-- BOTTONE SUBMIT --}}
-        <div class="d-flex align-items-center gap-4">
-            <button class="btn btn-primary" type="submit">{{ __('Salva') }}</button>
+            <div class=" d-flex wrap my-3">
+                @foreach ($types as $type)
+                    <div class="form-check">
 
-            @if (session('status') === 'profile-updated')
-                <script>
-                    const show = true;
-                    setTimeout(() => show = false, 2000)
-                    const el = document.getElementById('profile-status')
-                    if (show) {
-                        el.style.display = 'block';
-                    }
-                </script>
-                <p id='profile-status' class="fs-5 text-muted">{{ __('Saved.') }}</p>
-            @endif
-        </div>
+                        <input class="form-check-input d-flex" type="checkbox" value="{{ $type->id }}"
+                            @if ($user->types->contains($type->id)) checked @endif {{-- variante con checked --}}
+                            {{-- @checked($user->types->contains($type->id)) --}} name="types[]" id="type-{{ $type->id }}">
+
+                        <label class="form-check-label me-5" for="type-{{ $type->id }}">
+                            {{ $type->type_name }}
+                        </label>
+
+                    </div>
+                @endforeach
+            </div>
+
+
+            {{-- BOTTONE SUBMIT --}}
+            <div class="d-flex align-items-center gap-4">
+                <button class="btn btn-primary" type="submit">{{ __('Salva') }}</button>
+
+                @if (session('status') === 'profile-updated')
+                    <script>
+                        const show = true;
+                        setTimeout(() => show = false, 2000)
+                        const el = document.getElementById('profile-status')
+                        if (show) {
+                            el.style.display = 'block';
+                        }
+                    </script>
+                    <p id='profile-status' class="fs-5 text-muted">{{ __('Saved.') }}</p>
+                @endif
+            </div>
     </form>
 </section>

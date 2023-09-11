@@ -35,7 +35,6 @@
         </div>
 
         <div class="mb-2">
-
             <label for="password_confirmation">{{ __('Conferma Password') }}</label>
             <input class="mt-2 form-control" type="password" name="password_confirmation" id="password_confirmation"
                 autocomplete="new-password">
