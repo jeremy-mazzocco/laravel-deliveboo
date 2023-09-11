@@ -129,8 +129,7 @@
                     <div class="form-check">
 
                         <input class="form-check-input d-flex" type="checkbox" value="{{ $type->id }}"
-                            @if ($user->types->contains($type->id)) checked @endif {{-- variante con checked --}}
-                            {{-- @checked($user->types->contains($type->id)) --}} name="types[]" id="type-{{ $type->id }}">
+                            @checked($user->types->contains($type->id)) name="types[]" id="type-{{ $type->id }}">
 
                         <label class="form-check-label me-5" for="type-{{ $type->id }}">
                             {{ $type->type_name }}
