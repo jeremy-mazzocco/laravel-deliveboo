@@ -109,8 +109,7 @@ class RegisteredUserController extends Controller
             'img.mimes' => 'Il file immagine deve essere di tipo JPEG, PNG o JPG.',
             'types.required' => 'Almeno una casella deve essere selezionata.',
             'types.min' => 'Almeno una casella deve essere selezionata.',
-            'password.confirmed' => 'ciao'
-
+            'password.confirmed' => 'Password non corretta.'
         ];
     }
 }
