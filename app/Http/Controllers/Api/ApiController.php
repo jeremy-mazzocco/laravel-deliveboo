@@ -13,7 +13,7 @@ class ApiController extends Controller
         $types = Type::all();
 
         return response()->json([
-            'types' => 'ciaoo'
+            'types' => $types
         ]);
     }
 }
