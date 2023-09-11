@@ -31,16 +31,20 @@
             @endforeach
         </li> --}}
 
-        {{-- Metodo per evitare --}}
         <li>Tipologie:
-            <?php $types = Auth::user()->types; ?>
+            <?php
+            // Ottieni l'array delle tipologie dell'utente autenticato
+            $types = Auth::user()->types;
+            ?>
             @foreach ($types as $index => $type)
                 {{ $type->type_name }}
+
                 @if ($index < count($types) - 1)
-                    ,
+                    , <!-- Aggiungi una virgola solo se l'elemento corrente non è l'ultimo -->
                 @endif
             @endforeach
         </li>
+
 
     </ul>
 
