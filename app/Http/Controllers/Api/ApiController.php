@@ -6,37 +6,29 @@ use App\Http\Controllers\Controller;
 use App\Models\Type;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+use function Psy\debug;
 
 class ApiController extends Controller
 {
-    public function typeList()
+    public function mountedData()
     {
         $types = Type::all();
+        $pivotData = DB::table('type_user')->get();
 
         return response()->json([
-            'types' => $types
+            'types' => $types,
+            'pivotData' => $pivotData
         ]);
     }
 
-    public function restaurantList($id)
+    public function restaurantList(Request $request)
     {
+        $userIds = $request->input('data');
 
-        // $typeIds = explode(',', $id);
 
-        // $type = Type::find($typeIds);
-        // $users = $type->users;
-        // return response()->json(['users' => $users]);
-
-        $typeIds = explode(',', $id);
-
-        // Esegui la query per ottenere gli utenti che hanno TUTTE le tipologie specificate
-        $users = User::where(function ($query) use ($typeIds) {
-            foreach ($typeIds as $typeId) {
-                $query->whereHas('type_id', function ($subquery) use ($typeId) {
-                    $subquery->where('id', $typeId);
-                });
-            }
-        })->get();
+        $users = User::whereIn('id', $userIds)->get();
 
         return response()->json(['users' => $users]);
     }

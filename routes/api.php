@@ -6,11 +6,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/v1')->group(function () {
 
+    Route::get('/home', [ApiController::class, 'mountedData']);
+    Route::post('/restaurants', [ApiController::class, 'restaurantList']);
 
-    Route::get('/home', [ApiController::class, 'typeList']);
-
-    Route::get('/restaurants/{ids}', [ApiController::class, 'restaurantList']);
-
+    // Route::get('/restaurants', [ApiController::class, 'restaurantList'])->name('debug.page');
 });
 
 

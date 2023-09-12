@@ -6,5 +6,8 @@
             <h1 class="display-5 fw-bold text-center">
                 Benvenuto su DeliveBoo !
             </h1>
+            <a href="{{ route('debug.page') }}">
+                DEBUG PAGE
+            </a>
 
 @endsection
