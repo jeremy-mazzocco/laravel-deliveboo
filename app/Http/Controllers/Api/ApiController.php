@@ -12,9 +12,12 @@ class ApiController extends Controller
     public function typeList()
     {
         $types = Type::all();
+        // $restaurant = User::all();
+        $restaurant = User::with('types')->get();
 
         return response()->json([
-            'types' => $types
+            'types' => $types,
+            'restaurant' => $restaurant,
         ]);
     }
 
