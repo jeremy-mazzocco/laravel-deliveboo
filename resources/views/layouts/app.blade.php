@@ -25,8 +25,8 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container-fluid px-3">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm" id="nav-top">
+            <div class="container-fluid">
                 <a class="navbar-brand d-flex align-items-center nav-a" href="{{ url('/') }}">
                 </a>
 
@@ -38,11 +38,9 @@
 
                 <div class="collapse navbar-collapse p-3" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            LOGO LOGO LOGO
-                        </li>
-                    </ul>
+                    <div id="img-logo">
+                        <img src="../../../storage/images/Logo_Base_DeliveBoo.png">
+                    </div>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

@@ -1,24 +1,47 @@
 @import '~bootstrap/scss/bootstrap';
 
+
+// variable
+$white-color: #ffffff;
+$grey-color: #fff8E8;
+$yellow-color: #fcd581;
+$pink-color: #d52841;
+$red-color: #d52841;
+
 // altezza per le immagini card dish
 .card-img-fixed-height {
     height: 200px;
 }
 
-.nav-a {
-    font-size: 20px;
+#nav-top {
+    background-color: #990d35;
+    height: 80px;
+
+    .nav-a {
+        font-size: 20px;
+
+    }
+}
+
+#img-logo {
+    width: 10%;
+
+    img {
+        max-width: 100%;
+    }
 }
 
 
+
 .fa-user {
-    color: gray;
+    color: $grey-color;
     margin-top: 15px;
     font-size: 27px;
 }
 
 #navbarDropdown {
     font-size: 30px;
-    color: gray;
+    color: $grey-color;
 }
 
 #dropdown-menu-edit {
@@ -33,18 +56,19 @@
 
 main {
     display: flex;
+    height: calc(100vh - 80px);
 
     .left-nav {
         width: calc(100% / 7) * 1;
-        border: 1px solid;
         font-size: 25px;
         padding-top: 40px;
+        background-color: #990d35;
 
         .text-nav {
             margin: 30px 25px;
 
             a {
-                color: gray;
+                color: $grey-color;
             }
         }
     }
@@ -52,10 +76,22 @@ main {
     .content {
         width: calc(100% / 7) * 6;
         padding-top: 40px;
+        background-color: #fcd581;
+        position: relative;
 
         .card {
             width: 80%;
+            height: 80%;
             margin: auto;
+            border-radius: 20px;
+            background-color: #d52841;
+            position: absolute;
+            top: 10%;
+            right: 10%;
+
+            .card-img {
+                width: calc(100% / 5);
+            }
         }
     }
 }

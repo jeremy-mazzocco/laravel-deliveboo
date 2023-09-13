@@ -5,11 +5,11 @@
         I tuoi piatti
     </h1>
 
-    <div class="container d-flex flex-wrap justify-content-center gap-4">
+    <div class="container d-flex flex-wrap ">
 
         @foreach (Auth::user()->dishes as $dish)
             @if (!$dish->deleted)
-                <div class="card" style="width: 18rem;">
+                <div class="card-img">
                     <img src=" {{ asset('storage/' . $dish->img) }}"
                         onerror="this.src=' {{ asset('storage/' . 'images/Pippo-Baudo.jpg') }}'"
                         class="card-img-top card-img-fixed-height" alt="{{ $dish->dish_name }}">
