@@ -5,8 +5,8 @@
 $white-color: #ffffff;
 $grey-color: #fff8E8;
 $yellow-color: #fcd581;
-$pink-color: #d52841;
-$red-color: #d52841;
+$pink-color: #fe4b33;
+$orange-color: #f82e2e;
 
 // altezza per le immagini card dish
 .card-img-fixed-height {
@@ -14,7 +14,7 @@ $red-color: #d52841;
 }
 
 #nav-top {
-    background-color: #990d35;
+    background-color: $orange-color;
     height: 80px;
 
     .nav-a {
@@ -24,7 +24,7 @@ $red-color: #d52841;
 }
 
 #img-logo {
-    width: 10%;
+    width: 20%;
 
     img {
         max-width: 100%;
@@ -62,7 +62,7 @@ main {
         width: calc(100% / 7) * 1;
         font-size: 25px;
         padding-top: 40px;
-        background-color: #990d35;
+        background-color: $orange-color;
 
         .text-nav {
             margin: 30px 25px;
@@ -76,7 +76,7 @@ main {
     .content {
         width: calc(100% / 7) * 6;
         padding-top: 40px;
-        background-color: #fcd581;
+        background-color: $grey-color;
         position: relative;
 
         .card {
@@ -84,14 +84,14 @@ main {
             height: 80%;
             margin: auto;
             border-radius: 20px;
-            background-color: #d52841;
+            background-color: $pink-color;
             position: absolute;
             top: 10%;
             right: 10%;
 
-            .card-img {
-                width: calc(100% / 5);
-            }
+            // .card-img {
+            //     width: calc(100% / 5);
+            // }
         }
     }
 }
