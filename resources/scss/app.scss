@@ -4,3 +4,58 @@
 .card-img-fixed-height {
     height: 200px;
 }
+
+.nav-a {
+    font-size: 20px;
+}
+
+
+.fa-user {
+    color: gray;
+    margin-top: 15px;
+    font-size: 27px;
+}
+
+#navbarDropdown {
+    font-size: 30px;
+    color: gray;
+}
+
+#dropdown-menu-edit {
+    left: -140px;
+
+    a {
+        font-size: 20px;
+        padding: 10px;
+        color: gray;
+    }
+}
+
+main {
+    display: flex;
+
+    .left-nav {
+        width: calc(100% / 7) * 1;
+        border: 1px solid;
+        font-size: 25px;
+        padding-top: 40px;
+
+        .text-nav {
+            margin: 30px 25px;
+
+            a {
+                color: gray;
+            }
+        }
+    }
+
+    .content {
+        width: calc(100% / 7) * 6;
+        padding-top: 40px;
+
+        .card {
+            width: 80%;
+            margin: auto;
+        }
+    }
+}
