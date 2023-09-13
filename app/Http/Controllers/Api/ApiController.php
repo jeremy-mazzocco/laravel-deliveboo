@@ -27,7 +27,6 @@ class ApiController extends Controller
     {
         $userIds = $request->input('data');
 
-
         $users = User::whereIn('id', $userIds)->get();
 
         return response()->json(['users' => $users]);
