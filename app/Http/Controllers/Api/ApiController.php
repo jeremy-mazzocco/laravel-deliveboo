@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Type;
 use App\Models\User;
+use App\Models\Dish;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
@@ -18,6 +19,15 @@ class ApiController extends Controller
         return response()->json([
             'types' => $types,
             'restaurant' => $restaurant,
+        ]);
+    }
+
+    public function dishesList($id) {
+        $dishes = Dish::where('user_id', $id)->get();
+        $restaurantSelected = User::findOrFail($id);
+        return response()->json([
+            'dishes' => $dishes,
+            'restaurantSelected' => $restaurantSelected,
         ]);
     }
 

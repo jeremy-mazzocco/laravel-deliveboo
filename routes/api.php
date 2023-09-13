@@ -11,6 +11,8 @@ Route::prefix('/v1')->group(function () {
 
     Route::get('/restaurants/{ids}', [ApiController::class, 'restaurantList']);
 
+    Route::get('/restaurant/{id}/dishes', [ApiController::class, 'dishesList']);
+
 });
 
 
