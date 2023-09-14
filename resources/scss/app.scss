@@ -1,97 +1,113 @@
 @import '~bootstrap/scss/bootstrap';
 
 
-// variable
+// Variables
 $white-color: #ffffff;
 $grey-color: #fff8E8;
 $yellow-color: #fcd581;
-$pink-color: #fe4b33;
+$pink-color: #eb261c;
 $orange-color: #f82e2e;
 
-// altezza per le immagini card dish
-.card-img-fixed-height {
-    height: 200px;
-}
 
+// NAVs
 #nav-top {
     background-color: $orange-color;
-    height: 80px;
+    height: 95px;
 
     .nav-a {
         font-size: 20px;
 
     }
-}
 
-#img-logo {
-    width: 20%;
+    #img-logo {
+        width: 20%;
 
-    img {
-        max-width: 100%;
-    }
-}
-
-
-
-.fa-user {
-    color: $grey-color;
-    margin-top: 15px;
-    font-size: 27px;
-}
-
-#navbarDropdown {
-    font-size: 30px;
-    color: $grey-color;
-}
-
-#dropdown-menu-edit {
-    left: -140px;
-
-    a {
-        font-size: 20px;
-        padding: 10px;
-        color: gray;
-    }
-}
-
-main {
-    display: flex;
-    height: calc(100vh - 80px);
-
-    .left-nav {
-        width: calc(100% / 7) * 1;
-        font-size: 25px;
-        padding-top: 40px;
-        background-color: $orange-color;
-
-        .text-nav {
-            margin: 30px 25px;
-
-            a {
-                color: $grey-color;
-            }
+        img {
+            max-width: 100%;
         }
     }
 
-    .content {
-        width: calc(100% / 7) * 6;
-        padding-top: 40px;
-        background-color: $grey-color;
+    .fa-user {
+        color: $grey-color;
+        margin-top: 15px;
+        font-size: 27px;
+    }
+
+    #navbarDropdown {
+        font-size: 30px;
+        color: $grey-color;
+    }
+
+    #dropdown-menu-edit {
+        left: -140px;
+
+        a {
+            font-size: 20px;
+            padding: 10px;
+            color: gray;
+        }
+    }
+}
+
+// MAIN
+main {
+    height: calc(100vh - 95px);
+    background-image: url(../../storage/app/public/images/home-background-hero-scaled.jpg);
+    background-position: center;
+    background-size: cover;
+
+
+    // SECTION CONTENTs
+
+    //Welcome.blade
+    .jumbotron {
         position: relative;
+        width: 100%;
 
-        .card {
-            width: 80%;
-            height: 80%;
-            margin: auto;
-            border-radius: 20px;
-            background-color: $pink-color;
+        #title-jumbotron {
+            color: $grey-color;
             position: absolute;
-            top: 10%;
-            right: 10%;
+            top: 40%;
+            right: 40%;
+        }
+    }
 
-            // .card-img {
-            //     width: calc(100% / 5);
-            // }
+
+    // Dashboard.blade
+    .dashboard {
+        display: flex;
+        height: 100%;
+
+        .left-nav {
+            width: calc(100% / 7) * 1;
+            font-size: 25px;
+            padding-top: 40px;
+            background-color: $orange-color;
+
+            .text-nav {
+                margin: 30px 25px;
+
+                a {
+                    color: $grey-color;
+                }
+            }
+        }
+
+        .dashboard-home {
+            width: calc(100% / 7) * 6;
+            padding-top: 40px;
+            position: relative;
+
+            .card {
+                width: 80%;
+                height: 80%;
+                margin: auto;
+                border-radius: 20px;
+                background-color: $pink-color;
+                position: absolute;
+                top: 10%;
+                right: 10%;
+            }
         }
     }
 }

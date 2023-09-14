@@ -36,10 +36,10 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse p-3 d-flex justify-content-between" id="navbarSupportedContent ">
+                <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent ">
                     <!-- Left Side Of Navbar -->
                     <div id="img-logo">
-                        <img src="../../../storage/images/Logo_Base_DeliveBoo.png">
+                        <img src="../../../storage/images/Logo_DeliveBoo_fff8E8.png">
                     </div>
 
                     <!-- Right Side Of Navbar -->
