@@ -5,7 +5,7 @@
 $white-color: #ffffff;
 $grey-color: #fff8E8;
 $yellow-color: #fcd581;
-$pink-color: #eb261c;
+$pink-color: #eb261ccf;
 $orange-color: #f82e2e;
 
 
@@ -20,7 +20,7 @@ $orange-color: #f82e2e;
     }
 
     #img-logo {
-        width: 20%;
+        width: 17%;
 
         img {
             max-width: 100%;
@@ -55,29 +55,40 @@ main {
     background-image: url(../../storage/app/public/images/home-background-hero-scaled.jpg);
     background-position: center;
     background-size: cover;
+    position: relative;
 
 
     // SECTION CONTENTs
 
     //Welcome.blade
-    .jumbotron {
-        position: relative;
-        width: 100%;
-
-        #title-jumbotron {
-            color: $grey-color;
-            position: absolute;
-            top: 40%;
-            right: 40%;
-        }
+    #title-jumbotron {
+        font-size: 80px;
+        font-weight: bold;
+        color: $grey-color;
+        position: absolute;
+        top: 30%;
+        right: 47%;
     }
 
+    // Login.blade
+    #card-body {
+        background-color: $pink-color;
+        height: 100%;
+        border-radius: 20px;
+        color: $grey-color;
+        font-size: 20px;
+
+        form {
+            padding: 30px;
+        }
+    }
 
     // Dashboard.blade
     .dashboard {
         display: flex;
         height: 100%;
 
+        // left
         .left-nav {
             width: calc(100% / 7) * 1;
             font-size: 25px;
@@ -93,6 +104,7 @@ main {
             }
         }
 
+        // right
         .dashboard-home {
             width: calc(100% / 7) * 6;
             padding-top: 40px;
@@ -107,6 +119,22 @@ main {
                 position: absolute;
                 top: 10%;
                 right: 10%;
+
+
+                // YIELDS
+
+                // home
+
+                .img {
+
+
+                    img {
+                        max-width: 100%;
+                    }
+                }
+
+                .list {}
+
             }
         }
     }
