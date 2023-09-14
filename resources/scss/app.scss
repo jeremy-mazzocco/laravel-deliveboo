@@ -9,6 +9,9 @@ $pink-color: #eb261ccf;
 $orange-color: #f82e2e;
 
 
+
+
+
 // NAVs
 #nav-top {
     background-color: $orange-color;
@@ -101,6 +104,10 @@ main {
                 a {
                     color: $grey-color;
                 }
+
+                a:hover {
+                    border-bottom: 3px solid $grey-color;
+                }
             }
         }
 
@@ -114,27 +121,82 @@ main {
                 width: 80%;
                 height: 80%;
                 margin: auto;
+                padding: 0px 10px;
                 border-radius: 20px;
                 background-color: $pink-color;
                 position: absolute;
                 top: 10%;
                 right: 10%;
+                overflow-y: scroll;
+                overflow-x: hidden;
 
 
                 // YIELDS
 
                 // home
+                h2 {
+                    background-color: $orange-color;
+                    border-top-left-radius: 20px;
+                    border-top-right-radius: 20px;
+                }
 
-                .img {
+                .row {
+                    padding-top: 50px;
+                    color: $grey-color;
+                    font-size: 20px;
+                    margin-bottom: 30px;
 
+                }
 
-                    img {
-                        max-width: 100%;
+                img {
+                    border-radius: 20px;
+                    max-width: 100%;
+                }
+
+                .list {
+                    border-radius: 20px;
+                    padding: 50px 0px;
+                    background-color: $orange-color;
+                    font-size: 22px;
+
+                    li:last-child {
+                        margin-top: 50px;
                     }
                 }
 
-                .list {}
+                // dish-show
 
+                #dish-show {
+
+                    #card-title {
+                        height: 65px;
+                    }
+
+                    #img-dish {
+                        width: 100%;
+                        height: 200px;
+                        object-fit: cover;
+                        border-radius: 20px;
+                        max-width: 100%;
+                    }
+
+                    .card-footer {
+                        margin-left: 5px;
+                        background-color: #b21616ca;
+                        margin-top: 5px;
+                        height: 250px;
+                        margin-bottom: 30px;
+                        border-radius: 20px;
+
+                        .card-text {
+                            height: 100px;
+                        }
+
+                        form {
+                            display: inline;
+                        }
+                    }
+                }
             }
         }
     }
