@@ -22,6 +22,24 @@ class ApiController extends Controller
         ]);
     }
 
+    public function restaurantList($typeIds){
+        $typeIdsArray = explode(',', $typeIds);
+
+        $restaurant = User::with('types')
+        ->whereIn('users.id', function ($query) use ($typeIdsArray) {
+            $query->select('user_id')
+                ->from('type_user')
+                ->whereIn('type_id', $typeIdsArray)
+                ->groupBy('user_id')
+                ->havingRaw('COUNT(DISTINCT type_id) = ?', [count($typeIdsArray)]);
+        })
+        ->get();
+
+        return response()->json(['restaurant' => $restaurant]);
+    }
+
+
+
     public function dishesList($id) {
         $dishes = Dish::where('user_id', $id)->get();
         $restaurantSelected = User::findOrFail($id);
@@ -31,26 +49,4 @@ class ApiController extends Controller
         ]);
     }
 
-    public function restaurantList($id)
-    {
-
-        // $typeIds = explode(',', $id);
-
-        // $type = Type::find($typeIds);
-        // $users = $type->users;
-        // return response()->json(['users' => $users]);
-
-        $typeIds = explode(',', $id);
-
-        // Esegui la query per ottenere gli utenti che hanno TUTTE le tipologie specificate
-        $users = User::where(function ($query) use ($typeIds) {
-            foreach ($typeIds as $typeId) {
-                $query->whereHas('type_id', function ($subquery) use ($typeId) {
-                    $subquery->where('id', $typeId);
-                });
-            }
-        })->get();
-
-        return response()->json(['users' => $users]);
-    }
 }
