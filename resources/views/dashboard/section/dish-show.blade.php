@@ -36,6 +36,4 @@
             @endif
         @endforeach
     </div>
-
-    <a href="{{ route('dashboard.home') }}" class="btn btn-secondary">Indietro</a>
 @endsection
