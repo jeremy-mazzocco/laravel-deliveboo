@@ -14,7 +14,7 @@ class ApiController extends Controller
     {
         $types = Type::all();
         // $restaurant = User::all();
-        $restaurant = User::with('types')->get();
+        $restaurant = User::with('types')->limit(10)->get();
 
         return response()->json([
             'types' => $types,
@@ -26,7 +26,7 @@ class ApiController extends Controller
         $typeIdsArray = explode(',', $typeIds);
 
         $restaurant = User::with('types')
-        ->whereIn('users.id', function ($query) use ($typeIdsArray) {
+            ->whereIn('users.id', function ($query) use ($typeIdsArray) {
             $query->select('user_id')
                 ->from('type_user')
                 ->whereIn('type_id', $typeIdsArray)
