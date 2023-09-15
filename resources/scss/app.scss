@@ -11,7 +11,7 @@ $orange-color: #f82e2e;
 // NAVs
 #nav-top {
     background-color: black;
-    height: 95px;
+    height: 85px;
 
     .nav-a {
         font-size: 20px;
@@ -50,7 +50,7 @@ $orange-color: #f82e2e;
 
 // MAIN
 main {
-    height: calc(100vh - 95px);
+    height: calc(100% - 85px);
     background-image: url(../../storage/app/public/images/home-background-hero-scaled.jpg);
     background-position: center;
     background-size: cover;
@@ -75,22 +75,26 @@ main {
         height: 100%;
         border-radius: 20px;
         color: $grey-color;
-        font-size: 20px;
+        font-size: 15px;
 
         form {
             padding: 30px;
         }
     }
 
+    // Edit.blade
+    #edit {}
+
+
     // Dashboard.blade
     .dashboard {
         display: flex;
-        height: 100%;
+        height: 620px;
 
         // left
         .left-nav {
             width: calc(100% / 7) * 1;
-            font-size: 25px;
+            font-size: 20px;
             padding-top: 40px;
             background-color: $pink-color;
 
@@ -102,7 +106,9 @@ main {
                 }
 
                 a:hover {
-                    border-bottom: 3px solid $grey-color;
+                    background-color: rgba(178, 22, 22, 0.7921568627);
+                    border-radius: 20px;
+                    padding: 8px 10px;
                 }
             }
         }
@@ -115,7 +121,7 @@ main {
 
             .card {
                 width: 80%;
-                height: 80%;
+                height: 85%;
                 margin: auto;
                 padding: 0px 10px;
                 border-radius: 20px;
@@ -151,9 +157,14 @@ main {
 
                 .list {
                     border-radius: 20px;
-                    padding: 50px 0px;
-                    background-color: $orange-color;
-                    font-size: 22px;
+                    background-color: #eb261ccf;
+                    font-size: 17px;
+                    color: #f1eeee;
+
+                    ul {
+                        padding: 20px 0px;
+
+                    }
 
                     li:last-child {
                         margin-top: 50px;
@@ -161,31 +172,34 @@ main {
                 }
 
                 // dish-show
-
                 #dish-show {
+                    font-size: 14px;
+                    text-align: center;
 
                     #card-title {
-                        height: 65px;
+                        height: 45px;
+
                     }
 
                     #img-dish {
-                        width: 100%;
-                        height: 200px;
+                        width: 80%;
+                        height: 150px;
                         object-fit: cover;
                         border-radius: 20px;
                         max-width: 100%;
+                        margin-bottom: 5px;
                     }
 
                     .card-footer {
-                        margin-left: 5px;
                         background-color: #b21616ca;
                         margin-top: 5px;
-                        height: 250px;
-                        margin-bottom: 30px;
                         border-radius: 20px;
+                        width: 85%;
+                        position: relative;
+                        left: 18px;
 
                         .card-text {
-                            height: 100px;
+                            height: 75px;
                         }
 
                         form {
@@ -194,13 +208,34 @@ main {
                     }
                 }
 
+                // dish-edit
+                #dish-edit {
+                    font-size: 17px;
+                    color: #f1eeee;
+
+                    #edit-card {
+                        border: 3px solid rgba(178, 22, 22, 0.7921568627);
+                        border-radius: 5px;
+
+                        img {
+                            max-width: 100%;
+                            margin-bottom: 15px;
+                        }
+
+                    }
+                }
+
                 // dish-create
                 #dish-create {
-                    border: 4px solid rgba(178, 22, 22, 0.7921568627);
+                    border: 4px solid #9f0c0cdb;
                     border-radius: 5px;
                     height: 450px;
                     color: $grey-color;
-                    font-size: 20px;
+                    font-size: 15px;
+
+                    form {
+                        padding-top: 25px;
+                    }
 
                     #crea {
                         background-color: $grey-color;
@@ -212,17 +247,81 @@ main {
                 // orders-show
                 .order {
                     font-size: 15px;
+                    padding: 30px 10px;
+                    position: relative;
+                    border: 3px solid rgba(178, 22, 22, 0.7921568627);
+                    border-radius: 15px;
+                    height: fit-content;
 
-                    h3 {
+                    h6 {
+                        color: rgb(73, 7, 7);
                         background-color: rgba(178, 22, 22, 0.7921568627);
+                        display: inline;
+                        padding: 7px;
+                        border-radius: 20px;
+                        margin-bottom: 15px;
                     }
 
                     #stato-ordine {
                         display: inline;
+                        margin-left: 5px;
+                    }
+
+                    .dettagli {
+                        vertical-align: middle;
+
+                        .fa-plus {
+                            background-color: rgba(178, 22, 22, 0.7921568627);
+                            border-radius: 20px;
+                            font-size: 15px;
+                            margin-left: 8px;
+                            color: #f4c0c0;
+                            border: none;
+                            padding: 5px 10px;
+                            cursor: pointer;
+                            margin-top: 10px;
+                        }
                     }
 
                     .show-order {
                         background-color: rgba(178, 22, 22, 0.7921568627);
+                        padding: 15px;
+                        margin-top: 12px;
+                        display: none;
+                        margin-top: 10px;
+
+
+                        #p-title {
+                            color: rgb(37, 3, 3);
+                            width: 100%;
+                            text-align: center;
+                            padding: 4px;
+                            border-radius: 20px;
+                        }
+
+                        p {
+                            color: rgb(37, 3, 3);
+                            width: 100%;
+                            text-align: center;
+                        }
+
+                        .customer-info {
+                            border: 1px solid rgba(178, 22, 22, 0.7921568627);
+                            padding: 2px;
+                            border-radius: 10px;
+                            color: #edd9d9;
+                            font-size: 12px;
+                        }
+
+                        .order-details {
+                            border: 1px solid rgba(178, 22, 22, 0.7921568627);
+                            padding: 2px;
+                            margin-top: 5px;
+                            border-radius: 10px;
+                            color: #edd9d9;
+                            font-size: 12px;
+
+                        }
                     }
                 }
             }

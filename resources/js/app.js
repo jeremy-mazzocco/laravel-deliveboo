@@ -59,3 +59,20 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+// ordini tendina
+const mostraDettagliButtons = document.querySelectorAll('.fa-plus');
+const dettagliOrdineElements = document.querySelectorAll('.show-order');
+
+mostraDettagliButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        const dettagliOrdine = dettagliOrdineElements[index];
+        if (dettagliOrdine.style.display === 'none' || dettagliOrdine.style.display === '') {
+            dettagliOrdine.style.display = 'block';
+        } else {
+            dettagliOrdine.style.display = 'none';
+        }
+    });
+});
+
+
+

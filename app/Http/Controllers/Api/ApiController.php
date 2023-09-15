@@ -34,12 +34,6 @@ class ApiController extends Controller
     public function restaurantList($id)
     {
 
-        // $typeIds = explode(',', $id);
-
-        // $type = Type::find($typeIds);
-        // $users = $type->users;
-        // return response()->json(['users' => $users]);
-
         $typeIds = explode(',', $id);
 
         // Esegui la query per ottenere gli utenti che hanno TUTTE le tipologie specificate

@@ -41,7 +41,6 @@ class DashboardController extends Controller
             $this->getValidations(),
             $this->getValidationMessages()
 
-
         );
 
         if (array_key_exists('img', $data) && $data['img'] !== null) {
