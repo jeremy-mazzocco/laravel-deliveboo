@@ -55,21 +55,25 @@ main {
     background-position: center;
     background-size: cover;
     position: relative;
-    height: 775px;
-
-
 
 
     // SECTION CONTENTs
 
     //Welcome.blade
-    #title-jumbotron {
-        font-size: 80px;
-        font-weight: bold;
-        color: $grey-color;
-        position: absolute;
-        top: 30%;
-        right: 47%;
+    .jumbotron {
+        background-image: url(../../storage/app/public/images/home-background-hero-scaled.jpg);
+        background-position: center;
+        background-size: cover;
+        height: 650px;
+
+        #title-jumbotron {
+            font-size: 80px;
+            font-weight: bold;
+            color: $grey-color;
+            position: absolute;
+            top: 30%;
+            right: 47%;
+        }
     }
 
     // Register.blade
@@ -88,7 +92,7 @@ main {
     // Login.blade
     #card-body {
         background-color: $pink-color;
-        height: 100%;
+        margin-bottom: 300px;
         border-radius: 20px;
         color: $grey-color;
         font-size: 15px;
@@ -130,7 +134,7 @@ main {
             width: calc(100% / 7) * 1;
             font-size: 20px;
             padding-top: 40px;
-            background-color: $pink-color;
+            background-color: #b21616ca;
 
             .text-nav {
                 margin: 30px 25px;
@@ -209,6 +213,12 @@ main {
                 #dish-show {
                     font-size: 14px;
                     text-align: center;
+
+                    .card-s {
+                        border: 3px solid rgba(178, 22, 22, 0.7921568627);
+                        border-radius: 20px;
+                        padding: 20px 0px;
+                    }
 
                     #card-title {
                         height: 45px;

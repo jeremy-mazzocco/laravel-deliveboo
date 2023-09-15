@@ -8,7 +8,7 @@
     <div class="row" id="dish-show">
         @foreach (Auth::user()->dishes as $dish)
             @if (!$dish->deleted)
-                <div class="col-3 mb-5">
+                <div class="col-3 mb-5 card-s">
                     <h5 id="card-title" class="card-title text-center">{{ $dish->dish_name }}</h5>
                     <img id="img-dish" class=" text-center" src=" {{ asset('storage/' . $dish->img) }}"
                         onerror="this.src=' {{ asset('storage/' . 'images/Pippo-Baudo.jpg') }}'"

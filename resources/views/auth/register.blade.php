@@ -83,15 +83,13 @@
                             <label for="phone_number"
                                 class="col-md-4 col-form-label text-md-right">{{ __('Tipologie') }}</label>
 
-                            <div class=" d-flex wrap my-2">
+                            <div>
                                 @foreach ($types as $type)
-                                    <div class="form-check">
-                                        <input class="form-check-input d-flex" type="checkbox" value="{{ $type->id }}"
-                                            name="types[]" id="type-{{ $type->id }}">
-                                        <label class="form-check-label  me-1" for="type-{{ $type->id }}">
-                                            {{ $type->type_name }}
-                                        </label>
-                                    </div>
+                                    <input class="form-check-input" type="checkbox" value="{{ $type->id }}"
+                                        name="types[]" id="type-{{ $type->id }}">
+                                    <label class="form-check-label me-3" for="type-{{ $type->id }}">
+                                        {{ $type->type_name }}
+                                    </label>
                                 @endforeach
                                 @error('types')
                                     <div class="alert alert-danger">{{ $message }}</div>

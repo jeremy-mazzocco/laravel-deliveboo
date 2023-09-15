@@ -109,17 +109,15 @@
         <div class="mb-4 row">
             <label for="phone_number" class="col-md-4 col-form-label text-md-right">{{ __('Tipologie') }}</label>
 
-            <div class=" d-flex wrap my-3">
+            <div class=" d-flex flex-wrap m-3">
                 @foreach ($types as $type)
                     <div class="form-check">
-
-                        <input class="form-check-input d-flex" type="checkbox" value="{{ $type->id }}"
+                        <input class="form-check-input" type="checkbox" value="{{ $type->id }}"
                             @checked($user->types->contains($type->id)) name="types[]" id="type-{{ $type->id }}">
 
-                        <label class="form-check-label me-5" for="type-{{ $type->id }}">
+                        <label class="form-check-label me-2" for="type-{{ $type->id }}">
                             {{ $type->type_name }}
                         </label>
-
                     </div>
                 @endforeach
             </div>
