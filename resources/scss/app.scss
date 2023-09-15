@@ -55,6 +55,9 @@ main {
     background-position: center;
     background-size: cover;
     position: relative;
+    height: 775px;
+
+
 
 
     // SECTION CONTENTs
@@ -67,6 +70,19 @@ main {
         position: absolute;
         top: 30%;
         right: 47%;
+    }
+
+    // Register.blade
+    #register {
+
+        .card-body {
+            background-color: rgba(235, 38, 28, 0.8117647059);
+            border: none;
+            border-radius: 20px;
+
+            font-size: 17px;
+            color: #f1eeee;
+        }
     }
 
     // Login.blade
@@ -83,7 +99,25 @@ main {
     }
 
     // Edit.blade
-    #edit {}
+    .edit-profile {
+        background-color: rgba(235, 38, 28, 0.8117647059);
+        border-radius: 20px;
+        font-size: 15px;
+        color: #f1eeee;
+
+        img {
+            width: 450px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .form-control {
+            width: 36%;
+        }
+
+    }
 
 
     // Dashboard.blade
@@ -216,12 +250,20 @@ main {
                     #edit-card {
                         border: 3px solid rgba(178, 22, 22, 0.7921568627);
                         border-radius: 5px;
+                        padding: 50px 0px;
 
                         img {
                             max-width: 100%;
                             margin-bottom: 15px;
                         }
 
+                        #confirm {
+                            border: none;
+                            background-color: rgb(255, 202, 44);
+                            border-radius: 5px;
+                            position: relative;
+                            left: 20%;
+                        }
                     }
                 }
 

@@ -27,9 +27,6 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm" id="nav-top">
             <div class="container-fluid">
-                <a class="navbar-brand d-flex align-items-center nav-a" href="{{ url('/') }}">
-                </a>
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -38,21 +35,22 @@
 
                 <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent ">
                     <!-- Left Side Of Navbar -->
-                    <div id="img-logo">
-                        <img src="../../../storage/images/Logo_DeliveBoo_fff8E8.png">
-                    </div>
-
+                    <a class="navbar-brand d-flex align-items-center nav-a" href="{{ url('/') }}">
+                        <div id="img-logo">
+                            <img src="../../../storage/images/Logo_DeliveBoo_fff8E8.png">
+                        </div>
+                    </a>
                     <!-- Right Side Of Navbar -->
                     <div>
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item">
-                                    <a class="nav-link text-light fs-4" href="{{ route('login') }}">{{ __('Accedi') }}</a>
+                                    <a class="nav-link text-light fs-5" href="{{ route('login') }}">{{ __('Accedi') }}</a>
                                 </li>
                                 @if (Route::has('register'))
                                     <li class="nav-item">
-                                        <a class="nav-link text-light fs-4 ms-3"
+                                        <a class="nav-link text-light fs-5 ms-3"
                                             href="{{ route('register') }}">{{ __('Registra il tuo ristorante') }}</a>
                                     </li>
                                 @endif

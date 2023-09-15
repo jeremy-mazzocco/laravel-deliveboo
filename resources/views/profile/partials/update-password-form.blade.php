@@ -1,4 +1,4 @@
-<section>
+<section class="p-4 edit-profile mt-3">
     <header>
         <h2 class="text-lg font-medium text-gray-900">
             {{ __('Aggiorna Password') }}

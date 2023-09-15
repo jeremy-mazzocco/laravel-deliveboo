@@ -73,6 +73,7 @@
                             <option {{ !$dish->visibility ? 'selected' : '' }} value="0">Non Visibile</option>
                         </select>
                     </div>
+                    <input id="confirm" class="px-3 py-1" type="submit" value="Conferma">
                 </form>
             </div>
         </div>

@@ -1,28 +1,17 @@
-<section>
+<section class="p-4 edit-profile">
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Informazioni Profilo') }}
-        </h2>
-
-        <p class="mt-1 text-muted">
+        <h2 class="text-center fw-bold text-white p-3 mb-2">
             {{ __('Aggiorna le informazioni del tuo Account.') }}
-        </p>
+        </h2>
     </header>
 
     <form id="send-verification" method="post" action="{{ route('verification.send') }}">
         @csrf
     </form>
 
-
     {{-- immagine --}}
     @if ($user->img)
-        <img class="img-fluid" src=" {{ asset('storage/' . $user->img) }}" alt="{{ $user->restaurant_name }}">
-        <br>
-        {{-- <form method="POST" action="{{ route('dish.deleteImg', $user->id) }}" onsubmit="return confirmDelete()">
-            @csrf
-            @method('DELETE')
-            <input class="btn btn-danger" type="submit" value="Cancella Immagine">
-        </form> --}}
+        <img src=" {{ asset('storage/' . $user->img) }}" alt="{{ $user->restaurant_name }}">
     @endif
 
     <form method="post" action="{{ route('profile.update', $user->id) }}" enctype="multipart/form-data"
@@ -39,7 +28,6 @@
             @enderror
         </div>
 
-
         {{-- NOME --}}
         <div class="mb-2">
             <label for="restaurant_name">{{ __('Nome Ristorante') }}</label>
@@ -50,7 +38,6 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
-
 
         {{-- INDIRIZZO --}}
         <div class="mb-2">
@@ -63,7 +50,6 @@
                 </span>
             @enderror
         </div>
-
 
         {{-- EMAIL --}}
         <div class="mb-2">
@@ -96,7 +82,6 @@
                 </div>
             @endif
         </div>
-
 
         {{-- NUMERO DI TELEFONO --}}
         <div class="mb-2">
