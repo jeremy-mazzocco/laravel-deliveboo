@@ -49,4 +49,20 @@ class ApiController extends Controller
         ]);
     }
 
+    public function restaurantList($id)
+    {
+
+        $typeIds = explode(',', $id);
+
+        // Esegui la query per ottenere gli utenti che hanno TUTTE le tipologie specificate
+        $users = User::where(function ($query) use ($typeIds) {
+            foreach ($typeIds as $typeId) {
+                $query->whereHas('type_id', function ($subquery) use ($typeId) {
+                    $subquery->where('id', $typeId);
+                });
+            }
+        })->get();
+
+        return response()->json(['users' => $users]);
+    }
 }

@@ -5,6 +5,24 @@ import.meta.glob([
     '../img/**'
 ])
 
+window.addEventListener('DOMContentLoaded', event => {
+
+    // Toggle the side navigation
+    const sidebarToggle = document.body.querySelector('#sidebarToggle');
+    if (sidebarToggle) {
+        // Uncomment Below to persist sidebar toggle between refreshes
+        // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
+        //     document.body.classList.toggle('sb-sidenav-toggled');
+        // }
+        sidebarToggle.addEventListener('click', event => {
+            event.preventDefault();
+            document.body.classList.toggle('sb-sidenav-toggled');
+            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+        });
+    }
+
+});
+
 window.confirmDelete = () => {
     return confirm('Vuoi davvero eliminare questo elemento?');
 }
@@ -39,5 +57,22 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+// ordini tendina
+const mostraDettagliButtons = document.querySelectorAll('.fa-plus');
+const dettagliOrdineElements = document.querySelectorAll('.show-order');
+
+mostraDettagliButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        const dettagliOrdine = dettagliOrdineElements[index];
+        if (dettagliOrdine.style.display === 'none' || dettagliOrdine.style.display === '') {
+            dettagliOrdine.style.display = 'block';
+        } else {
+            dettagliOrdine.style.display = 'none';
+        }
+    });
+});
+
 
 

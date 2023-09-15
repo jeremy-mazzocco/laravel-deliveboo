@@ -1,6 +1,372 @@
 @import '~bootstrap/scss/bootstrap';
 
-// altezza per le immagini card dish
-.card-img-fixed-height {
-    height: 200px;
+// Variables
+$white-color: #ffffff;
+$grey-color: #fff8E8;
+$yellow-color: #fcd581;
+$pink-color: #eb261ccf;
+$orange-color: #f82e2e;
+
+
+// NAVs
+#nav-top {
+    background-color: black;
+    height: 85px;
+
+    .nav-a {
+        font-size: 20px;
+
+    }
+
+    #img-logo {
+        width: 17%;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    .fa-user {
+        color: $grey-color;
+        margin-top: 15px;
+        font-size: 27px;
+    }
+
+    #navbarDropdown {
+        font-size: 30px;
+        color: $grey-color;
+    }
+
+    #dropdown-menu-edit {
+        left: -140px;
+
+        a {
+            font-size: 20px;
+            padding: 10px;
+            color: gray;
+        }
+    }
+}
+
+// MAIN
+main {
+    height: calc(100% - 85px);
+    background-image: url(../../storage/app/public/images/home-background-hero-scaled.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    height: 775px;
+
+
+
+
+    // SECTION CONTENTs
+
+    //Welcome.blade
+    #title-jumbotron {
+        font-size: 80px;
+        font-weight: bold;
+        color: $grey-color;
+        position: absolute;
+        top: 30%;
+        right: 47%;
+    }
+
+    // Register.blade
+    #register {
+
+        .card-body {
+            background-color: rgba(235, 38, 28, 0.8117647059);
+            border: none;
+            border-radius: 20px;
+
+            font-size: 17px;
+            color: #f1eeee;
+        }
+    }
+
+    // Login.blade
+    #card-body {
+        background-color: $pink-color;
+        height: 100%;
+        border-radius: 20px;
+        color: $grey-color;
+        font-size: 15px;
+
+        form {
+            padding: 30px;
+        }
+    }
+
+    // Edit.blade
+    .edit-profile {
+        background-color: rgba(235, 38, 28, 0.8117647059);
+        border-radius: 20px;
+        font-size: 15px;
+        color: #f1eeee;
+
+        img {
+            width: 450px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .form-control {
+            width: 36%;
+        }
+
+    }
+
+
+    // Dashboard.blade
+    .dashboard {
+        display: flex;
+        height: 620px;
+
+        // left
+        .left-nav {
+            width: calc(100% / 7) * 1;
+            font-size: 20px;
+            padding-top: 40px;
+            background-color: $pink-color;
+
+            .text-nav {
+                margin: 30px 25px;
+
+                a {
+                    color: $grey-color;
+                }
+
+                a:hover {
+                    background-color: rgba(178, 22, 22, 0.7921568627);
+                    border-radius: 20px;
+                    padding: 8px 10px;
+                }
+            }
+        }
+
+        // right
+        .dashboard-home {
+            width: calc(100% / 7) * 6;
+            padding-top: 40px;
+            position: relative;
+
+            .card {
+                width: 80%;
+                height: 85%;
+                margin: auto;
+                padding: 0px 10px;
+                border-radius: 20px;
+                background-color: $pink-color;
+                position: absolute;
+                top: 10%;
+                right: 10%;
+                overflow-y: scroll;
+                overflow-x: hidden;
+
+
+                // YIELDS
+
+                // home
+                h2 {
+                    background-color: $orange-color;
+                    border-top-left-radius: 20px;
+                    border-top-right-radius: 20px;
+                }
+
+                .row {
+                    padding-top: 50px;
+                    color: $grey-color;
+                    font-size: 20px;
+                    margin-bottom: 30px;
+
+                }
+
+                img {
+                    border-radius: 20px;
+                    max-width: 100%;
+                }
+
+                .list {
+                    border-radius: 20px;
+                    background-color: #eb261ccf;
+                    font-size: 17px;
+                    color: #f1eeee;
+
+                    ul {
+                        padding: 20px 0px;
+
+                    }
+
+                    li:last-child {
+                        margin-top: 50px;
+                    }
+                }
+
+                // dish-show
+                #dish-show {
+                    font-size: 14px;
+                    text-align: center;
+
+                    #card-title {
+                        height: 45px;
+
+                    }
+
+                    #img-dish {
+                        width: 80%;
+                        height: 150px;
+                        object-fit: cover;
+                        border-radius: 20px;
+                        max-width: 100%;
+                        margin-bottom: 5px;
+                    }
+
+                    .card-footer {
+                        background-color: #b21616ca;
+                        margin-top: 5px;
+                        border-radius: 20px;
+                        width: 85%;
+                        position: relative;
+                        left: 18px;
+
+                        .card-text {
+                            height: 75px;
+                        }
+
+                        form {
+                            display: inline;
+                        }
+                    }
+                }
+
+                // dish-edit
+                #dish-edit {
+                    font-size: 17px;
+                    color: #f1eeee;
+
+                    #edit-card {
+                        border: 3px solid rgba(178, 22, 22, 0.7921568627);
+                        border-radius: 5px;
+                        padding: 50px 0px;
+
+                        img {
+                            max-width: 100%;
+                            margin-bottom: 15px;
+                        }
+
+                        #confirm {
+                            border: none;
+                            background-color: rgb(255, 202, 44);
+                            border-radius: 5px;
+                            position: relative;
+                            left: 20%;
+                        }
+                    }
+                }
+
+                // dish-create
+                #dish-create {
+                    border: 4px solid #9f0c0cdb;
+                    border-radius: 5px;
+                    height: 450px;
+                    color: $grey-color;
+                    font-size: 15px;
+
+                    form {
+                        padding-top: 25px;
+                    }
+
+                    #crea {
+                        background-color: $grey-color;
+                        border: none;
+                        border-radius: 5px;
+                    }
+                }
+
+                // orders-show
+                .order {
+                    font-size: 15px;
+                    padding: 30px 10px;
+                    position: relative;
+                    border: 3px solid rgba(178, 22, 22, 0.7921568627);
+                    border-radius: 15px;
+                    height: fit-content;
+
+                    h6 {
+                        color: rgb(73, 7, 7);
+                        background-color: rgba(178, 22, 22, 0.7921568627);
+                        display: inline;
+                        padding: 7px;
+                        border-radius: 20px;
+                        margin-bottom: 15px;
+                    }
+
+                    #stato-ordine {
+                        display: inline;
+                        margin-left: 5px;
+                    }
+
+                    .dettagli {
+                        vertical-align: middle;
+
+                        .fa-plus {
+                            background-color: rgba(178, 22, 22, 0.7921568627);
+                            border-radius: 20px;
+                            font-size: 15px;
+                            margin-left: 8px;
+                            color: #f4c0c0;
+                            border: none;
+                            padding: 5px 10px;
+                            cursor: pointer;
+                            margin-top: 10px;
+                        }
+                    }
+
+                    .show-order {
+                        background-color: rgba(178, 22, 22, 0.7921568627);
+                        padding: 15px;
+                        margin-top: 12px;
+                        display: none;
+                        margin-top: 10px;
+
+
+                        #p-title {
+                            color: rgb(37, 3, 3);
+                            width: 100%;
+                            text-align: center;
+                            padding: 4px;
+                            border-radius: 20px;
+                        }
+
+                        p {
+                            color: rgb(37, 3, 3);
+                            width: 100%;
+                            text-align: center;
+                        }
+
+                        .customer-info {
+                            border: 1px solid rgba(178, 22, 22, 0.7921568627);
+                            padding: 2px;
+                            border-radius: 10px;
+                            color: #edd9d9;
+                            font-size: 12px;
+                        }
+
+                        .order-details {
+                            border: 1px solid rgba(178, 22, 22, 0.7921568627);
+                            padding: 2px;
+                            margin-top: 5px;
+                            border-radius: 10px;
+                            color: #edd9d9;
+                            font-size: 12px;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

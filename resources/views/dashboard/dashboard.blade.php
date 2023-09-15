@@ -1,29 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h2 class="fs-10 text-secondary my-4 text-center">
-        {{ __('Dashboard') }}
-    </h2>
-    <div class="row justify-content-center">
-        <div class="col">
+    <div class="dashboard">
+        <div class="left-nav">
+            <div class="text-nav">
+                <a href="{{ route('dashboard.home') }}" class="text-decoration-none">
+                    Dashboard
+                </a>
+            </div>
+            <div class="text-nav">
+                <a href="{{ route('dish.show') }}" class="text-decoration-none">
+                    I tuoi Piatti
+                </a>
+            </div>
+            <div class="text-nav">
+                <a href="{{ route('dish.create') }}" class="text-decoration-none">
+                    Aggiungi Piatto
+                </a>
+            </div>
+            <div class="text-nav">
+                <a href="{{ route('orders.show', Auth::user()->id) }}" class="text-decoration-none">
+                    Ordini clienti
+                </a>
+            </div>
+            <div class="text-nav">
+                <a href="" class="text-decoration-none">
+                    Statistiche
+                </a>
+            </div>
+        </div>
+        <div class="container-fluid dashboard-home">
             <div class="card">
-                <div class="card-header">{{ __('') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
+                @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
                     </div>
-                    @endif
+                @endif
 
-                    <div>
-                        @yield('dashboardSection')
-                    </div>
+                @yield('dashboardSection')
 
-                </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
