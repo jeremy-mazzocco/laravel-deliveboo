@@ -1,19 +1,20 @@
 @import '~bootstrap/scss/bootstrap';
 
 // Variables
+/* $black-color: #000000;
 $white-color: #ffffff;
 $grey-color: #fff8E8;
 $yellow-color: #fcd581;
 $pink-color: #eb261ccf;
-$orange-color: #f82e2e;
-
+$orange-color: #f82e2e; */
+$blue: #30BCED;
+$dark-grey: #303036;
+$white: #FFFFFF;
+$coral: #FC5130;
+$black: #050401;
 
 // NAVs
-body {
-    background-color: $grey-color;
-    height: 100%;
-    width: 100%;
-}
+/* }
 
 #nav-top {
     background-color: black;
@@ -382,6 +383,188 @@ main {
                         }
                     }
                 }
+            }
+        }
+    }
+} */
+/////////////////////////////////////
+/// LOGIN.BLADE.PHP
+/////////////////////////////////////
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: $dark-grey;
+    font-family: 'Arial', sans-serif;
+}
+
+#card-body {
+    background-color: $white;
+    border: 2px solid $black;
+    transition: transform 0.3s;
+
+    &:hover {
+        transform: scale(1.03);
+    }
+
+    label {
+        color: $black;
+        font-weight: 400;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+        border: 1px solid $black;
+
+        &:focus {
+            border-color: $blue;
+            box-shadow: 0 0 10px $blue;
+        }
+    }
+
+    .btn-light {
+        background-color: $blue;
+        color: $white;
+        border: none;
+        padding: 10px 20px;
+        transition: background-color 0.3s, transform 0.2s;
+
+        &:hover {
+            background-color: darken($blue, 10%);
+            transform: translateY(-3px);
+        }
+
+        &:active {
+            transform: translateY(1px);
+        }
+    }
+}
+
+/////////////////////////////////////
+/// REGISTER.BLADE.PHP
+/////////////////////////////////////
+
+
+#register {
+    background-color: $dark-grey;
+    padding: 3rem 0;
+
+    h1 {
+        color: $white;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid $coral;
+        text-align: center;
+        transition: transform 0.3s;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    .card-body {
+        background-color: $white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+
+        .col-md-3 {
+            margin: 0;
+            padding: 0;
+            flex: 0 0 calc(25% - 1rem);
+        }
+
+        .category-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: space-between;
+
+            .col-md-3 {
+                margin: 0;
+                padding: 0;
+                flex: 0 0 calc(25% - 1rem);
+            }
+
+            .category-label {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .category-container:after {
+            content: "";
+            flex: auto;
+        }
+
+        [type="checkbox"] {
+            display: none; // Nasconde le caselle di controllo
+
+            +label {
+                display: inline-block;
+                padding: 0.5rem 0;
+                margin: 0.2rem 0;
+                border-radius: 4px;
+                background-color: $white;
+                color: $black;
+                border: 1px solid $black;
+                cursor: pointer; // Mostra un cursore mano per indicare l'interattività
+                transition: background-color 0.3s, transform 0.2s;
+
+                &:hover {
+                    background-color: $blue;
+                    color: $white;
+                }
+            }
+
+            &:checked+label {
+                background-color: $blue;
+                color: $white;
+            }
+        }
+
+
+        &:hover {
+            transform: scale(1.01);
+        }
+
+        label {
+            color: $black;
+            font-weight: 400;
+        }
+
+        input,
+        select {
+            padding: 0.5rem;
+            border: 1px solid $black;
+            border-radius: 4px;
+            transition: transform 0.3s;
+
+            &:focus {
+                border-color: $blue;
+                box-shadow: 0 0 10px rgba($blue, 0.5);
+            }
+
+            &:hover {
+                transform: translateY(-3px);
+            }
+        }
+
+        .btn-primary {
+            margin-top: 1rem;
+            background-color: $blue;
+            color: $white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s, transform 0.3s;
+
+            &:hover {
+                background-color: darken($blue, 10%);
+                transform: translateY(-3px);
             }
         }
     }
