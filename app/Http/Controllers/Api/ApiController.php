@@ -56,8 +56,8 @@ class ApiController extends Controller
     //store order
     public function storeOrder(Request $request)
     {
-        $data = $request->all();
 
+        $data = $request->all();
         // Creare l'ordine senza includere i dati dei piatti
         $newOrder = Order::create([
             'customer_name' => $data['customer_name'],
@@ -69,15 +69,21 @@ class ApiController extends Controller
 
         // Attach i piatti con la quantità
         foreach ($data['dishes'] as $dishData) {
+            $dishID = $dishData['dish_id'];
             $newOrder->dishes()->attach($dishData['dish_id'], ['amount' => $dishData['amount']]);
         }
 
-        Mail::to('admin@mail.com')->send(new NewOrderMail($newOrder));
+        $userID = $data['userID'];
+        $user = User::findOrFail($userID);
+
+        Mail::to($data['email'])->send(new NewOrderMail($newOrder));
+
 
         return response()->json([
             'success' => true,
             'order' => $newOrder,
-        ]);
+
+        ])->view('mail.newordermail', compact('newOrder', 'user'));
     }
 
     // public function restaurantList($id)
