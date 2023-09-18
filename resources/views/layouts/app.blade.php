@@ -37,7 +37,7 @@
                     <!-- Left Side Of Navbar -->
                     <a class="navbar-brand d-flex align-items-center nav-a" href="{{ url('/') }}">
                         <div id="img-logo">
-                            <img src="../../../storage/images/Logo_DeliveBoo_fff8E8.png">
+                            <img src="{{ asset('storage/images/Logo-DeliveBoo-fff8E8.png') }}">
                         </div>
                     </a>
                     <!-- Right Side Of Navbar -->

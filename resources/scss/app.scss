@@ -9,6 +9,12 @@ $orange-color: #f82e2e;
 
 
 // NAVs
+body {
+    background-color: $grey-color;
+    height: 100%;
+    width: 100%;
+}
+
 #nav-top {
     background-color: black;
     height: 85px;
@@ -69,7 +75,7 @@ main {
         #title-jumbotron {
             font-size: 80px;
             font-weight: bold;
-            color: $grey-color;
+            color: black;
             position: absolute;
             top: 30%;
             right: 47%;
