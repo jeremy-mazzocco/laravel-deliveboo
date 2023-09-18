@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->string('customer_name', 64);
             $table->string('customer_address', 64);
-            $table->dateTime('time');
+            // $table->dateTime('time');
             $table->decimal('total_price')->unsigned();
             $table->string('phone_number', 64);
             $table->string('email', 64);

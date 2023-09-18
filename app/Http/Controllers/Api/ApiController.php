@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Type;
 use App\Models\User;
 use App\Models\Dish;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
@@ -46,6 +47,30 @@ class ApiController extends Controller
         return response()->json([
             'dishes' => $dishes,
             'restaurantSelected' => $restaurantSelected,
+        ]);
+    }
+
+    //store order
+    public function storeOrder(Request $request) {
+        $data = $request->all();
+
+            // Creare l'ordine senza includere i dati dei piatti
+        $newOrder = Order::create([
+            'customer_name' => $data['customer_name'],
+            'customer_address' => $data['customer_adress'],
+            'email' => $data['email'],
+            'phone_number' => $data['phone_number'],
+            'total_price' => $data['total_price'],
+        ]);
+
+            // Attach i piatti con la quantità
+        foreach ($data['dishes'] as $dishData) {
+            $newOrder->dishes()->attach($dishData['dish_id'], ['amount' => $dishData['amount']]);
+        }
+
+        return response()->json([
+            'success' => true,
+            'order' => $newOrder,
         ]);
     }
 

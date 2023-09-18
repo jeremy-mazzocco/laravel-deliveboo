@@ -47,7 +47,7 @@
                                 <p>{{ $dish->dish_name }}</p>
                                 <div>Prezzo: &euro; {{ $dish->price }}</div>
                                 <div>Quantità: {{ $dish->pivot->amount }}</div>
-                                <div>Ora ordinazione: {{ $order->time }}</div>
+                                {{-- <div>Ora ordinazione: {{ $order->time }}</div> --}}
                                 @php
                                     $totPiatto = $dish->price * $dish->pivot->amount;
                                     $tot += $totPiatto;

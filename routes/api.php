@@ -9,6 +9,9 @@ Route::prefix('/v1')->group(function () {
 
     Route::get('/home', [ApiController::class, 'typeList']);
 
+    //store order
+    Route::post('/orders', [ApiController::class, 'storeOrder']);
+
     Route::get('/restaurants/{ids}', [ApiController::class, 'restaurantList']);
 
     Route::get('/restaurant/{id}/dishes', [ApiController::class, 'dishesList']);
