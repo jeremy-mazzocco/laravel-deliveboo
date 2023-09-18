@@ -7,7 +7,10 @@ use App\Models\Type;
 use App\Models\User;
 use App\Models\Dish;
 use App\Models\Order;
+use App\Mail\NewOrderMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
+
 
 class ApiController extends Controller
 {
@@ -23,25 +26,25 @@ class ApiController extends Controller
         ]);
     }
 
-    public function restaurantList($typeIds){
+    public function restaurantList($typeIds)
+    {
         $typeIdsArray = explode(',', $typeIds);
 
         $restaurant = User::with('types')
             ->whereIn('users.id', function ($query) use ($typeIdsArray) {
-            $query->select('user_id')
-                ->from('type_user')
-                ->whereIn('type_id', $typeIdsArray)
-                ->groupBy('user_id')
-                ->havingRaw('COUNT(DISTINCT type_id) = ?', [count($typeIdsArray)]);
-        })
-        ->get();
+                $query->select('user_id')
+                    ->from('type_user')
+                    ->whereIn('type_id', $typeIdsArray)
+                    ->groupBy('user_id')
+                    ->havingRaw('COUNT(DISTINCT type_id) = ?', [count($typeIdsArray)]);
+            })
+            ->get();
 
         return response()->json(['restaurant' => $restaurant]);
     }
 
-
-
-    public function dishesList($id) {
+    public function dishesList($id)
+    {
         $dishes = Dish::where('user_id', $id)->get();
         $restaurantSelected = User::findOrFail($id);
         return response()->json([
@@ -51,10 +54,11 @@ class ApiController extends Controller
     }
 
     //store order
-    public function storeOrder(Request $request) {
+    public function storeOrder(Request $request)
+    {
         $data = $request->all();
 
-            // Creare l'ordine senza includere i dati dei piatti
+        // Creare l'ordine senza includere i dati dei piatti
         $newOrder = Order::create([
             'customer_name' => $data['customer_name'],
             'customer_address' => $data['customer_adress'],
@@ -63,10 +67,12 @@ class ApiController extends Controller
             'total_price' => $data['total_price'],
         ]);
 
-            // Attach i piatti con la quantità
+        // Attach i piatti con la quantità
         foreach ($data['dishes'] as $dishData) {
             $newOrder->dishes()->attach($dishData['dish_id'], ['amount' => $dishData['amount']]);
         }
+
+        Mail::to('admin@mail.com')->send(new NewOrderMail($newOrder));
 
         return response()->json([
             'success' => true,
