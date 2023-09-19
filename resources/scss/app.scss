@@ -1046,63 +1046,73 @@ h1.text-center {
 
 .orders-container {
     width: 100%;
-    margin: 2% 0;
-    padding: 0 5%;
+    margin: 5% 0 3%;
+    padding: 0 3%;
 }
 
 .order-container {
     display: flex;
     flex-direction: row;
     margin-bottom: 3%;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid #007bff;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #222;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 30px rgba(0, 123, 255, 0.5);
+    }
 }
 
 .order {
-    background-color: #414141;
     font-size: 15px;
     padding: 30px 10px;
-    position: relative;
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
-    height: fit-content;
     width: 30%;
+    border-right: 1px solid #007bff;
+    position: relative;
 
     .order-status-container {
         display: flex;
-        flex-direction: row;
-        align-items: center;
         justify-content: space-between;
-        padding: 0 10%;
+        align-items: center;
 
         h6 {
             color: #fff;
             padding: 5px 10px;
-            font-size: 18px;
             border-radius: 10px;
             text-align: center;
+            background: rgba(0, 123, 255, 0.1);
         }
 
         #stato-ordine {
-            margin-left: 5px;
-            font-size: 18px;
             padding: 5px 10px;
             border-radius: 10px;
+
+            &.bg-success {
+                background: #28a74566;
+            }
+
+            &.bg-danger {
+                background: #dc354566;
+            }
         }
     }
 
     .order-time {
         color: white;
-        margin: 5% 0;
+        margin-top: 15px;
     }
 
     .dettagli {
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
 
         .fa-plus {
+            color: #007bff;
             transition: transform 0.3s ease;
         }
 
@@ -1113,35 +1123,51 @@ h1.text-center {
 }
 
 .order-details-container {
-    background-color: #2a2a2a;
     width: 70%;
     padding: 2%;
+    color: #fff;
 
     .order-details {
-        display: flex;
-        flex-direction: column;
         gap: 20px;
 
         .customer-info,
         .order-info-container {
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid #007bff;
             padding: 2%;
             border-radius: 10px;
-            color: #f4c0c0;
-
-            div {
-                margin-bottom: 10px;
-            }
+            background: rgba(0, 123, 255, 0.1);
         }
 
+        .customer-info #p-title {
+            position: relative;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .customer-info #p-title::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #007bff;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .customer-info #p-title:hover::before {
+            visibility: visible;
+            width: 100%;
+        }
+
+
+
+
         .order-info {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
             gap: 20px;
 
             .dish {
-                width: 33%;
                 display: flex;
                 flex-direction: column;
                 gap: 5px;

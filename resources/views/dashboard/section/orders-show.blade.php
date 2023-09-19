@@ -34,7 +34,7 @@
                     <div class="order-details my-2">
                         {{-- CUSTOMER INFO --}}
                         <div class="customer-info my-2">
-                            <p class="bg-danger" id="p-title">
+                            <p id="p-title">
                                 {{ $order->customer_name }}
                             </p>
                             <div class="customer-datails ">
