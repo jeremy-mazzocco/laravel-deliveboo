@@ -6,7 +6,7 @@
     @endphp
 
     <h1 class="text-center fw-bold p-3">
-        I tuoi ordini
+        I TUOI ORDINI
     </h1>
 
     <div class="orders-container row">

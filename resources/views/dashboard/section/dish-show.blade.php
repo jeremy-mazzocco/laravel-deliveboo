@@ -2,7 +2,7 @@
 
 @section('dashboardSection')
     <h1 class="text-center fw-bold p-3">
-        I tuoi piatti
+        I TUOI PIATTI
     </h1>
 
     <div class="row" id="dish-show">

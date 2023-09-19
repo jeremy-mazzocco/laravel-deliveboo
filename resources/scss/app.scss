@@ -446,21 +446,20 @@ body {
 /////////////////////////////////////
 
 #dashboard-container {
-
     display: flex;
     align-items: center;
     margin: 15vh 10%;
 
     .left-nav {
         width: 260px;
-        height: 100%;
-        background-color: $dark-grey;
+        height: 365px;
+        background-color: #333;
         padding: 2rem;
-        border: 3px dotted white;
+        border: 3px dotted #fff;
         border-radius: 30px;
         display: flex;
         flex-direction: column;
-        align-items: start;
+        align-items: center;
 
         .text-nav {
             display: flex;
@@ -470,49 +469,53 @@ body {
             .nav-icon {
                 width: 24px;
                 height: 24px;
-                background-color: $dark-grey;
+                background-color: #434343; // Colorazione coerente con il tema dark
                 border-radius: 50%;
                 margin-right: 1rem;
                 display: inline-block;
             }
 
             a {
-                color: $dark-grey;
-                background-color: $white;
+                color: #fff;
+                background-color: #434343; // Sfondo per i link
                 padding: 0.5rem 1rem;
                 border-radius: 20px;
-                border: 1px solid $dark-grey;
+                border: 1px solid #fff;
                 font-weight: 600;
                 text-transform: uppercase;
                 letter-spacing: 1px;
                 font-size: 0.9rem;
-                border: 3px solid $dark-grey;
                 transition: background-color 0.3s, color 0.3s, border 0.1s;
 
                 &:hover {
-                    background-color: $dark-grey;
-                    color: $white;
-                    border: 3px solid $white;
+                    background-color: #2c2c2c; // Sfondo al passaggio del mouse
+                    color: #fff;
+                    border: 3px solid #fff;
                 }
             }
         }
     }
 
-
     .dashboard-home {
         flex: 1;
         margin-left: 10%;
-        background-color: #FFFFFF;
+        background-color: #434343; // Coerenza con il tema dark
         padding: 0;
         border-radius: 150px;
 
-
         .card {
-            background-color: $white;
-            border: 3px solid $white;
+            background-color: #2c2c2c; // Sfondo della card
+            border: 3px solid #fff; // Bordo bianco per contrastare
             border-radius: 50px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             overflow: hidden;
+
+            h1 {
+                color: #fff; // Testo bianco
+                border-bottom: 2px solid #fff; // Border bottom bianco
+                padding-bottom: 10px; // Spazio sotto l'h1 per rendere il border più visibile
+                margin-bottom: 15px; // Margine per separare l'h1 dal contenuto sottostante
+            }
         }
     }
 }
@@ -714,12 +717,13 @@ body {
 /// HOME-USER.BLADE.PHP
 /////////////////////////////////////
 
-h1.text-center {
+h1 {
     margin-bottom: 0;
     border-bottom: 3px solid $dark-grey;
     padding-bottom: 1rem;
     color: $dark-grey;
-
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .row {
