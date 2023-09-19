@@ -15,7 +15,7 @@
                 <h6 class="titolo-ordine">Ordine nr: {{ $order->id }}</h6>
                 <div class="fs-6 p-2 @if ($order->status) bg-success @else bg-danger @endif text-light p-1 w-25 text-center rounded"
                     id="stato-ordine">
-                    <b>{{ $order->status ? 'Pagato' : 'Da pagare' }}</b>
+                    <b>{{ $order->status ? 'Completo' : 'Da spedire' }}</b>
                 </div>
                 <div class="dettagli m-2">
                     <span>Dettagli:</span>
