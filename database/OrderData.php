@@ -4,6 +4,7 @@ $ordersData = [
 
     [
 
+        'order_code' => 'codProva99',
         'customer_name' => 'Mario Rossi',
         'customer_address' => 'Via Roma, 123',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -16,6 +17,7 @@ $ordersData = [
 
     [
 
+        'order_code' => 'codProva99',
         'customer_name' => 'Anna Bianchi',
         'customer_address' => 'Piazza Garibaldi, 45',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -28,6 +30,7 @@ $ordersData = [
 
     [
 
+        'order_code' => 'codProva99',
         'customer_name' => 'Luigi Verdi',
         'customer_address' => 'Via Milano, 78',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -40,6 +43,7 @@ $ordersData = [
 
     [
 
+        'order_code' => 'codProva99',
         'customer_name' => 'Giovanna Gialli',
         'customer_address' => 'Corso Vittorio Emanuele, 56',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -52,6 +56,7 @@ $ordersData = [
 
     [
 
+        'order_code' => 'codProva99',
         'customer_name' => 'Paolo Neri',
         'customer_address' => 'Lungomare Kennedy, 12',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -64,6 +69,7 @@ $ordersData = [
 
     [
 
+        'order_code' => 'codProva99',
         'customer_name' => 'Laura Rossini',
         'customer_address' => 'Via Montepulciano, 34',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -76,6 +82,7 @@ $ordersData = [
 
     [
 
+        'order_code' => 'codProva99',
         'customer_name' => 'Simone Ferrari',
         'customer_address' => 'Piazza Dante, 21',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -88,6 +95,7 @@ $ordersData = [
 
     [
 
+        'order_code' => 'codProva99',
         'customer_name' => 'Elena Conti',
         'customer_address' => 'Via della Repubblica, 7',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -100,6 +108,7 @@ $ordersData = [
 
     [
 
+        'order_code' => 'codProva99',
         'customer_name' => 'Carlo Mancini',
         'customer_address' => 'Corso Cavour, 88',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -112,6 +121,7 @@ $ordersData = [
 
     [
 
+        'order_code' => 'codProva99',
         'customer_name' => 'Sofia Rossi',
         'customer_address' => 'Via Vesuvio, 123',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -121,6 +131,7 @@ $ordersData = [
         'status' => true,
     ],
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Paolo Neri',
         'customer_address' => 'Via Torino, 567',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -131,6 +142,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Laura Marroni',
         'customer_address' => 'Via Venezia, 1234',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -141,6 +153,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Giovanni Rossini',
         'customer_address' => 'Via Bologna, 7890',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -151,6 +164,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Elena Verdi',
         'customer_address' => 'Via Palermo, 12345',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -161,6 +175,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Marco Bianchi',
         'customer_address' => 'Via Genova, 6789',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -171,6 +186,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Francesca Rossi',
         'customer_address' => 'Via Pisa, 9876',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -181,6 +197,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Alessio Gialli',
         'customer_address' => 'Via Livorno, 5432',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -191,6 +208,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Sara Verdi',
         'customer_address' => 'Via Cagliari, 8765',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -201,6 +219,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Lorenzo Bianchi',
         'customer_address' => 'Via Catania, 4321',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -211,6 +230,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Elena Neri',
         'customer_address' => 'Via Sassari, 6543',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -221,6 +241,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Alice Rossi',
         'customer_address' => 'Via Milano, 1234',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -231,6 +252,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Luca Verdi',
         'customer_address' => 'Via Roma, 5678',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -241,6 +263,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Sofia Bianchi',
         'customer_address' => 'Via Napoli, 9876',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -251,6 +274,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Matteo Gialli',
         'customer_address' => 'Via Firenze, 5432',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -261,6 +285,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Emma Verdi',
         'customer_address' => 'Via Venezia, 1111',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -271,6 +296,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Leonardo Neri',
         'customer_address' => 'Via Palermo, 2222',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -281,6 +307,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Aurora Bianchi',
         'customer_address' => 'Via Genova, 3333',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -291,6 +318,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Liam Gialli',
         'customer_address' => 'Via Livorno, 4444',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -301,6 +329,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Olivia Rossi',
         'customer_address' => 'Via Cagliari, 5555',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -311,6 +340,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Gabriele Verdi',
         'customer_address' => 'Via Sassari, 6666',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -321,6 +351,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Giulia Neri',
         'customer_address' => 'Via Torino, 7777',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -331,6 +362,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Alessandro Bianchi',
         'customer_address' => 'Via Milano, 8888',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -341,6 +373,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Mia Verdi',
         'customer_address' => 'Via Roma, 9999',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -351,6 +384,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Liam Gialli',
         'customer_address' => 'Via Napoli, 12345',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -361,6 +395,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Sophia Rossi',
         'customer_address' => 'Via Firenze, 54321',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -371,6 +406,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Noah Bianchi',
         'customer_address' => 'Via Venezia, 11111',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -381,6 +417,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Isabella Gialli',
         'customer_address' => 'Via Palermo, 22222',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -391,6 +428,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Liam Verdi',
         'customer_address' => 'Via Genova, 33333',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -401,6 +439,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Olivia Neri',
         'customer_address' => 'Via Livorno, 44444',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),
@@ -411,6 +450,7 @@ $ordersData = [
     ],
 
     [
+        'order_code' => 'codProva99',
         'customer_name' => 'Lucas Rossi',
         'customer_address' => 'Via Cagliari, 55555',
         // 'time' => date('Y-m-d H:i:s', strtotime('-1 month', time() + rand(0, 30 * 24 * 60 * 60))),

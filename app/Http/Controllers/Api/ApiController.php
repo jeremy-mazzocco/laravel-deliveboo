@@ -56,9 +56,11 @@ class ApiController extends Controller
 
             // Creare l'ordine senza includere i dati dei piatti
         $newOrder = Order::create([
+            'order_code' =>  $data['order_code'],
             'customer_name' => $data['customer_name'],
             'customer_address' => $data['customer_adress'],
             'email' => $data['email'],
+            'status' => $data['status'],
             'phone_number' => $data['phone_number'],
             'total_price' => $data['total_price'],
         ]);

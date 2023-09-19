@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
 
+            $table->string('order_code', 10);
             $table->string('customer_name', 64);
             $table->string('customer_address', 64);
             // $table->dateTime('time');
