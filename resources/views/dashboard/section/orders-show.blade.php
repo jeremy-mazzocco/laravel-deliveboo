@@ -73,47 +73,6 @@
                     </div>
                 </div>
             </div>
-
-            {{-- <div class="show-order">
-                    <div class="customer-info my-2">
-                        <p class="bg-danger" id="p-title">
-                            {{ $order->customer_name }}
-                        </p>
-                        <div class="customer-datails ">
-                            <div>
-                                Indirizzo: {{ $order->customer_address }}
-                            </div>
-                            <div>
-                                Tel: {{ $order->phone_number }}
-                            </div>
-                            <div>
-                                Email: {{ $order->email }}
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <div class="order-details my-2">
-                        @foreach ($order->dishes as $dish)
-                            <div class="dish my-2">
-                                <p>{{ $dish->dish_name }}</p>
-                                <div>Prezzo: &euro; {{ $dish->price }}</div>
-                                <div>Quantità: {{ $dish->pivot->amount }}</div>
-                                <div>Ora ordinazione: {{ $order->time }}</div>
-                                @php
-                                    $totPiatto = $dish->price * $dish->pivot->amount;
-                                    $tot += $totPiatto;
-                                @endphp
-                            </div>
-                            <hr>
-                        @endforeach
-                        <div class="fs-5">
-                            Totale: &euro;{{ $tot }}
-                        </div>
-
-                    </div>
-                </div> --}}
-    </div>
-    @endforeach
+        @endforeach
     </div>
 @endsection
