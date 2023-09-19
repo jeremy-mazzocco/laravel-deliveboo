@@ -599,7 +599,7 @@ body {
         border-radius: 30px;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: start;
 
         .text-nav {
             display: flex;
@@ -1028,6 +1028,126 @@ h1.text-center {
                 &:hover {
                     background-color: $white;
                     color: $dark-grey;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+/////////////////////////////////////
+/// ORDERS-SHOW.BLADE.PHP
+/////////////////////////////////////
+
+.order-container {
+
+    display: flex;
+    flex-direction: row;
+
+    .order {
+        background-color: #414141;
+        font-size: 15px;
+        padding: 30px 10px;
+        position: relative;
+        border: 3px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        height: fit-content;
+        width: 20%;
+
+        .order-status-container {
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            h6 {
+                color: #fff;
+                background-color: #2a2a2a;
+                padding: 5px 10px;
+                font-size: 18px;
+                border-radius: 10px;
+                text-align: center;
+            }
+
+            #stato-ordine {
+                margin-left: 5px;
+                font-size: 18px;
+                padding: 5px 10px;
+                border-radius: 10px;
+            }
+        }
+
+        .order-time {
+            color: white;
+        }
+
+        .dettagli {
+            vertical-align: middle;
+
+            .fa-plus {
+                background-color: #2a2a2a;
+                border-radius: 20px;
+                font-size: 15px;
+                margin-left: 8px;
+                color: #f4c0c0;
+                border: none;
+                padding: 5px 10px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+        }
+
+        #p-title {
+            color: #fff;
+            width: 100%;
+            text-align: center;
+            padding: 4px;
+            border-radius: 20px;
+        }
+
+        p {
+            color: #fff;
+            width: 100%;
+            text-align: center;
+        }
+
+        .customer-info {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2px;
+            border-radius: 10px;
+            color: #f4c0c0;
+            font-size: 12px;
+        }
+    }
+
+    .order-details-container {
+        width: 80%;
+
+        .order-details {
+            display: flex;
+
+            .customer-info {
+                margin: 0 20px;
+            }
+
+            .order-info-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .order-info {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+
+                    .dish {
+                        width: 33%;
+                    }
                 }
             }
         }

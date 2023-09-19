@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // ordini tendina
 const mostraDettagliButtons = document.querySelectorAll('.fa-plus');
-const dettagliOrdineElements = document.querySelectorAll('.show-order');
+const dettagliOrdineElements = document.querySelectorAll('.order-details-container');
 
 mostraDettagliButtons.forEach((button, index) => {
     button.addEventListener('click', () => {
