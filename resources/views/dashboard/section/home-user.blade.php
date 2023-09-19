@@ -1,7 +1,7 @@
 @extends('dashboard.dashboard')
 
 @section('dashboardSection')
-    <h1 class="text-center fw-bold text-white p-3">
+    <h1 class="text-center fw-bold p-3">
         {{ Auth::user()->restaurant_name }}
     </h1>
 

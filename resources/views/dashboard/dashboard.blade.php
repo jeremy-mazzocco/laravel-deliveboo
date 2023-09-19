@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="dashboard">
+    <div class="dashboard" id="dashboard-container">
         <div class="left-nav">
             <div class="text-nav">
                 <a href="{{ route('dashboard.home') }}" class="text-decoration-none">
