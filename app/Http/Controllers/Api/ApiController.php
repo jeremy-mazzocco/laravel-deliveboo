@@ -59,36 +59,38 @@ class ApiController extends Controller
     {
 
         $data = $request->all();
-        // Creare l'ordine senza includere i dati dei piatti
-        $newOrder = Order::create([
-            'order_code' =>  $data['order_code'],
-            'customer_name' => $data['customer_name'],
-            'customer_address' => $data['customer_adress'],
-            'email' => $data['email'],
-            'status' => $data['status'],
-            'phone_number' => $data['phone_number'],
-            'total_price' => $data['total_price'],
-        ]);
 
-        // Attach i piatti con la quantità
-        foreach ($data['dishes'] as $dishData) {
-            $dishID = $dishData['dish_id'];
-            $newOrder->dishes()->attach($dishData['dish_id'], ['amount' => $dishData['amount']]);
+            // Creare l'ordine senza includere i dati dei piatti
+            $newOrder = Order::create([
+                'order_code' =>  $data['order_code'],
+                'customer_name' => $data['customer_name'],
+                'customer_address' => $data['customer_adress'],
+                'email' => $data['email'],
+                'status' => $data['status'],
+                'phone_number' => $data['phone_number'],
+                'total_price' => $data['total_price'],
+            ]);
+
+            // Attach i piatti con la quantità
+            foreach ($data['dishes'] as $dishData) {
+                $dishID = $dishData['dish_id'];
+                $newOrder->dishes()->attach($dishData['dish_id'], ['amount' => $dishData['amount']]);
+            }
+
+            // Prendi User usano user_id
+            $dish = $newOrder->dishes()->where('dish_id', $dishData['dish_id'])->first();
+            $userID = $dish->user_id;
+            $user = User::findOrFail($userID);
+
+
+            Mail::to($data['email'])->send(new NewOrderMail($newOrder, $user));
+            Mail::to($user['email'])->send(new NewRequestOrderMail($newOrder, $user));
+
+            return response()->json([
+                'success' => true,
+                'order' => $newOrder,
+
+            ]);
         }
-
-        // Prendi User usano user_id
-        $dish = $newOrder->dishes()->where('dish_id', $dishData['dish_id'])->first();
-        $userID = $dish->user_id;
-        $user = User::findOrFail($userID);
-
-
-        Mail::to($data['email'])->send(new NewOrderMail($newOrder, $user));
-        Mail::to($user['email'])->send(new NewRequestOrderMail($newOrder, $user));
-
-        return response()->json([
-            'success' => true,
-            'order' => $newOrder,
-
-        ]);
     }
-}
+
