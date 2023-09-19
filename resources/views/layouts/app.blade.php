@@ -37,7 +37,7 @@
                     <!-- Left Side Of Navbar -->
                     <a class="navbar-brand d-flex align-items-center nav-a" href="{{ url('/') }}">
                         <div id="img-logo">
-                            <img src="{{ asset('storage/images/Logo-DeliveBoo-fff8E8.png') }}">
+                            <img src="{{ asset('storage/images/Logo-DeliveBoo-bianco.png') }}">
                         </div>
                     </a>
                     <!-- Right Side Of Navbar -->
@@ -55,11 +55,10 @@
                                     </li>
                                 @endif
                             @else
-                                <i class="fa-solid fa-user"></i>
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
+                                        {{ Auth::user()->restaurant_name }}
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"
