@@ -41,8 +41,7 @@
 
                     <div class="m-3">
                         <label for="description">Descrizione</label>
-                        <input type="text" maxlength="1275" name="description" id="description"
-                            value="{{ $dish->description }}">
+                        <textarea name="description" id="description" maxlength="1275">{{ $dish->description }}</textarea>
                         @error('description')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

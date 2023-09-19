@@ -76,3 +76,23 @@ mostraDettagliButtons.forEach((button, index) => {
 
 
 
+
+//////////////////////
+//STILE
+//////////////////////
+
+document.addEventListener('input', function (event) {
+    if (event.target.tagName.toLowerCase() === 'textarea') {
+        autoExpand(event.target);
+    }
+});
+
+function autoExpand(element) {
+    // Resetta l'altezza, altrimenti continua a crescere quando si aggiungono molte linee
+    element.style.height = 'auto';
+
+    // Imposta l'altezza sulla base della scrollHeight
+    element.style.height = element.scrollHeight + 'px';
+}
+
+

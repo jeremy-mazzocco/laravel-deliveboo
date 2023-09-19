@@ -910,3 +910,126 @@ h1.text-center {
         }
     }
 }
+
+
+
+
+
+
+/////////////////////////////////////
+/// DISH-EDIT.BLADE.PHP
+/////////////////////////////////////
+
+#dish-edit {
+    background: linear-gradient(135deg, #414141, #000);
+    border-radius: 30px;
+    padding: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    margin: 0;
+
+    h1 {
+        text-align: center;
+        margin-bottom: 1rem;
+        border-bottom: 4px solid $white;
+    }
+
+    #edit-card {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 1rem;
+        position: relative;
+
+        img {
+            max-width: 100%;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+
+        form {
+            color: $white;
+            width: 100%;
+
+            label {
+                display: block;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+            }
+
+            input[type="text"],
+            input[type="number"],
+            select,
+            textarea {
+                width: 100%;
+                padding: 10px;
+                border: 2px solid rgba(255, 255, 255, 0.2);
+                border-radius: 20px;
+                background-color: rgba(255, 255, 255, 0.1);
+                color: $white;
+                font-size: 16px;
+                transition: border-color 0.3s;
+
+                &:focus {
+                    border-color: $white;
+                    outline: none;
+                }
+            }
+
+            textarea {
+                overflow-y: hidden;
+                resize: none;
+                min-height: 50px;
+            }
+
+            input[type="file"] {
+                border: none;
+                padding: 10px;
+                margin-top: 0.5rem;
+            }
+
+            select#visibility {
+                appearance: none;
+                background-color: rgba(255, 255, 255, 0.1);
+                color: $white;
+                background-image: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+                background-repeat: no-repeat;
+                background-position: right 10px center;
+                cursor: pointer;
+
+                option {
+                    background-color: $dark-grey;
+                    color: $white;
+                }
+
+                &:focus {
+                    border-color: $white;
+                    outline: none;
+                }
+            }
+
+            .alert {
+                margin-top: 0.5rem;
+                background-color: red;
+                color: $white;
+                padding: 10px;
+                border-radius: 20px;
+            }
+
+            #confirm {
+                border: 2px solid $white;
+                border-radius: 20px;
+                background-color: $dark-grey;
+                color: $white;
+                font-weight: 600;
+                transition: background-color 0.3s, color 0.3s;
+                position: absolute;
+                left: 50px;
+                bottom: 25px;
+
+                &:hover {
+                    background-color: $white;
+                    color: $dark-grey;
+                }
+            }
+        }
+    }
+}
