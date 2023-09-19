@@ -32,11 +32,7 @@
                     $types = Auth::user()->types;
                     ?>
                     @foreach ($types as $index => $type)
-                        {{ $type->type_name }}
-
-                        @if ($index < count($types) - 1)
-                            , <!-- Aggiungi una virgola solo se l'elemento corrente non è l'ultimo -->
-                        @endif
+                        <span class="category-label">{{ $type->type_name }}</span>
                     @endforeach
                 </li>
             </ul>

@@ -705,6 +705,23 @@ h1.text-center {
                 &:last-child {
                     margin-bottom: 0;
                 }
+
+                .category-label {
+                    display: inline-block;
+                    padding: 3px 7px;
+                    margin: 3px 5px;
+                    background-color: transparent;
+                    font-size: 15px;
+                    color: $dark-grey;
+                    border: 2px solid $dark-grey;
+                    border-radius: 15px;
+                    transition: background-color 0.3s, color 0.3s;
+
+                    &:hover {
+                        background-color: $dark-grey;
+                        color: $white;
+                    }
+                }
             }
         }
     }
