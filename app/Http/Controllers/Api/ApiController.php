@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Dish;
 use App\Models\Order;
 use App\Mail\NewOrderMail;
+use App\Mail\NewRequestOrderMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
@@ -80,7 +81,7 @@ class ApiController extends Controller
 
 
         Mail::to($data['email'])->send(new NewOrderMail($newOrder, $user));
-        Mail::to($user['email'])->send(new NewOrderMail($newOrder, $user));
+        Mail::to($user['email'])->send(new NewRequestOrderMail($newOrder, $user));
 
         return response()->json([
             'success' => true,
