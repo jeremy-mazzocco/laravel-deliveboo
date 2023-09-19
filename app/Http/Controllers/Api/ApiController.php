@@ -73,33 +73,18 @@ class ApiController extends Controller
             $newOrder->dishes()->attach($dishData['dish_id'], ['amount' => $dishData['amount']]);
         }
 
-        $userID = $data['userID'];
+        // Prendi User usano user_id
+        $dish = $newOrder->dishes()->where('dish_id', $dishData['dish_id'])->first();
+        $userID = $dish->user_id;
         $user = User::findOrFail($userID);
 
-        Mail::to($data['email'])->send(new NewOrderMail($newOrder));
 
+        Mail::to($data['email'])->send(new NewOrderMail($newOrder, $user));
 
         return response()->json([
             'success' => true,
             'order' => $newOrder,
 
-        ])->view('mail.newordermail', compact('newOrder', 'user'));
+        ])->view('mail.newordermail');
     }
-
-    // public function restaurantList($id)
-    // {
-
-    //     $typeIds = explode(',', $id);
-
-    //     // Esegui la query per ottenere gli utenti che hanno TUTTE le tipologie specificate
-    //     $users = User::where(function ($query) use ($typeIds) {
-    //         foreach ($typeIds as $typeId) {
-    //             $query->whereHas('type_id', function ($subquery) use ($typeId) {
-    //                 $subquery->where('id', $typeId);
-    //             });
-    //         }
-    //     })->get();
-
-    //     return response()->json(['users' => $users]);
-    // }
 }

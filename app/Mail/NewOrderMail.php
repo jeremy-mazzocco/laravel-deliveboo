@@ -14,16 +14,19 @@ class NewOrderMail extends Mailable
     use Queueable, SerializesModels;
 
     public $newOrder;
+    public $user;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($newOrder)
+    public function __construct($newOrder, $user)
     {
         $this->newOrder = $newOrder;
+        $this->user = $user;
     }
+
 
     /**
      * Get the message envelope.

@@ -10,12 +10,12 @@
 
 <body>
 
-    <h2>
+    <h1>
         Ciao {{ $newOrder->customer_name }} !
-    </h2>
-    <h4>
+    </h1>
+    <p>
         Stiamo preparando il tuo ordine...
-    </h4>
+    </p>
     <p>
         <b>Indirizzo di consegna: </b>
         {{ $newOrder->customer_address }}
@@ -32,9 +32,25 @@
     </ul>
     </p>
 
-    {{-- <h2>
+    <hr>
+
+    <h3>
         {{ $user->restaurant_name }}
-    </h2> --}}
+    </h3>
+    <ul style="list-style: none">
+        <li>
+            {{ $user->address }}
+        </li>
+        <li>
+            {{ $user->email }}
+        </li>
+
+        <li>
+            {{ $user->phone_number }}
+        </li>
+    </ul>
+
+
 
 </body>
 
