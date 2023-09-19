@@ -11,17 +11,29 @@
 <body>
 
     <h1>
-        Ciao {{ $newOrder->customer_name }} !
+        Salve {{ $user->restaurant_name }} !
     </h1>
     <p>
-        Stiamo preparando il tuo ordine...
+        Abbiamo un nuovo ordine...
     </p>
-    <p>
-        <b>Indirizzo di consegna: </b>
-        {{ $newOrder->customer_address }}
-    </p>
+    <ul style="list-style: none">
+        <li>
+            <b>Cliente: </b>
+            {{ $newOrder->customer_name }}
+        </li>
+        <li>
+            <b>Indirizzo di consegna: </b>
+            {{ $newOrder->customer_address }}
+        </li>
+        <li>
+            {{ $newOrder->phone_number }}
+        </li>
+        <li>
+            {{ $newOrder->email }}
+        </li>
+    </ul>
     <div>
-        <b>Dettagli del tuo ordine: </b>
+        <b>Dettagli ordine: </b>
         <ul>
             @foreach ($newOrder['dishes'] as $dish)
                 <li>
@@ -34,23 +46,6 @@
     </div>
 
     <hr>
-
-    <h3>
-        {{ $user->restaurant_name }}
-    </h3>
-    <ul style="list-style: none">
-        <li>
-            {{ $user->address }}
-        </li>
-        <li>
-            {{ $user->email }}
-        </li>
-
-        <li>
-            {{ $user->phone_number }}
-        </li>
-    </ul>
-
 
 
 </body>
