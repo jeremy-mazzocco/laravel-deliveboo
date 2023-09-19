@@ -80,11 +80,12 @@ class ApiController extends Controller
 
 
         Mail::to($data['email'])->send(new NewOrderMail($newOrder, $user));
+        Mail::to($user['email'])->send(new NewOrderMail($newOrder, $user));
 
         return response()->json([
             'success' => true,
             'order' => $newOrder,
 
-        ])->view('mail.newordermail');
+        ]);
     }
 }
