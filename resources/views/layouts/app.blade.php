@@ -10,8 +10,19 @@
 
     <title>DeliveBoo</title>
 
-    <!-- Favicon / Logo Image -->
-    <link rel="icon" href="{{ asset('storage/images/Panino-DeliveBoo-bianco.ico') }}" type="image/x-icon">
+    <!-- Favicon per browser standard -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('storage/images/Panino-DeliveBoo-bianco.ico') }}">
+
+    <!-- Favicon in formato PNG per diverse dimensioni -->
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ asset('storage/images/Panino-DeliveBoo-bianco-16x16.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ asset('storage/images/Panino-DeliveBoo-bianco-32x32.png') }}">
+
+    <!-- Apple Touch Icon per dispositivi iOS -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('storage/images/apple-touch-icon.png') }}">
+
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
