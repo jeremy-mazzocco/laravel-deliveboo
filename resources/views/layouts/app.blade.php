@@ -21,6 +21,11 @@
     <!-- Usando Vite -->
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 
+    {{-- grafico --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.0.2/luxon.min.js"></script>
+
+
 </head>
 
 <body>
@@ -89,7 +94,7 @@
         </main>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 
 </body>

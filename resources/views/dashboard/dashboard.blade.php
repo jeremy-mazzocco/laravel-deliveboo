@@ -24,7 +24,7 @@
                 </a>
             </div>
             <div class="text-nav">
-                <a href="" class="text-decoration-none">
+                <a href="{{ route('orders.statistics', Auth::user()->id) }}" class="text-decoration-none">
                     Statistiche
                 </a>
             </div>
