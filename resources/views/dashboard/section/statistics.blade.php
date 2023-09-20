@@ -39,10 +39,23 @@
                 scales: {
                     x: {
                         beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Giorni del mese'
+                        },
                     },
                     y: {
                         beginAtZero: true,
 
+                        title: {
+                            display: true,
+                            text: 'Valore (€)'
+                        },
+                        ticks: {
+                            callback: function(value, index, values) {
+                                return value + '€';
+                            }
+                        }
                     }
                 }
             }
