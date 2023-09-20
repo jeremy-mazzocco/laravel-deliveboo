@@ -1,11 +1,11 @@
 <section class="p-4 edit-profile mt-3">
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="text-lg font-medium">
             {{ __('Aggiorna Password') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
-            {{ __('Assicurati che il tuo account stia utilizzando una lunga e complessa password.') }}
+        <p class="mt-1 text-sm ">
+            {{ __('Assicurati che il tuo account stia utilizzando una password lunga e complessa.') }}
         </p>
     </header>
 

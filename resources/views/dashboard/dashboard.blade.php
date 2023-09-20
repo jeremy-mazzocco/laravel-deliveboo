@@ -23,11 +23,11 @@
                     Ordini clienti
                 </a>
             </div>
-            <div class="text-nav">
+            {{-- <div class="text-nav">
                 <a href="" class="text-decoration-none">
                     Statistiche
                 </a>
-            </div>
+            </div> --}}
         </div>
         <div class="container-fluid dashboard-home">
             <div class="card">

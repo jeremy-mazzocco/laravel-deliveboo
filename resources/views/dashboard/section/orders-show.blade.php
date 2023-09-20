@@ -21,7 +21,8 @@
                         </p>
                     </div>
 
-                    <p class="order-time">Ora ordinazione: <br> {{ $order->time }}</p>
+                    <p class="order-time">Ordinazione: &nbsp&nbsp&nbsp&nbsp<span
+                            class="order-time-text">{{ $order->created_at }}</span></p>
 
                     <div class="dettagli m-2 text-light">
                         <span>Dettagli:</span>

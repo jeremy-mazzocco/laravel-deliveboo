@@ -4,6 +4,7 @@
 
 $blue: #30BCED;
 $dark-grey: #303036;
+$light-grey: #dbdbdb;
 $white: #FFFFFF;
 $coral: #FC5130;
 $black: #050401;
@@ -22,6 +23,7 @@ body {
     background-image: linear-gradient(to bottom, #434343, #000000);
     font-family: 'Nunito', sans-serif;
     margin-top: 200px;
+    height: 100%;
 
     #nav-top {
         background-color: #333;
@@ -59,6 +61,50 @@ body {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
 }
+
+
+
+
+
+
+
+/////////////////////////////////////
+/// WELCOME.BLADE.PHP
+/////////////////////////////////////
+
+
+.jumbotron {
+    text-align: center;
+}
+
+#title-jumbotron {
+    font-size: 80px;
+    font-weight: bold;
+    color: $white;
+    margin-top: 200px;
+    margin-bottom: 450px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 4px;
+        background-color: $white;
+        transition: width 0.3s;
+    }
+
+    &:hover::after {
+        width: 100%;
+    }
+}
+
+
+
 
 
 
@@ -127,6 +173,7 @@ body {
         background-color: #434343; // Coerenza con il tema dark
         padding: 0;
         border-radius: 150px;
+        margin-bottom: 50px;
 
         .card {
             background-color: #2c2c2c; // Sfondo della card
@@ -136,10 +183,10 @@ body {
             overflow: hidden;
 
             h1 {
-                color: #fff; // Testo bianco
-                border-bottom: 2px solid #fff; // Border bottom bianco
-                padding-bottom: 10px; // Spazio sotto l'h1 per rendere il border più visibile
-                margin-bottom: 15px; // Margine per separare l'h1 dal contenuto sottostante
+                color: #fff;
+                border-bottom: 2px solid #fff;
+                padding-bottom: 30px;
+
             }
         }
     }
@@ -158,6 +205,7 @@ body {
     background-color: $white;
     border: 2px solid $black;
     transition: transform 0.3s;
+    margin-bottom: 350px;
 
     &:hover {
         transform: scale(1.03);
@@ -352,7 +400,8 @@ h1 {
 }
 
 .row {
-    margin: 3rem 0 3rem;
+    margin-bottom: 80px;
+    margin-top: 60px;
 
     .img {
         display: flex;
@@ -420,7 +469,8 @@ h1 {
     justify-content: center;
     gap: 1.5rem;
     background: linear-gradient(135deg, #414141, #000);
-    padding: 30px 20px;
+    padding: 50px 20px 70px;
+    margin: 0;
 
     .card-s {
         padding: 0;
@@ -520,6 +570,7 @@ h1 {
             display: block;
             font-weight: 600;
             margin-bottom: 0.5rem;
+            color: white;
         }
 
         input[type="text"],
@@ -632,6 +683,7 @@ h1 {
                 display: block;
                 font-weight: 600;
                 margin-bottom: 0.5rem;
+                color: white;
             }
 
             input[type="text"],
@@ -778,6 +830,10 @@ h1 {
                 background: #dc354566;
             }
         }
+
+        .order-time-text {
+            font-size: 13px;
+        }
     }
 
     .order-time {
@@ -853,5 +909,127 @@ h1 {
                 gap: 5px;
             }
         }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////
+/// EDIT.BLADE.PHP
+/////////////////////////////////////
+
+.container {
+    background-color: transparent;
+    border-radius: 12px;
+    padding: 22px 42px;
+
+    .edit-profile {
+        background-color: $white;
+        border-radius: 12px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        padding: 22px;
+
+        header {
+            color: $dark-grey;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            padding: 12px 22px;
+
+            h2 {
+                margin: 0;
+                font-weight: bold;
+                border-bottom: 4px solid $dark-grey;
+            }
+        }
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    label {
+        color: $dark-grey;
+        font-weight: 600;
+        transition: transform 0.2s ease;
+        margin-bottom: 10px; // Margine inferiore di 10px per creare uno spazio tra le "tipologie"
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    .form-control {
+        width: 100%;
+        padding: 12px 17px;
+        border: 2px solid $light-grey;
+        border-radius: 6px;
+        background-color: $white;
+        color: $dark-grey;
+        transition: border-color 0.25s ease;
+
+        &:focus {
+            border-color: $dark-grey;
+            outline: none;
+        }
+    }
+}
+
+button.btn {
+    padding: 12px 22px;
+    border: 2px solid #0b5ed7;
+    border-radius: 6px;
+    background-color: $white;
+    color: $dark-grey;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+
+    &:hover {
+        background-color: #0b5ed7;
+    }
+
+    &:active {
+        // Effetto al click
+        transform: scale(0.97); // Rimpicciolire al 97% della dimensione originale
+    }
+}
+
+.alert {
+    padding: 12px 22px;
+    border-radius: 6px;
+    color: $white;
+    background-color: red;
+}
+
+input[type="checkbox"] {
+    display: none;
+
+    +label {
+        cursor: pointer;
+        padding: 10px;
+        border: 2px solid $light-grey;
+        border-radius: 6px;
+
+        &:hover {
+            background-color: $light-grey;
+            transform: translateY(-2px);
+        }
+    }
+
+    &:checked+label {
+        background-color: $dark-grey;
+        color: $white;
+        border-color: $dark-grey;
     }
 }
