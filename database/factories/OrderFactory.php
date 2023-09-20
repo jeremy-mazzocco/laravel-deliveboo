@@ -17,9 +17,12 @@ class OrderFactory extends Factory
     public function definition()
     {
         $created_at = fake()->dateTimeBetween('2023-08-01', '2023-09-01');
+        $firstName = fake('it_IT')->firstName();
+        $surname = fake('it_IT')->lastName();
+        $name = $firstName . ' ' . $surname;
         return [
             'order_code' => fake('it_IT') -> regexify('[A-Z]{3}[0-9]{7}'),
-            'customer_name' => fake('it_IT') -> name(),
+            'customer_name' => $name,
             'customer_address' => fake('it_IT') -> streetAddress(),
             'total_price' => 0,
             'phone_number' => fake('it_IT') -> phoneNumber(),
