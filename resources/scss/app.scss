@@ -292,18 +292,30 @@ body {
 
 
 #register {
-    background-color: $dark-grey;
+    background-color: transparent;
     padding: 3rem 0;
 
     h1 {
         color: $white;
         margin-bottom: 2rem;
-        border-bottom: 2px solid $coral;
+        border-bottom: none;
+        position: relative;
         text-align: center;
         transition: transform 0.3s;
 
         &:hover {
             transform: scale(1.05);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 2px;
+            background-color: $coral;
         }
     }
 
@@ -821,6 +833,8 @@ h1 {
     width: 100%;
     margin: 5% 0 3%;
     padding: 0 3%;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .order-container {
