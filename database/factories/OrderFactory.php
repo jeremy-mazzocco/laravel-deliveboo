@@ -18,7 +18,7 @@ class OrderFactory extends Factory
     {
         $created_at = fake() -> dateTimeBetween('-1 month', 'now');
         return [
-            'order_code' => fake('it_IT') -> bothify('######'),
+            'order_code' => fake('it_IT') -> regexify('[A-Z]{3}[0-9]{7}'),
             'customer_name' => fake('it_IT') -> name(),
             'customer_address' => fake('it_IT') -> streetAddress(),
             'total_price' => 0,
