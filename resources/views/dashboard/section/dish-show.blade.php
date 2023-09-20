@@ -1,8 +1,8 @@
 @extends('dashboard.dashboard')
 
 @section('dashboardSection')
-    <h1 class="text-center fw-bold text-white p-3">
-        I tuoi piatti
+    <h1 class="text-center fw-bold p-3">
+        I TUOI PIATTI
     </h1>
 
     <div class="row" id="dish-show">

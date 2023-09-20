@@ -1,5 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 
+// Variables
+
+$blue: #30BCED;
+$dark-grey: #303036;
+$light-grey: #dbdbdb;
+$white: #FFFFFF;
+$coral: #FC5130;
+$black: #050401;
+
 // STYLE EMAIL
 // Custoemer-Order
 #customer-order,
@@ -41,383 +50,1028 @@
 }
 
 
-// Variables
-$white-color: #ffffff;
-$grey-color: #fff8E8;
-$yellow-color: #fcd581;
-$pink-color: #eb261ccf;
-$orange-color: #f82e2e;
 
 
-// NAVs
-#nav-top {
-    background-color: black;
-    height: 85px;
+/////////////////////////////////////
+/// APP.BLADE.PHP
+/////////////////////////////////////
 
-    .nav-a {
-        font-size: 20px;
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #333;
+    background-image: linear-gradient(to bottom, #434343, #000000);
+    font-family: 'Nunito', sans-serif;
+    margin-top: 200px;
+    height: 100%;
 
+    #nav-top {
+        background-color: #333;
+        background-image: linear-gradient(to bottom, #434343, #2c2c2c);
+        border-bottom: 2px solid #f3f4f6;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
     }
 
-    #img-logo {
-        width: 17%;
-
-        img {
-            max-width: 100%;
-        }
-    }
-
-    .fa-user {
-        color: $grey-color;
-        margin-top: 15px;
-        font-size: 27px;
-    }
-
+    .navbar-brand,
+    .nav-link,
     #navbarDropdown {
-        font-size: 30px;
-        color: $grey-color;
+        color: #f3f4f6 !important;
+        transition: color 0.3s ease;
+    }
+
+    .navbar-brand:hover,
+    .nav-link:hover,
+    #navbarDropdown:hover {
+        color: #fff !important;
+    }
+
+    #img-logo img {
+        height: 70px;
     }
 
     #dropdown-menu-edit {
-        left: -140px;
+        right: 0;
+        left: auto;
+        border: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+}
 
-        a {
-            font-size: 20px;
-            padding: 10px;
-            color: gray;
+
+
+
+
+
+
+/////////////////////////////////////
+/// WELCOME.BLADE.PHP
+/////////////////////////////////////
+
+
+.jumbotron {
+    text-align: center;
+}
+
+#title-jumbotron {
+    font-size: 80px;
+    font-weight: bold;
+    color: $white;
+    margin-top: 200px;
+    margin-bottom: 450px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 4px;
+        background-color: $white;
+        transition: width 0.3s;
+    }
+
+    &:hover::after {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+/////////////////////////////////////
+/// DASHBOARD.BLADE.PHP
+/////////////////////////////////////
+
+#dashboard-container {
+    display: flex;
+    align-items: center;
+    margin: 15vh 10%;
+
+    .left-nav {
+        width: 260px;
+        height: 365px;
+        background-color: #333;
+        padding: 2rem;
+        border: 3px dotted #fff;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 200px;
+
+        .text-nav {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+
+            .nav-icon {
+                width: 24px;
+                height: 24px;
+                background-color: #434343; // Colorazione coerente con il tema dark
+                border-radius: 50%;
+                margin-right: 1rem;
+                display: inline-block;
+            }
+
+            a {
+                color: #fff;
+                background-color: #434343; // Sfondo per i link
+                padding: 0.5rem 1rem;
+                border-radius: 20px;
+                border: 1px solid #fff;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: 0.9rem;
+                transition: background-color 0.3s, color 0.3s, border 0.1s;
+
+                &:hover {
+                    background-color: #2c2c2c; // Sfondo al passaggio del mouse
+                    color: #fff;
+                    border: 3px solid #fff;
+                }
+            }
+        }
+    }
+
+    .dashboard-home {
+        flex: 1;
+        margin-left: 30%;
+        background-color: #434343; // Coerenza con il tema dark
+        padding: 0;
+        border-radius: 150px;
+        margin-bottom: 50px;
+
+        .card {
+            background-color: #2c2c2c; // Sfondo della card
+            border: 3px solid #fff; // Bordo bianco per contrastare
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+
+            h1 {
+                color: #fff;
+                border-bottom: 2px solid #fff;
+                padding-bottom: 30px;
+
+            }
         }
     }
 }
 
-// MAIN
-main {
-    height: calc(100% - 85px);
-    background-image: url(../../storage/app/public/images/home-background-hero-scaled.jpg);
-    background-position: center;
-    background-size: cover;
-    position: relative;
 
 
-    // SECTION CONTENTs
 
-    //Welcome.blade
-    .jumbotron {
-        background-image: url(../../storage/app/public/images/home-background-hero-scaled.jpg);
-        background-position: center;
-        background-size: cover;
-        height: 650px;
 
-        #title-jumbotron {
-            font-size: 80px;
-            font-weight: bold;
-            color: $grey-color;
-            position: absolute;
-            top: 30%;
-            right: 47%;
+
+/////////////////////////////////////
+/// LOGIN.BLADE.PHP
+/////////////////////////////////////
+
+#card-body {
+    background-color: $white;
+    border: 2px solid $black;
+    transition: transform 0.3s;
+    margin-bottom: 350px;
+
+    &:hover {
+        transform: scale(1.03);
+    }
+
+    label {
+        color: $black;
+        font-weight: 400;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+        border: 1px solid $black;
+
+        &:focus {
+            border-color: $blue;
+            box-shadow: 0 0 10px $blue;
         }
     }
 
-    // Register.blade
-    #register {
+    .btn-light {
+        background-color: $blue;
+        color: $white;
+        border: none;
+        padding: 10px 20px;
+        transition: background-color 0.3s, transform 0.2s;
 
-        .card-body {
-            background-color: rgba(235, 38, 28, 0.8117647059);
-            border: none;
-            border-radius: 20px;
+        &:hover {
+            background-color: darken($blue, 10%);
+            transform: translateY(-3px);
+        }
 
-            font-size: 17px;
-            color: #f1eeee;
+        &:active {
+            transform: translateY(1px);
+        }
+    }
+}
+
+/////////////////////////////////////
+/// REGISTER.BLADE.PHP
+/////////////////////////////////////
+
+
+#register {
+    background-color: $dark-grey;
+    padding: 3rem 0;
+
+    h1 {
+        color: $white;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid $coral;
+        text-align: center;
+        transition: transform 0.3s;
+
+        &:hover {
+            transform: scale(1.05);
         }
     }
 
-    // Login.blade
-    #card-body {
-        background-color: $pink-color;
-        margin-bottom: 300px;
-        border-radius: 20px;
-        color: $grey-color;
-        font-size: 15px;
+    .section {
+        background-color: $white;
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 1px solid $black;
+        border-radius: 8px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
 
-        form {
-            padding: 30px;
+        &:hover {
+            transform: scale(1.01);
         }
     }
 
-    // Edit.blade
-    .edit-profile {
-        background-color: rgba(235, 38, 28, 0.8117647059);
-        border-radius: 20px;
-        font-size: 15px;
-        color: #f1eeee;
+    .col-md-3 {
+        margin: 0;
+        padding: 0;
+        flex: 0 0 calc(25% - 1rem);
+    }
+
+    .category-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: space-between;
+
+        .col-md-3 {
+            margin: 0;
+            padding: 0;
+            flex: 0 0 calc(25% - 1rem);
+        }
+
+        .category-label {
+            width: 100%;
+            text-align: center;
+        }
+
+        label:hover {
+            background-color: $blue;
+            color: $white;
+            transform: translateY(-3px);
+        }
+    }
+
+    .category-container:after {
+        content: "";
+        flex: auto;
+    }
+
+    [type="checkbox"] {
+        display: none;
+
+        +label {
+            display: inline-block;
+            padding: 0.5rem 0;
+            margin: 0.2rem 0;
+            border-radius: 4px;
+            background-color: $white;
+            color: $black;
+            border: 1px solid $black;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+
+            &:hover {
+                background-color: $blue;
+                color: $white;
+            }
+        }
+
+        &:checked+label {
+            background-color: $blue;
+            color: $white;
+        }
+    }
+
+    label {
+        color: $black;
+        font-weight: 400;
+    }
+
+    input,
+    select {
+        padding: 0.5rem;
+        border: 1px solid $black;
+        border-radius: 4px;
+        transition: transform 0.3s;
+
+        &:focus {
+            border-color: $blue;
+            box-shadow: 0 0 10px rgba($blue, 0.5);
+        }
+
+        &:hover {
+            transform: translateY(-3px);
+        }
+    }
+
+    .btn-primary {
+        margin-top: 20px;
+        background-color: $blue;
+        color: $white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: background-color 0.3s, transform 0.3s;
+
+        &:hover {
+            background-color: darken($blue, 10%);
+            transform: translateY(-3px);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+/////////////////////////////////////
+/// HOME-USER.BLADE.PHP
+/////////////////////////////////////
+
+h1 {
+    margin-bottom: 0;
+    border-bottom: 3px solid $dark-grey;
+    padding-bottom: 1rem;
+    color: $dark-grey;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.row {
+    margin-bottom: 80px;
+    margin-top: 60px;
+
+    .img {
+        display: flex;
+        justify-content: center;
+        margin-top: 0;
 
         img {
-            width: 450px;
-            height: 350px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 25px;
+            max-width: 100%;
+            border-radius: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-
-        .form-control {
-            width: 36%;
-        }
-
     }
 
+    .list {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 30px;
+        margin-top: 0;
+        margin-left: 30px;
 
-    // Dashboard.blade
-    .dashboard {
-        display: flex;
-        height: 620px;
+        ul {
+            font-size: 18px;
+            color: $dark-grey;
 
-        // left
-        .left-nav {
-            width: calc(100% / 7) * 1;
-            font-size: 20px;
-            padding-top: 40px;
-            background-color: #b21616ca;
+            li {
+                margin-bottom: 1rem;
+                font-weight: 600;
 
-            .text-nav {
-                margin: 30px 25px;
-
-                a {
-                    color: $grey-color;
+                &:last-child {
+                    margin-bottom: 0;
                 }
 
-                a:hover {
-                    background-color: rgba(178, 22, 22, 0.7921568627);
-                    border-radius: 20px;
-                    padding: 8px 10px;
-                }
-            }
-        }
-
-        // right
-        .dashboard-home {
-            width: calc(100% / 7) * 6;
-            padding-top: 40px;
-            position: relative;
-
-            .card {
-                width: 80%;
-                height: 85%;
-                margin: auto;
-                padding: 0px 10px;
-                border-radius: 20px;
-                background-color: $pink-color;
-                position: absolute;
-                top: 10%;
-                right: 10%;
-                overflow-y: scroll;
-                overflow-x: hidden;
-
-
-                // YIELDS
-
-                // home
-                h2 {
-                    background-color: $orange-color;
-                    border-top-left-radius: 20px;
-                    border-top-right-radius: 20px;
-                }
-
-                .row {
-                    padding-top: 50px;
-                    color: $grey-color;
-                    font-size: 20px;
-                    margin-bottom: 30px;
-
-                }
-
-                img {
-                    border-radius: 20px;
-                    max-width: 100%;
-                }
-
-                .list {
-                    border-radius: 20px;
-                    background-color: #eb261ccf;
-                    font-size: 17px;
-                    color: #f1eeee;
-
-                    ul {
-                        padding: 20px 0px;
-
-                    }
-
-                    li:last-child {
-                        margin-top: 50px;
-                    }
-                }
-
-                // dish-show
-                #dish-show {
-                    font-size: 14px;
-                    text-align: center;
-
-                    .card-s {
-                        border: 3px solid rgba(178, 22, 22, 0.7921568627);
-                        border-radius: 20px;
-                        padding: 20px 0px;
-                    }
-
-                    #card-title {
-                        height: 45px;
-
-                    }
-
-                    #img-dish {
-                        width: 80%;
-                        height: 150px;
-                        object-fit: cover;
-                        border-radius: 20px;
-                        max-width: 100%;
-                        margin-bottom: 5px;
-                    }
-
-                    .card-footer {
-                        background-color: #b21616ca;
-                        margin-top: 5px;
-                        border-radius: 20px;
-                        width: 85%;
-                        position: relative;
-                        left: 18px;
-
-                        .card-text {
-                            height: 75px;
-                        }
-
-                        form {
-                            display: inline;
-                        }
-                    }
-                }
-
-                // dish-edit
-                #dish-edit {
-                    font-size: 17px;
-                    color: #f1eeee;
-
-                    #edit-card {
-                        border: 3px solid rgba(178, 22, 22, 0.7921568627);
-                        border-radius: 5px;
-                        padding: 50px 0px;
-
-                        img {
-                            max-width: 100%;
-                            margin-bottom: 15px;
-                        }
-
-                        #confirm {
-                            border: none;
-                            background-color: rgb(255, 202, 44);
-                            border-radius: 5px;
-                            position: relative;
-                            left: 20%;
-                        }
-                    }
-                }
-
-                // dish-create
-                #dish-create {
-                    border: 4px solid #9f0c0cdb;
-                    border-radius: 5px;
-                    height: 450px;
-                    color: $grey-color;
+                .category-label {
+                    display: inline-block;
+                    padding: 3px 7px;
+                    margin: 3px 5px;
+                    background-color: transparent;
                     font-size: 15px;
-
-                    form {
-                        padding-top: 25px;
-                    }
-
-                    #crea {
-                        background-color: $grey-color;
-                        border: none;
-                        border-radius: 5px;
-                    }
-                }
-
-                // orders-show
-                .order {
-                    font-size: 15px;
-                    padding: 30px 10px;
-                    position: relative;
-                    border: 3px solid rgba(178, 22, 22, 0.7921568627);
+                    color: $dark-grey;
+                    border: 2px solid $dark-grey;
                     border-radius: 15px;
-                    height: fit-content;
+                    transition: background-color 0.3s, color 0.3s;
 
-                    h6 {
-                        color: rgb(73, 7, 7);
-                        background-color: rgba(178, 22, 22, 0.7921568627);
-                        display: inline;
-                        padding: 7px;
-                        border-radius: 20px;
-                        margin-bottom: 15px;
-                    }
-
-                    #stato-ordine {
-                        display: inline;
-                        margin-left: 5px;
-                    }
-
-                    .dettagli {
-                        vertical-align: middle;
-
-                        .fa-plus {
-                            background-color: rgba(178, 22, 22, 0.7921568627);
-                            border-radius: 20px;
-                            font-size: 15px;
-                            margin-left: 8px;
-                            color: #f4c0c0;
-                            border: none;
-                            padding: 5px 10px;
-                            cursor: pointer;
-                            margin-top: 10px;
-                        }
-                    }
-
-                    .show-order {
-                        background-color: rgba(178, 22, 22, 0.7921568627);
-                        padding: 15px;
-                        margin-top: 12px;
-                        display: none;
-                        margin-top: 10px;
-
-
-                        #p-title {
-                            color: rgb(37, 3, 3);
-                            width: 100%;
-                            text-align: center;
-                            padding: 4px;
-                            border-radius: 20px;
-                        }
-
-                        p {
-                            color: rgb(37, 3, 3);
-                            width: 100%;
-                            text-align: center;
-                        }
-
-                        .customer-info {
-                            border: 1px solid rgba(178, 22, 22, 0.7921568627);
-                            padding: 2px;
-                            border-radius: 10px;
-                            color: #edd9d9;
-                            font-size: 12px;
-                        }
-
-                        .order-details {
-                            border: 1px solid rgba(178, 22, 22, 0.7921568627);
-                            padding: 2px;
-                            margin-top: 5px;
-                            border-radius: 10px;
-                            color: #edd9d9;
-                            font-size: 12px;
-
-                        }
+                    &:hover {
+                        background-color: $dark-grey;
+                        color: $white;
                     }
                 }
             }
         }
+    }
+}
+
+
+
+
+
+
+/////////////////////////////////////
+/// DISH-SHOW.BLADE.PHP
+/////////////////////////////////////
+
+#dish-show {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, #414141, #000);
+    padding: 50px 20px 70px;
+    margin: 0;
+
+    .card-s {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        overflow: hidden;
+        align-items: center;
+        transition: transform 0.3s;
+        width: calc(25% - 20px);
+
+        &:hover {
+            transform: translateY(-10px);
+        }
+
+        #card-title {
+            color: $white;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 2px $dark-grey;
+        }
+
+        #img-dish {
+            max-width: 100%;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            filter: brightness(0.9);
+        }
+
+        .card-footer {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            color: $white;
+
+            .card-text {
+                text-align: center;
+
+                p {
+                    font-size: 1rem;
+                    margin: 0;
+                }
+            }
+
+            .btn {
+                border-radius: 20px;
+
+                &.btn-warning {
+                    background-color: $dark-grey;
+                    border: 1px solid $white;
+                    color: $white;
+
+                    &:hover {
+                        background-color: $white;
+                        color: $dark-grey;
+                    }
+                }
+
+                &.btn-danger {
+                    border: 1px solid $white;
+                    background-color: transparent;
+
+                    &:hover {
+                        background-color: red;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+/////////////////////////////////////
+/// DISH-CREATE.BLADE.PHP
+/////////////////////////////////////
+
+#dish-create {
+    background: linear-gradient(135deg, #414141, #000);
+    border-radius: 30px;
+    padding: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    margin: 50px 5%;
+
+    form {
+        color: $white;
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: $white;
+            font-size: 16px;
+            transition: border-color 0.3s;
+
+            &:focus {
+                border-color: $white;
+                outline: none;
+            }
+        }
+
+        input[type="file"] {
+            border: none;
+            padding: 10px;
+            margin-top: 0.5rem;
+        }
+
+        select#visibility {
+            appearance: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: $white;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            cursor: pointer;
+
+            option {
+                background-color: $dark-grey;
+                color: $white;
+            }
+
+            &:focus {
+                border-color: $white;
+                outline: none;
+            }
+        }
+
+        .alert {
+            margin-top: 0.5rem;
+            background-color: red;
+            color: $white;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        #crea {
+            border: 2px solid $white;
+            border-radius: 20px;
+            background-color: $dark-grey;
+            color: $white;
+            font-weight: 600;
+            transition: background-color 0.3s, color 0.3s;
+
+            &:hover {
+                background-color: $white;
+                color: $dark-grey;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+/////////////////////////////////////
+/// DISH-EDIT.BLADE.PHP
+/////////////////////////////////////
+
+#dish-edit {
+    background: linear-gradient(135deg, #414141, #000);
+    border-radius: 30px;
+    padding: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    margin: 0;
+
+    h1 {
+        text-align: center;
+        margin-bottom: 1rem;
+        border-bottom: 4px solid $white;
+    }
+
+    #edit-card {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 1rem;
+        position: relative;
+
+        img {
+            max-width: 100%;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+
+        form {
+            color: $white;
+            width: 100%;
+
+            label {
+                display: block;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+                color: white;
+            }
+
+            input[type="text"],
+            input[type="number"],
+            select,
+            textarea {
+                width: 100%;
+                padding: 10px;
+                border: 2px solid rgba(255, 255, 255, 0.2);
+                border-radius: 20px;
+                background-color: rgba(255, 255, 255, 0.1);
+                color: $white;
+                font-size: 16px;
+                transition: border-color 0.3s;
+
+                &:focus {
+                    border-color: $white;
+                    outline: none;
+                }
+            }
+
+            textarea {
+                overflow-y: hidden;
+                resize: none;
+                min-height: 50px;
+            }
+
+            input[type="file"] {
+                border: none;
+                padding: 10px;
+                margin-top: 0.5rem;
+            }
+
+            select#visibility {
+                appearance: none;
+                background-color: rgba(255, 255, 255, 0.1);
+                color: $white;
+                background-image: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+                background-repeat: no-repeat;
+                background-position: right 10px center;
+                cursor: pointer;
+
+                option {
+                    background-color: $dark-grey;
+                    color: $white;
+                }
+
+                &:focus {
+                    border-color: $white;
+                    outline: none;
+                }
+            }
+
+            .alert {
+                margin-top: 0.5rem;
+                background-color: red;
+                color: $white;
+                padding: 10px;
+                border-radius: 20px;
+            }
+
+            #confirm {
+                border: 2px solid $white;
+                border-radius: 20px;
+                background-color: $dark-grey;
+                color: $white;
+                font-weight: 600;
+                transition: background-color 0.3s, color 0.3s;
+                position: absolute;
+                left: 50px;
+                bottom: 25px;
+
+                &:hover {
+                    background-color: $white;
+                    color: $dark-grey;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+/////////////////////////////////////
+/// ORDERS-SHOW.BLADE.PHP
+/////////////////////////////////////
+
+.orders-container {
+    width: 100%;
+    margin: 5% 0 3%;
+    padding: 0 3%;
+}
+
+.order-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 3%;
+    border: 1px solid #007bff;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #222;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 30px rgba(0, 123, 255, 0.5);
+    }
+}
+
+.order {
+    font-size: 15px;
+    padding: 30px 10px;
+    width: 30%;
+    border-right: 1px solid #007bff;
+    position: relative;
+
+    .order-status-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h6 {
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 10px;
+            text-align: center;
+            background: rgba(0, 123, 255, 0.1);
+        }
+
+        #stato-ordine {
+            padding: 5px 10px;
+            border-radius: 10px;
+
+            &.bg-success {
+                background: #28a74566;
+            }
+
+            &.bg-danger {
+                background: #dc354566;
+            }
+        }
+
+        .order-time-text {
+            font-size: 13px;
+        }
+    }
+
+    .order-time {
+        color: white;
+        margin-top: 15px;
+    }
+
+    .dettagli {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .fa-plus {
+            color: #007bff;
+            transition: transform 0.3s ease;
+        }
+
+        .fa-plus:hover {
+            transform: rotate(90deg);
+        }
+    }
+}
+
+.order-details-container {
+    width: 70%;
+    padding: 2%;
+    color: #fff;
+    display: none;
+
+    .order-details {
+        gap: 20px;
+
+        .customer-info,
+        .order-info-container {
+            border: 1px solid #007bff;
+            padding: 2%;
+            border-radius: 10px;
+            background: rgba(0, 123, 255, 0.1);
+        }
+
+        .customer-info #p-title {
+            position: relative;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .customer-info #p-title::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #007bff;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .customer-info #p-title:hover::before {
+            visibility: visible;
+            width: 100%;
+        }
+
+
+
+
+        .order-info {
+            gap: 20px;
+
+            .dish {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////
+/// EDIT.BLADE.PHP
+/////////////////////////////////////
+
+.container {
+    background-color: transparent;
+    border-radius: 12px;
+    padding: 22px 42px;
+
+    .edit-profile {
+        background-color: $white;
+        border-radius: 12px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        padding: 22px;
+
+        header {
+            color: $dark-grey;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            padding: 12px 22px;
+
+            h2 {
+                margin: 0;
+                font-weight: bold;
+                border-bottom: 4px solid $dark-grey;
+            }
+        }
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    label {
+        color: $dark-grey;
+        font-weight: 600;
+        transition: transform 0.2s ease;
+        margin-bottom: 10px; // Margine inferiore di 10px per creare uno spazio tra le "tipologie"
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    .form-control {
+        width: 100%;
+        padding: 12px 17px;
+        border: 2px solid $light-grey;
+        border-radius: 6px;
+        background-color: $white;
+        color: $dark-grey;
+        transition: border-color 0.25s ease;
+
+        &:focus {
+            border-color: $dark-grey;
+            outline: none;
+        }
+    }
+}
+
+button.btn {
+    padding: 12px 22px;
+    border: 2px solid #0b5ed7;
+    border-radius: 6px;
+    background-color: $white;
+    color: $dark-grey;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+
+    &:hover {
+        background-color: #0b5ed7;
+    }
+
+    &:active {
+        // Effetto al click
+        transform: scale(0.97); // Rimpicciolire al 97% della dimensione originale
+    }
+}
+
+.alert {
+    padding: 12px 22px;
+    border-radius: 6px;
+    color: $white;
+    background-color: red;
+}
+
+input[type="checkbox"] {
+    display: none;
+
+    +label {
+        cursor: pointer;
+        padding: 10px;
+        border: 2px solid $light-grey;
+        border-radius: 6px;
+
+        &:hover {
+            background-color: $light-grey;
+            transform: translateY(-2px);
+        }
+    }
+
+    &:checked+label {
+        background-color: $dark-grey;
+        color: $white;
+        border-color: $dark-grey;
     }
 }

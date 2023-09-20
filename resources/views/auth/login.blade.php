@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row justify-content-center align-items-center" style="height: 80%">
+    <div class="row justify-content-center align-items-center mt-5" style="height: 80%">
         <div class="col-6">
             <div class="card" id="card-body">
                 <div class="card-body">

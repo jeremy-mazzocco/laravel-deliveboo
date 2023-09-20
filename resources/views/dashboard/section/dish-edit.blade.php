@@ -3,7 +3,7 @@
 @section('dashboardSection')
     <div id="dish-edit">
         <h1 class="text-center fw-bold text-white p-3">
-            Modifica il tuo piatto
+            MODIFICA IL TUO PIATTO
         </h1>
 
         <div class="w-75 m-auto my-2 p-4 d-flex justify-content-between" id="edit-card">
@@ -41,8 +41,7 @@
 
                     <div class="m-3">
                         <label for="description">Descrizione</label>
-                        <input type="text" maxlength="1275" name="description" id="description"
-                            value="{{ $dish->description }}">
+                        <textarea name="description" id="description" maxlength="1275">{{ $dish->description }}</textarea>
                         @error('description')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

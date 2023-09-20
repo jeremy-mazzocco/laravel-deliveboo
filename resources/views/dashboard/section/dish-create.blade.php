@@ -1,11 +1,11 @@
 @extends('dashboard.dashboard')
 
 @section('dashboardSection')
-    <h1 class="text-center fw-bold text-white p-3">
-        Crea il tuo piatto
+    <h1 class="text-center fw-bold p-3">
+        CREA IL TUO PIATTO
     </h1>
 
-    <div class="w-75 m-auto my-2 p-2 create" id="dish-create">
+    <div class="create" id="dish-create">
         <form method="POST" action="{{ route('dish.store') }}" enctype="multipart/form-data">
 
             @csrf

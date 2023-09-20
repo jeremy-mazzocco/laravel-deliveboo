@@ -1,6 +1,6 @@
 <section class="p-4 edit-profile">
     <header>
-        <h2 class="text-center fw-bold text-white p-3 mb-2">
+        <h2 class="text-center fw-bold p-3 mb-2">
             {{ __('Aggiorna le informazioni del tuo Account.') }}
         </h2>
     </header>

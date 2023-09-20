@@ -1,7 +1,7 @@
 @extends('dashboard.dashboard')
 
 @section('dashboardSection')
-    <h1 class="text-center fw-bold text-white p-3">
+    <h1 class="text-center fw-bold p-3">
         {{ Auth::user()->restaurant_name }}
     </h1>
 
@@ -32,11 +32,7 @@
                     $types = Auth::user()->types;
                     ?>
                     @foreach ($types as $index => $type)
-                        {{ $type->type_name }}
-
-                        @if ($index < count($types) - 1)
-                            , <!-- Aggiungi una virgola solo se l'elemento corrente non è l'ultimo -->
-                        @endif
+                        <span class="category-label">{{ $type->type_name }}</span>
                     @endforeach
                 </li>
             </ul>
