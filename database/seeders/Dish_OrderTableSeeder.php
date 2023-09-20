@@ -21,10 +21,10 @@ class Dish_OrderTableSeeder extends Seeder
     public function run()
     {
         $orders = Order::all();
+        $randomUserId = 1;
 
         foreach ($orders as $order) {
 
-            $randomUserId = 1;
             $dishes = Dish::where('user_id', $randomUserId)->limit(rand(1, 6))->get();
 
             $totalPrice = 0;
