@@ -94,5 +94,3 @@ function autoExpand(element) {
     // Imposta l'altezza sulla base della scrollHeight
     element.style.height = element.scrollHeight + 'px';
 }
-
-
