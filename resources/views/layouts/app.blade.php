@@ -10,6 +10,8 @@
 
     <title>DeliveBoo</title>
 
+    <!-- Favicon / Logo Image -->
+    <link rel="icon" href="{{ asset('storage/images/Panino-DeliveBoo-bianco.ico') }}" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
