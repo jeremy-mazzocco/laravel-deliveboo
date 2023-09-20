@@ -15,10 +15,11 @@ class OrderTableSeeder extends Seeder
      */
     public function run()
     {
-        $OrdersData = include base_path('database/OrderData.php');
+        // $OrdersData = include base_path('database/OrderData.php');
 
-        foreach ($ordersData as $order) {
-            Order::create($order);
-        };
+        // foreach ($ordersData as $order) {
+        //     Order::create($order);
+        // };
+        Order :: factory() -> count(1000) -> create();
 }
 }
