@@ -10,6 +10,7 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Termwind\Components\Dd;
 
 class DashboardController extends Controller
 {
@@ -131,6 +132,30 @@ class DashboardController extends Controller
 
         return view('dashboard.section.orders-show', compact('orders'));
     }
+    public function showStatistics($id)
+    {
+        // Metodo per visualizzare gli ordini associati ai piatti dell'utente
+        $orders = Order::with('dishes')
+            ->whereHas('dishes', function ($query) use ($id) {
+                $query->where('user_id', $id);
+            })
+            ->get();
+
+        // Creazione di un array inizializzato con zeri per tutti i giorni del mese (da 1 a 31)
+        $dailyTotals = array_fill(1, 31, 0);
+
+        // Calcola il totale per ogni giorno
+        foreach ($orders as $order) {
+            $dayOfMonth = (int)$order->created_at->format('d');
+            $total = $order->total_price;
+
+            // Aggiorna il totale per il giorno del mese corrente
+            $dailyTotals[$dayOfMonth] += $total;
+        }
+
+        return view('dashboard.section.statistics', compact('dailyTotals', 'orders'));
+    }
+
 
     // FUNZIONI DI VALIDAZIONE
 

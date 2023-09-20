@@ -61,6 +61,11 @@ Route::get('/dashboard/orders/{id}/show', [DashboardController::class, 'showOrde
     ->middleware(['auth', 'verified'])
     ->name('orders.show');
 
+// statistics
+Route::get('/dashboard/orders/{id}/statistics', [DashboardController::class, 'showStatistics'])
+    ->middleware(['auth', 'verified'])
+    ->name('orders.statistics');
+
 // Route profile
 
 Route::middleware('auth')->group(function () {
