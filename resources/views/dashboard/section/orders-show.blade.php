@@ -103,7 +103,7 @@
                         <th scope="col">Data</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Totale</th>
-                        <th scope="col">email</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Stato Ordine</th>
                         <th style="width: 16px;" scope="col"></th>
                     </tr>
