@@ -16,7 +16,7 @@ class OrderFactory extends Factory
      */
     public function definition()
     {
-        $created_at = fake() -> dateTimeBetween('-1 month', 'now');
+        $created_at = fake()->dateTimeBetween('2023-08-01', '2023-09-01');
         return [
             'order_code' => fake('it_IT') -> regexify('[A-Z]{3}[0-9]{7}'),
             'customer_name' => fake('it_IT') -> name(),
