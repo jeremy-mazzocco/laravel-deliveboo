@@ -3,6 +3,7 @@
 @section('dashboardSection')
     <div class="card-header">
         <h1>Statistiche</h1>
+        <p class="text-light text-center"><small>Fatturato AGOSTO 2023</small></p>
     </div>
 
     {{-- grafico --}}
