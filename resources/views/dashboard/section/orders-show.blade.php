@@ -2,7 +2,7 @@
 
 @section('dashboardSection')
     @php
-        $tot = 0;
+        $orderNumber = 1;
     @endphp
 
     <h1 class="text-center fw-bold p-3">
@@ -14,7 +14,7 @@
             <div class="order-container">
                 <div class="order col-3 gap-2">
                     <div class="order-status-container">
-                        <h6 class="titolo-ordine">Ordine N: {{ $order->id }}</h6>
+                        <h6 class="titolo-ordine">Ordine N: {{ $orderNumber }}</h6>
                         <p class=" @if ($order->status) bg-success @else bg-danger @endif text-light text-center"
                             id="stato-ordine">
                             <b>{{ $order->status ? 'Pagato' : 'Da pagare' }}</b>
@@ -59,21 +59,20 @@
                                         <p>{{ $dish->dish_name }}</p>
                                         <div>Prezzo: &euro; {{ $dish->price }}</div>
                                         <div>Quantità: {{ $dish->pivot->amount }}</div>
-                                        @php
-                                            $totPiatto = $dish->price * $dish->pivot->amount;
-                                            $tot += $totPiatto;
-                                        @endphp
                                     </div>
                                     <hr>
                                 @endforeach
                             </div>
                             <div class="fs-5">
-                                Totale: &euro;{{ $tot }}
+                                Totale: &euro;{{ $order->total_price }}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            @php
+                $orderNumber++;
+            @endphp
         @endforeach
     </div>
 @endsection
