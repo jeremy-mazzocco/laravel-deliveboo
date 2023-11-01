@@ -57,8 +57,8 @@ class ApiController extends Controller
     //store order
     public function storeOrder(Request $request)
     {
-
         $data = $request->all();
+
         // Creare l'ordine senza includere i dati dei piatti
         $newOrder = Order::create([
             'order_code' =>  $data['order_code'],

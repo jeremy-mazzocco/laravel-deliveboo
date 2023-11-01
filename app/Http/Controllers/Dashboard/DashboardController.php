@@ -3,14 +3,12 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use App\Models\Type;
 use App\Models\Dish;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Termwind\Components\Dd;
 
 class DashboardController extends Controller
 {

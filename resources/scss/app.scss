@@ -124,7 +124,7 @@ body {
     font-weight: bold;
     color: $white;
     margin-top: 200px;
-    margin-bottom: 450px;
+    margin-bottom: 650px;
     position: relative;
     overflow: hidden;
     display: inline-block;
@@ -831,7 +831,7 @@ h1 {
 /// ORDERS-SHOW.BLADE.PHP
 /////////////////////////////////////
 ///
-#searchInput{
+#searchInput {
     width: 100%;
     padding-left: 15px;
     border: 2px solid rgba(255, 255, 255, 0.2);
@@ -846,11 +846,13 @@ h1 {
         outline: none;
     }
 }
-.bottoni-tab{
+
+.bottoni-tab {
     position: absolute;
     top: 5px;
     left: 30px;
 }
+
 .nav-schede-tabella {
 
     background-color: #434343;
@@ -870,12 +872,13 @@ h1 {
         background-color: #2c2c2c;
         color: #fff;
     }
-    &.active{
+
+    &.active {
         background-color: gray;
     }
 }
 
-#TableId{
+#TableId {
     display: block;
     overflow-x: auto;
     max-height: 55vh;
